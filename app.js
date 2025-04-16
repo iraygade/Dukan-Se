@@ -587,8 +587,8 @@ function updateCartUI() {
     cartCount.textContent = cart.reduce((total, item) => total + item.quantity, 0);
 }
 
-// Generate WhatsApp message
-function generateWhatsAppMessage() {
+// Generate WhatsApp message and form data
+function generateOrderData() {
     const items = cart.map(item => 
         `${item.name} (${item.quantity} × ₹${item.price})`
     ).join('\n');
@@ -599,7 +599,42 @@ function generateWhatsAppMessage() {
         ? 'UPI Payment' 
         : 'Cash on Delivery / UPI on Delivery';
     
-    return `Hello ${STORE_CONFIG.storeName}!\n\nI would like to order:\n${items}\n\nTotal: ₹${total}\nPayment Method: ${paymentMethod}\n\nDelivery Details:\nName: ${customerInfo.name}\nPhone: ${customerInfo.phone}\nAddress: ${customerInfo.address}\n\nThank you!`;
+    return {
+        whatsappMessage: `Hello ${STORE_CONFIG.storeName}!\n\nI would like to order:\n${items}\n\nTotal: ₹${total}\nPayment Method: ${paymentMethod}\n\nDelivery Details:\nName: ${customerInfo.name}\nPhone: ${customerInfo.phone}\nAddress: ${customerInfo.address}\n\nThank you!`,
+        formData: {
+            name: customerInfo.name,
+            phone: customerInfo.phone,
+            address: customerInfo.address,
+            items: items,
+            total: total,
+            payment: paymentMethod,
+            notes: `Store: ${STORE_CONFIG.storeName}`
+        }
+    };
+}
+
+// Submit order to Google Form
+function submitToGoogleForm(formData) {
+    const baseUrl = 'https://docs.google.com/forms/d/e/1FAIpQLScbKzyQW2uI-w9QBM31F7th66M9JbVkJ4z6eRTIAWX6pGcgrw/formResponse';
+    
+    // Create form data object
+    const form = new FormData();
+    form.append('entry.694161999', formData.name); // Name
+    form.append('entry.589917315', formData.phone); // Phone
+    form.append('entry.1365426664', formData.address); // Address
+    form.append('entry.1117891860', formData.items); // Items ordered
+    form.append('entry.574399891', formData.total); // Order total
+    form.append('entry.1517370118', formData.payment); // Payment option
+    form.append('entry.1367012781', formData.notes); // Additional notes
+
+    // Submit the form
+    fetch(baseUrl, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: form
+    }).catch(error => {
+        console.error('Error submitting to Google Form:', error);
+    });
 }
 
 // Handle checkout
@@ -609,10 +644,26 @@ function handleCheckout() {
         return;
     }
 
-    const message = generateWhatsAppMessage();
-    const encodedMessage = encodeURIComponent(message);
+    const orderData = generateOrderData();
+    
+    // Send WhatsApp message
+    const encodedMessage = encodeURIComponent(orderData.whatsappMessage);
     const whatsappUrl = `https://wa.me/${STORE_CONFIG.whatsappNumber}?text=${encodedMessage}`;
     window.open(whatsappUrl, '_blank');
+
+    // Submit to Google Form
+    submitToGoogleForm(orderData.formData);
+
+    // Clear cart and reset UI
+    cart = [];
+    saveCartToStorage();
+    updateCartUI();
+    paymentSection.classList.add('d-none');
+    checkoutBtn.classList.remove('d-none');
+    selectedPaymentMethod = null;
+    document.querySelectorAll('input[name="paymentMethod"]').forEach(radio => {
+        radio.checked = false;
+    });
 }
 
 // Save cart to localStorage
