@@ -26,51 +26,73 @@
             <p class="text-muted">Order via WhatsApp</p>
         </header>
 
-        <div class="row">
-            <!-- Customer Info Section -->
-            <div class="col-12 mb-3">
-                <div class="customer-info-section">
-                    <button id="edit-customer-info" class="btn btn-outline-primary">
-                        Add/Edit Delivery Details
-                    </button>
-                    <div id="customer-info-display" class="d-none mt-2">
-                        <p class="mb-1"><strong>Name:</strong> <span id="customer-name-display"></span></p>
-                        <p class="mb-1"><strong>Phone:</strong> <span id="customer-phone-display"></span></p>
-                        <p class="mb-0"><strong>Address:</strong> <span id="customer-address-display"></span></p>
+        <!-- Customer Info Button -->
+        <div class="customer-info-section mb-4 text-center">
+            <button id="edit-customer-info" class="btn btn-outline-primary">
+                <i class="bi bi-person-circle"></i> Add/Edit Delivery Details
+            </button>
+            <div id="customer-info-display" class="mt-2 d-none">
+                <p class="mb-1"><strong>Name:</strong> <span id="customer-name-display"></span></p>
+                <p class="mb-1"><strong>Phone:</strong> <span id="customer-phone-display"></span></p>
+                <p class="mb-0"><strong>Address:</strong> <span id="customer-address-display"></span></p>
+            </div>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="search-section mb-4">
+            <div class="input-group">
+                <span class="input-group-text bg-white">
+                    <i class="bi bi-search"></i>
+                </span>
+                <input type="text" id="search-input" class="form-control" placeholder="Search products...">
+                <button class="btn btn-outline-secondary" type="button" id="clear-search">
+                    <i class="bi bi-x-lg"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Category Filters -->
+        <div id="category-filter" class="mb-4">
+            <!-- Categories will be loaded here -->
+        </div>
+
+        <!-- Product Catalog -->
+        <div id="product-catalog" class="row g-3">
+            <!-- Products will be loaded here -->
+        </div>
+
+        <!-- Cart Section -->
+        <div class="col-md-4">
+            <div class="cart-section">
+                <h5 class="mb-0">Your Cart <span id="cart-count" class="badge bg-primary">0</span></h5>
+                <div id="cart-items" class="cart-items"></div>
+                
+                <!-- Payment Method Selection -->
+                <div id="payment-section" class="mt-3 d-none">
+                    <h6 class="mb-2">Select Payment Method</h6>
+                    <div class="payment-options">
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="paymentMethod" id="upi" value="upi">
+                            <label class="form-check-label" for="upi">
+                                UPI Payment
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="paymentMethod" id="cod" value="cod">
+                            <label class="form-check-label" for="cod">
+                                Cash on Delivery / UPI on Delivery
+                            </label>
+                        </div>
                     </div>
-                </div>
-            </div>
-
-            <!-- Search Section -->
-            <div class="col-12 mb-3">
-                <div class="search-section">
-                    <div class="input-group">
-                        <input type="text" id="search-input" class="form-control" placeholder="Search products...">
-                        <button id="clear-search" class="btn btn-outline-secondary" type="button">×</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Category Filter -->
-            <div class="col-12 mb-3">
-                <div id="category-filter" class="category-filter"></div>
-            </div>
-
-            <!-- Main Content Area -->
-            <div class="col-lg-8 col-md-7">
-                <!-- Product Catalog -->
-                <div class="row" id="product-catalog"></div>
-            </div>
-
-            <!-- Cart Section -->
-            <div class="col-lg-4 col-md-5">
-                <div class="cart-section">
-                    <h5 class="mb-0">Your Cart <span id="cart-count" class="badge bg-primary">0</span></h5>
-                    <div id="cart-items" class="cart-items"></div>
-                    <button id="checkout-btn" class="btn btn-success w-100 mt-3" disabled>
+                    <button id="proceed-to-whatsapp" class="btn btn-success w-100 mt-2" disabled>
                         Send Order via WhatsApp
                     </button>
                 </div>
+
+                <!-- Initial Checkout Button -->
+                <button id="checkout-btn" class="btn btn-primary w-100 mt-3" disabled>
+                    Proceed to Payment
+                </button>
             </div>
         </div>
     </div>
