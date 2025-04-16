@@ -1,6 +1,6 @@
-# QuickKart - Local Store Ordering System
+# Dukan Se - Local Store Ordering System
 
-QuickKart is a simple, no-code solution for local stores to accept online orders via WhatsApp. It's completely free to use and requires no technical knowledge to set up.
+Dukan Se is a simple, no-code solution for local stores to accept online orders via WhatsApp. It's completely free to use and requires no technical knowledge to set up.
 
 ## Features
 
@@ -68,8 +68,8 @@ Example product entry:
 
 ## Support
 
-If you need help setting up QuickKart, please contact us at [support@quickkart.com](mailto:support@quickkart.com)
+If you need help setting up Dukan Se, please contact me at satan.is.at@gmail.com
 
 ## License
 
-QuickKart is open-source and free to use for any purpose. 
+Dukan Se is open-source and free to use for any purpose. 
