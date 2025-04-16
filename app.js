@@ -309,10 +309,9 @@ const clearSearchBtn = document.getElementById('clear-search');
 const storeSwitcher = document.getElementById('store-switcher');
 
 // Initialize the app
-async function init() {
-    await loadStoreData();
-    renderCategories();
-    renderProducts();
+function init() {
+    // Set initial store to QuickKart
+    switchStore('quickkart');
     updateCartUI();
     loadCartFromStorage();
     loadCustomerInfo();
@@ -421,25 +420,6 @@ function loadCustomerInfo() {
     if (savedInfo) {
         customerInfo = JSON.parse(savedInfo);
         updateCustomerInfoDisplay();
-    }
-}
-
-// Load store data from JSON
-async function loadStoreData() {
-    try {
-        const response = await fetch('products.json');
-        const data = await response.json();
-        STORE_CONFIG = {
-            storeName: data.storeName,
-            whatsappNumber: data.whatsappNumber
-        };
-        products = data.products;
-        categories = data.categories;
-        
-        // Update store name in header
-        document.querySelector('h1').textContent = STORE_CONFIG.storeName;
-    } catch (error) {
-        console.error('Error loading store data:', error);
     }
 }
 
@@ -581,17 +561,6 @@ function updateCartUI() {
     cartCount.textContent = cart.reduce((total, item) => total + item.quantity, 0);
 }
 
-// Generate WhatsApp message
-function generateWhatsAppMessage() {
-    const items = cart.map(item => 
-        `${item.name} (${item.quantity} × ₹${item.price})`
-    ).join('\n');
-    
-    const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-    
-    return `Hello ${STORE_CONFIG.storeName}!\n\nI would like to order:\n${items}\n\nTotal: ₹${total}\n\nDelivery Details:\nName: ${customerInfo.name}\nPhone: ${customerInfo.phone}\nAddress: ${customerInfo.address}\n\nThank you!`;
-}
-
 // Handle checkout
 function handleCheckout() {
     if (!customerInfo.name) {
@@ -600,10 +569,55 @@ function handleCheckout() {
         return;
     }
 
-    const message = generateWhatsAppMessage();
-    const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://wa.me/${STORE_CONFIG.whatsappNumber}?text=${encodedMessage}`;
-    window.open(whatsappUrl, '_blank');
+    // Show payment options modal
+    const paymentModal = new bootstrap.Modal(document.getElementById('paymentModal'));
+    paymentModal.show();
+}
+
+// Submit order to Google Form
+async function submitOrder(paymentType) {
+    const items = cart.map(item => 
+        `${item.name} (${item.quantity} × ₹${item.price})`
+    ).join('\n');
+    
+    const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+
+    // Google Form URL
+    const formUrl = 'https://docs.google.com/forms/d/1sQlAgcs1cuNohYYZXp8l_QBb7gt7pRgEYSiGkCnLxN4/formResponse';
+    
+    // Form data
+    const formData = new FormData();
+    formData.append('entry.694161999', customerInfo.name); // Customer Name
+    formData.append('entry.589917315', customerInfo.phone); // Phone Number
+    formData.append('entry.1365426664', customerInfo.address); // Address
+    formData.append('entry.1117891860', items); // Items Ordered
+    formData.append('entry.574399891', `₹${total}`); // Order Total
+    formData.append('entry.1517370118', paymentType); // Payment Type
+
+    try {
+        // Submit to Google Form
+        await fetch(formUrl, {
+            method: 'POST',
+            body: formData,
+            mode: 'no-cors'
+        });
+
+        // Show success message
+        alert('Order placed successfully! The store will contact you shortly.');
+        
+        // Clear cart
+        cart = [];
+        saveCartToStorage();
+        updateCartUI();
+
+        // Close payment modal
+        const paymentModal = bootstrap.Modal.getInstance(document.getElementById('paymentModal'));
+        paymentModal.hide();
+
+    } catch (error) {
+        console.error('Error submitting order:', error);
+        alert('There was an error placing your order. Please try again.');
+    }
 }
 
 // Save cart to localStorage
