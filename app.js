@@ -598,35 +598,31 @@ function handleCheckout() {
     formData.append('entry.1367012781', `Store: ${STORE_CONFIG.storeName}`); // Additional Notes
     formData.append('entry.1517370118', 'UPI'); // Payment Type
 
-    // Submit to Google Form using XMLHttpRequest
-    const xhr = new XMLHttpRequest();
-    xhr.open('POST', 'https://docs.google.com/forms/d/e/1sQlAgcs1cuNohYYZXp8l_QBb7gt7pRgEYSiGkCnLxN4/formResponse', true);
-    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    
-    xhr.onload = function() {
-        if (xhr.status === 0) { // Success for no-cors requests
-            // After form submission, open WhatsApp
-            const message = generateWhatsAppMessage();
-            const encodedMessage = encodeURIComponent(message);
-            const whatsappUrl = `https://wa.me/${STORE_CONFIG.whatsappNumber}?text=${encodedMessage}`;
-            window.open(whatsappUrl, '_blank');
-            
-            // Clear cart after successful submission
-            cart = [];
-            updateCartUI();
-            saveCartToStorage();
-        } else {
-            console.error('Error submitting form:', xhr.status);
-            alert('There was an error submitting your order. Please try again.');
-        }
-    };
-
-    xhr.onerror = function() {
-        console.error('Network error while submitting form');
-        alert('There was a network error. Please check your connection and try again.');
-    };
-
-    xhr.send(formData.toString());
+    // Submit to Google Form
+    fetch('https://docs.google.com/forms/d/e/1FAIpQLScbKzyQW2uI-w9QBM31F7th66M9JbVkJ4z6eRTIAWX6pGcgrw/formResponse', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: formData.toString()
+    })
+    .then(() => {
+        // After form submission, open WhatsApp
+        const message = generateWhatsAppMessage();
+        const encodedMessage = encodeURIComponent(message);
+        const whatsappUrl = `https://wa.me/${STORE_CONFIG.whatsappNumber}?text=${encodedMessage}`;
+        window.open(whatsappUrl, '_blank');
+        
+        // Clear cart after successful submission
+        cart = [];
+        updateCartUI();
+        saveCartToStorage();
+    })
+    .catch(error => {
+        console.error('Error submitting form:', error);
+        alert('There was an error submitting your order. Please try again.');
+    });
 }
 
 // Save cart to localStorage
