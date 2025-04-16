@@ -599,8 +599,26 @@ function generateOrderData() {
         ? 'UPI Payment' 
         : 'Cash on Delivery / UPI on Delivery';
     
+    // Format WhatsApp message with proper line breaks
+    const whatsappMessage = [
+        `Hello ${STORE_CONFIG.storeName}!`,
+        '',
+        'I would like to order:',
+        items,
+        '',
+        `Total: ₹${total}`,
+        `Payment Method: ${paymentMethod}`,
+        '',
+        'Delivery Details:',
+        `Name: ${customerInfo.name}`,
+        `Phone: ${customerInfo.phone}`,
+        `Address: ${customerInfo.address}`,
+        '',
+        'Thank you!'
+    ].join('\n');
+    
     return {
-        whatsappMessage: `Hello ${STORE_CONFIG.storeName}!\n\nI would like to order:\n${items}\n\nTotal: ₹${total}\nPayment Method: ${paymentMethod}\n\nDelivery Details:\nName: ${customerInfo.name}\nPhone: ${customerInfo.phone}\nAddress: ${customerInfo.address}\n\nThank you!`,
+        whatsappMessage,
         formData: {
             name: customerInfo.name,
             phone: customerInfo.phone,
@@ -614,7 +632,7 @@ function generateOrderData() {
 }
 
 // Submit order to Google Form
-function submitToGoogleForm(formData) {
+async function submitToGoogleForm(formData) {
     const baseUrl = 'https://docs.google.com/forms/d/e/1FAIpQLScbKzyQW2uI-w9QBM31F7th66M9JbVkJ4z6eRTIAWX6pGcgrw/formResponse';
     
     // Create form data object
@@ -627,43 +645,61 @@ function submitToGoogleForm(formData) {
     form.append('entry.1517370118', formData.payment); // Payment option
     form.append('entry.1367012781', formData.notes); // Additional notes
 
-    // Submit the form
-    fetch(baseUrl, {
-        method: 'POST',
-        mode: 'no-cors',
-        body: form
-    }).catch(error => {
+    try {
+        // Submit the form
+        const response = await fetch(baseUrl, {
+            method: 'POST',
+            mode: 'no-cors',
+            body: form
+        });
+
+        // Note: Due to CORS restrictions, we can't actually check the response
+        // But we can assume it was successful if no error was thrown
+        console.log('Order submitted to Google Form successfully');
+    } catch (error) {
         console.error('Error submitting to Google Form:', error);
-    });
+        // You might want to show a user-friendly error message here
+        alert('There was an error submitting your order. Please try again or contact the store directly.');
+    }
 }
 
 // Handle checkout
-function handleCheckout() {
+async function handleCheckout() {
     if (!selectedPaymentMethod) {
         alert('Please select a payment method');
         return;
     }
 
-    const orderData = generateOrderData();
-    
-    // Send WhatsApp message
-    const encodedMessage = encodeURIComponent(orderData.whatsappMessage);
-    const whatsappUrl = `https://wa.me/${STORE_CONFIG.whatsappNumber}?text=${encodedMessage}`;
-    window.open(whatsappUrl, '_blank');
+    try {
+        const orderData = generateOrderData();
+        
+        // Send WhatsApp message
+        const encodedMessage = encodeURIComponent(orderData.whatsappMessage);
+        const whatsappUrl = `https://wa.me/${STORE_CONFIG.whatsappNumber}?text=${encodedMessage}`;
+        
+        // Submit to Google Form first
+        await submitToGoogleForm(orderData.formData);
+        
+        // Then open WhatsApp
+        window.open(whatsappUrl, '_blank');
 
-    // Submit to Google Form
-    submitToGoogleForm(orderData.formData);
+        // Clear cart and reset UI
+        cart = [];
+        saveCartToStorage();
+        updateCartUI();
+        paymentSection.classList.add('d-none');
+        checkoutBtn.classList.remove('d-none');
+        selectedPaymentMethod = null;
+        document.querySelectorAll('input[name="paymentMethod"]').forEach(radio => {
+            radio.checked = false;
+        });
 
-    // Clear cart and reset UI
-    cart = [];
-    saveCartToStorage();
-    updateCartUI();
-    paymentSection.classList.add('d-none');
-    checkoutBtn.classList.remove('d-none');
-    selectedPaymentMethod = null;
-    document.querySelectorAll('input[name="paymentMethod"]').forEach(radio => {
-        radio.checked = false;
-    });
+        // Show success message
+        alert('Order submitted successfully! Please check WhatsApp for confirmation.');
+    } catch (error) {
+        console.error('Error during checkout:', error);
+        alert('There was an error processing your order. Please try again.');
+    }
 }
 
 // Save cart to localStorage
