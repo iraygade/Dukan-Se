@@ -4,12 +4,12 @@ QuickKart is a simple, no-code solution for local stores to accept online orders
 
 ## Features
 
-- 🛍 Simple product catalog
-- ➕ Add to cart functionality
-- 📦 WhatsApp checkout
-- 📱 Mobile-first design
-- 💸 Zero operational cost
-- 🧾 Easy inventory management
+-  Simple product catalog
+-  Add to cart functionality
+-  WhatsApp checkout
+-  Mobile-first design
+-  Zero operational cost
+-  Easy inventory management
 
 ## Setup Instructions
 
