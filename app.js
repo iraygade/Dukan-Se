@@ -199,6 +199,83 @@ const STORES = {
             }
         ],
         categories: ["Dairy & Eggs", "Bakery"]
+    },
+    ir: {
+        name: "IR",
+        whatsappNumber: "919765799995",
+        products: [
+            {
+                id: 1,
+                name: "Common Cold",
+                price: 99,
+                category: "Viral Infections",
+                image: "https://via.placeholder.com/150?text=🤧"
+            },
+            {
+                id: 2,
+                name: "High Blood Pressure",
+                price: 499,
+                category: "Chronic Conditions",
+                image: "https://via.placeholder.com/150?text=🫀"
+            },
+            {
+                id: 3,
+                name: "Diabetes",
+                price: 999,
+                category: "Chronic Conditions",
+                image: "https://via.placeholder.com/150?text=🍬"
+            },
+            {
+                id: 4,
+                name: "Migraine",
+                price: 299,
+                category: "Neurological",
+                image: "https://via.placeholder.com/150?text=🤕"
+            },
+            {
+                id: 5,
+                name: "Insomnia",
+                price: 399,
+                category: "Sleep Disorders",
+                image: "https://via.placeholder.com/150?text=😴"
+            },
+            {
+                id: 6,
+                name: "Anxiety",
+                price: 199,
+                category: "Mental Health",
+                image: "https://via.placeholder.com/150?text=😰"
+            },
+            {
+                id: 7,
+                name: "Allergies",
+                price: 149,
+                category: "Immune System",
+                image: "https://via.placeholder.com/150?text=🤧"
+            },
+            {
+                id: 8,
+                name: "Back Pain",
+                price: 249,
+                category: "Musculoskeletal",
+                image: "https://via.placeholder.com/150?text=🦴"
+            },
+            {
+                id: 9,
+                name: "Acne",
+                price: 79,
+                category: "Skin Conditions",
+                image: "https://via.placeholder.com/150?text=😳"
+            },
+            {
+                id: 10,
+                name: "Hair Loss",
+                price: 599,
+                category: "Hair & Scalp",
+                image: "https://via.placeholder.com/150?text=💇"
+            }
+        ],
+        categories: ["Viral Infections", "Chronic Conditions", "Neurological", "Sleep Disorders", "Mental Health", "Immune System", "Musculoskeletal", "Skin Conditions", "Hair & Scalp"]
     }
 };
 
