@@ -572,6 +572,29 @@ function generateWhatsAppMessage() {
     return `Hello ${STORE_CONFIG.storeName}!\n\nI would like to order:\n${items}\n\nTotal: ₹${total}\n\nDelivery Details:\nName: ${customerInfo.name}\nPhone: ${customerInfo.phone}\nAddress: ${customerInfo.address}\n\nThank you!`;
 }
 
+// Submit order to Google Form
+function submitToGoogleForm() {
+    const items = cart.map(item => 
+        `${item.name} (${item.quantity} × ₹${item.price})`
+    ).join(', ');
+    
+    const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    
+    // Create form URL with prefilled data
+    const formUrl = `https://docs.google.com/forms/d/e/1FAIpQLScbKzyQW2uI-w9QBM31F7th66M9JbVkJ4z6eRTIAWX6pGcgrw/formResponse?usp=pp_url&entry.694161999=${encodeURIComponent(STORE_CONFIG.storeName)}&entry.589917315=${encodeURIComponent(customerInfo.phone)}&entry.1365426664=${encodeURIComponent(customerInfo.address)}&entry.1117891860=${encodeURIComponent(items)}&entry.574399891=${encodeURIComponent(total)}&entry.1517370118=UPI`;
+    
+    // Submit form using fetch
+    fetch(formUrl, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        }
+    }).catch(error => {
+        console.error('Error submitting to Google Form:', error);
+    });
+}
+
 // Handle checkout
 function handleCheckout() {
     if (!customerInfo.name) {
@@ -580,49 +603,23 @@ function handleCheckout() {
         return;
     }
 
-    // Format items ordered
-    const itemsOrdered = cart.map(item => 
-        `${item.name} (${item.quantity} × ₹${item.price})`
-    ).join(', ');
+    const message = generateWhatsAppMessage();
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/${STORE_CONFIG.whatsappNumber}?text=${encodedMessage}`;
     
-    // Calculate total
-    const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-
-    // Create form data
-    const formData = new URLSearchParams();
-    formData.append('entry.694161999', customerInfo.name); // Name
-    formData.append('entry.589917315', customerInfo.phone); // Phone
-    formData.append('entry.1365426664', customerInfo.address); // Address
-    formData.append('entry.1117891860', itemsOrdered); // Items Ordered
-    formData.append('entry.574399891', `₹${total}`); // Order Total
-    formData.append('entry.1367012781', `Store: ${STORE_CONFIG.storeName}`); // Additional Notes
-    formData.append('entry.1517370118', 'UPI'); // Payment Type
-
-    // Submit to Google Form
-    fetch('https://docs.google.com/forms/d/e/1FAIpQLScbKzyQW2uI-w9QBM31F7th66M9JbVkJ4z6eRTIAWX6pGcgrw/formResponse', {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
-        },
-        body: formData.toString()
-    })
-    .then(() => {
-        // After form submission, open WhatsApp
-        const message = generateWhatsAppMessage();
-        const encodedMessage = encodeURIComponent(message);
-        const whatsappUrl = `https://wa.me/${STORE_CONFIG.whatsappNumber}?text=${encodedMessage}`;
-        window.open(whatsappUrl, '_blank');
-        
-        // Clear cart after successful submission
-        cart = [];
-        updateCartUI();
-        saveCartToStorage();
-    })
-    .catch(error => {
-        console.error('Error submitting form:', error);
-        alert('There was an error submitting your order. Please try again.');
-    });
+    // Open WhatsApp in a new tab
+    window.open(whatsappUrl, '_blank');
+    
+    // Submit order to Google Form
+    submitToGoogleForm();
+    
+    // Clear cart after successful order
+    cart = [];
+    saveCartToStorage();
+    updateCartUI();
+    
+    // Show success message
+    alert('Order placed successfully! Your order details have been recorded.');
 }
 
 // Save cart to localStorage
