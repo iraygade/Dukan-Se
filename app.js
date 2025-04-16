@@ -580,33 +580,32 @@ function handleCheckout() {
         return;
     }
 
-    // Prepare form data
-    const formData = new FormData();
-    formData.append('entry.694161999', customerInfo.name); // Name
-    formData.append('entry.589917315', customerInfo.phone); // Phone
-    formData.append('entry.1365426664', customerInfo.address); // Address
-    
     // Format items ordered
     const itemsOrdered = cart.map(item => 
         `${item.name} (${item.quantity} × ₹${item.price})`
     ).join(', ');
-    formData.append('entry.1117891860', itemsOrdered); // Items Ordered
     
     // Calculate total
     const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+
+    // Create form data
+    const formData = new URLSearchParams();
+    formData.append('entry.694161999', customerInfo.name); // Name
+    formData.append('entry.589917315', customerInfo.phone); // Phone
+    formData.append('entry.1365426664', customerInfo.address); // Address
+    formData.append('entry.1117891860', itemsOrdered); // Items Ordered
     formData.append('entry.574399891', `₹${total}`); // Order Total
-    
-    // Add store name as additional notes
     formData.append('entry.1367012781', `Store: ${STORE_CONFIG.storeName}`); // Additional Notes
-    
-    // Set payment type
     formData.append('entry.1517370118', 'UPI'); // Payment Type
 
     // Submit to Google Form
-    fetch('https://docs.google.com/forms/d/1sQlAgcs1cuNohYYZXp8l_QBb7gt7pRgEYSiGkCnLxN4/formResponse', {
+    fetch('https://docs.google.com/forms/d/e/1sQlAgcs1cuNohYYZXp8l_QBb7gt7pRgEYSiGkCnLxN4/formResponse', {
         method: 'POST',
         mode: 'no-cors',
-        body: formData
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: formData.toString()
     })
     .then(() => {
         // After form submission, open WhatsApp
