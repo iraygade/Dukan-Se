@@ -296,6 +296,8 @@ const productCatalog = document.getElementById('product-catalog');
 const cartItems = document.getElementById('cart-items');
 const cartCount = document.getElementById('cart-count');
 const checkoutBtn = document.getElementById('checkout-btn');
+const paymentSection = document.getElementById('payment-section');
+const proceedToWhatsappBtn = document.getElementById('proceed-to-whatsapp');
 const categoryFilter = document.getElementById('category-filter');
 const customerInfoModal = new bootstrap.Modal(document.getElementById('customerInfoModal'));
 const editCustomerInfoBtn = document.getElementById('edit-customer-info');
@@ -307,6 +309,9 @@ const customerAddressDisplay = document.getElementById('customer-address-display
 const searchInput = document.getElementById('search-input');
 const clearSearchBtn = document.getElementById('clear-search');
 const storeSwitcher = document.getElementById('store-switcher');
+
+// Payment state
+let selectedPaymentMethod = null;
 
 // Initialize the app
 function init() {
@@ -347,8 +352,27 @@ function setupEventListeners() {
         renderProducts();
     });
 
+    // Payment method selection
+    document.querySelectorAll('input[name="paymentMethod"]').forEach(radio => {
+        radio.addEventListener('change', (e) => {
+            selectedPaymentMethod = e.target.value;
+            proceedToWhatsappBtn.disabled = false;
+        });
+    });
+
     // Checkout button
-    checkoutBtn.addEventListener('click', handleCheckout);
+    checkoutBtn.addEventListener('click', () => {
+        if (!customerInfo.name) {
+            alert('Please add your delivery details before checkout');
+            editCustomerInfoBtn.click();
+            return;
+        }
+        paymentSection.classList.remove('d-none');
+        checkoutBtn.classList.add('d-none');
+    });
+
+    // Proceed to WhatsApp button
+    proceedToWhatsappBtn.addEventListener('click', handleCheckout);
 }
 
 // Switch store
@@ -541,6 +565,8 @@ function updateCartUI() {
     if (cart.length === 0) {
         cartItems.innerHTML = '<p class="text-muted text-center">Your cart is empty</p>';
         checkoutBtn.disabled = true;
+        paymentSection.classList.add('d-none');
+        checkoutBtn.classList.remove('d-none');
     } else {
         cartItems.innerHTML = cart.map(item => `
             <div class="cart-item">
@@ -569,57 +595,24 @@ function generateWhatsAppMessage() {
     
     const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
     
-    return `Hello ${STORE_CONFIG.storeName}!\n\nI would like to order:\n${items}\n\nTotal: ₹${total}\n\nDelivery Details:\nName: ${customerInfo.name}\nPhone: ${customerInfo.phone}\nAddress: ${customerInfo.address}\n\nThank you!`;
-}
-
-// Submit order to Google Form
-function submitToGoogleForm() {
-    const items = cart.map(item => 
-        `${item.name} (${item.quantity} × ₹${item.price})`
-    ).join(', ');
+    const paymentMethod = selectedPaymentMethod === 'upi' 
+        ? 'UPI Payment' 
+        : 'Cash on Delivery / UPI on Delivery';
     
-    const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-    
-    // Create form URL with prefilled data
-    const formUrl = `https://docs.google.com/forms/d/e/1FAIpQLScbKzyQW2uI-w9QBM31F7th66M9JbVkJ4z6eRTIAWX6pGcgrw/formResponse?usp=pp_url&entry.694161999=${encodeURIComponent(STORE_CONFIG.storeName)}&entry.589917315=${encodeURIComponent(customerInfo.phone)}&entry.1365426664=${encodeURIComponent(customerInfo.address)}&entry.1117891860=${encodeURIComponent(items)}&entry.574399891=${encodeURIComponent(total)}&entry.1517370118=UPI`;
-    
-    // Submit form using fetch
-    fetch(formUrl, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
-        }
-    }).catch(error => {
-        console.error('Error submitting to Google Form:', error);
-    });
+    return `Hello ${STORE_CONFIG.storeName}!\n\nI would like to order:\n${items}\n\nTotal: ₹${total}\nPayment Method: ${paymentMethod}\n\nDelivery Details:\nName: ${customerInfo.name}\nPhone: ${customerInfo.phone}\nAddress: ${customerInfo.address}\n\nThank you!`;
 }
 
 // Handle checkout
 function handleCheckout() {
-    if (!customerInfo.name) {
-        alert('Please add your delivery details before checkout');
-        editCustomerInfoBtn.click();
+    if (!selectedPaymentMethod) {
+        alert('Please select a payment method');
         return;
     }
 
     const message = generateWhatsAppMessage();
     const encodedMessage = encodeURIComponent(message);
     const whatsappUrl = `https://wa.me/${STORE_CONFIG.whatsappNumber}?text=${encodedMessage}`;
-    
-    // Open WhatsApp in a new tab
     window.open(whatsappUrl, '_blank');
-    
-    // Submit order to Google Form
-    submitToGoogleForm();
-    
-    // Clear cart after successful order
-    cart = [];
-    saveCartToStorage();
-    updateCartUI();
-    
-    // Show success message
-    alert('Order placed successfully! Your order details have been recorded.');
 }
 
 // Save cart to localStorage
