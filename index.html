@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,14 +13,24 @@
         <header class="text-center my-4">
             <div class="d-flex justify-content-between align-items-center mb-2">
                 <h1 class="mb-0">Dukan Se</h1>
-                <div class="store-switcher">
-                    <select id="store-switcher" class="form-select">
-                        <option value="quickkart">Dukan Se (About)</option>
-                        <option value="chemicals">A to Z Chemicals</option>
-                        <option value="krishna">Krishna Grocery</option>
-                        <option value="food">Good Food Store</option>
-                        <option value="ir">IR</option>
-                    </select>
+                <div class="d-flex align-items-center">
+                    <div class="theme-toggle">
+                        <i class="bi bi-sun-fill"></i>
+                        <label class="theme-toggle-switch ms-1 me-1">
+                            <input type="checkbox" id="theme-toggle-input">
+                            <span class="theme-toggle-slider"></span>
+                        </label>
+                        <i class="bi bi-moon-fill"></i>
+                    </div>
+                    <div class="store-switcher ms-3">
+                        <select id="store-switcher" class="form-select">
+                            <option value="quickkart">Dukan Se (About)</option>
+                            <option value="chemicals">A to Z Chemicals</option>
+                            <option value="krishna">Krishna Grocery</option>
+                            <option value="food">Good Food Store</option>
+                            <option value="ir">IR</option>
+                        </select>
+                    </div>
                 </div>
             </div>
             <p class="text-muted" id="app-description">Your local stores, now online! Order directly via WhatsApp with just a few clicks.</p>
