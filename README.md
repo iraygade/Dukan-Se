@@ -44,7 +44,7 @@ Onboarding process
 -------------------
 
 
-1. If inventory is digital:
+ If inventory is digital:
 ---------------------------
 
 - Sync inventory with app.
@@ -56,8 +56,7 @@ Onboarding process
 - You are now ready to start taking orders online!
 
 
-
-2. If inventory is  manual:
+If inventory is  manual:
 -----------------------
 
 - Set-up tech.
