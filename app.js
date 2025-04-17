@@ -913,10 +913,10 @@ function renderCategories() {
     `;
 
     // Add event listeners to category buttons
-    categoryFilter.querySelectorAll('button').forEach(button => {
+    categoryFilter.querySelectorAll('.category-btn').forEach(button => {
         button.addEventListener('click', () => {
             // Remove active class from all buttons
-            categoryFilter.querySelectorAll('button').forEach(btn => btn.classList.remove('active'));
+            categoryFilter.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('active'));
             // Add active class to clicked button
             button.classList.add('active');
             // Update current category
