@@ -626,7 +626,11 @@ const translations = {
         noProductsFound: "No products found. Try adjusting your search or category.",
         allItems: "All Items",
         addDeliveryDetails: "Add/Edit Delivery Details",
-        orderSuccess: "Order submitted successfully! Please check WhatsApp for confirmation."
+        orderSuccess: "Order submitted successfully! Please check WhatsApp for confirmation.",
+        total: "Total:",
+        orderSummary: "Order Summary",
+        deliveryTo: "Delivery to:",
+        itemQuantity: "Quantity"
     },
     hi: {
         appTitle: "दुकान से",
@@ -649,12 +653,16 @@ const translations = {
         noProductsFound: "कोई उत्पाद नहीं मिला। अपनी खोज या श्रेणी को समायोजित करें।",
         allItems: "सभी आइटम",
         addDeliveryDetails: "डिलीवरी विवरण जोड़ें/संपादित करें",
-        orderSuccess: "ऑर्डर सफलतापूर्वक सबमिट किया गया! पुष्टि के लिए व्हाट्सएप देखें।"
+        orderSuccess: "ऑर्डर सफलतापूर्वक सबमिट किया गया! पुष्टि के लिए व्हाट्सएप देखें।",
+        total: "कुल:",
+        orderSummary: "ऑर्डर सारांश",
+        deliveryTo: "डिलीवरी:",
+        itemQuantity: "मात्रा"
     },
     mr: {
         appTitle: "दुकान से",
         appDescription: "तुमच्या स्थानिक दुकाने, आता ऑनलाइन! व्हाट्सअॅप द्वारे थेट काही क्लिकमध्ये ऑर्डर करा.",
-        addToCart: "कार्टमध्ये जोडा",
+        addToCart: "कार्टमध्ये टाका",
         yourCart: "तुमचे कार्ट",
         emptyCart: "तुमचे कार्ट रिकामे आहे",
         proceedToPayment: "पेमेंटसाठी पुढे जा",
@@ -670,9 +678,13 @@ const translations = {
         close: "बंद करा",
         searchProducts: "उत्पादने शोधा...",
         noProductsFound: "कोणतीही उत्पादने सापडली नाहीत. तुमचा शोध किंवा श्रेणी समायोजित करा.",
-        allItems: "सर्व आयटम",
+        allItems: "सर्व वस्तू",
         addDeliveryDetails: "डिलिव्हरी तपशील जोडा/संपादित करा",
-        orderSuccess: "ऑर्डर यशस्वीरित्या सबमिट केले! पुष्टीकरणासाठी व्हाट्सअॅप तपासा."
+        orderSuccess: "ऑर्डर यशस्वीरित्या सबमिट केले! पुष्टीकरणासाठी व्हाट्सअॅप तपासा.",
+        total: "एकूण:",
+        orderSummary: "ऑर्डर सारांश",
+        deliveryTo: "डिलिव्हरी:",
+        itemQuantity: "संख्या"
     }
 };
 
@@ -700,17 +712,155 @@ const languageSwitcher = document.querySelector('.language-switcher');
 // Payment state
 let selectedPaymentMethod = null;
 
+// Add sorting functionality
+let currentSort = 'default';
+let sortSelect;
+
+// Add translations for product categories
+const categoryTranslations = {
+    hi: {
+        "Essentials": "आवश्यक सामग्री",
+        "Flour & Grains": "आटा और अनाज",
+        "Pulses & Lentils": "दाल",
+        "Cooking Oils": "खाना पकाने का तेल",
+        "Dairy": "डेयरी उत्पाद",
+        "Beverages": "पेय पदार्थ",
+        "Spices": "मसाले",
+        "Snacks": "स्नैक्स",
+        "Ready to Cook": "पकाने के लिए तैयार",
+        "Sauces & Spreads": "सॉस और स्प्रेड",
+        "Fresh Vegetables": "ताजी सब्जियां",
+        "Fresh Fruits": "ताजे फल",
+        "Fresh Herbs": "ताजी जड़ी-बूटियां",
+        "Dairy & Eggs": "डेयरी और अंडे"
+    },
+    mr: {
+        "Essentials": "आवश्यक वस्तू",
+        "Flour & Grains": "पीठ आणि धान्य",
+        "Pulses & Lentils": "डाळी",
+        "Cooking Oils": "खाद्यतेल",
+        "Dairy": "दुग्धजन्य पदार्थ",
+        "Beverages": "पेय",
+        "Spices": "मसाले",
+        "Snacks": "नाश्ता",
+        "Ready to Cook": "स्वयंपाकासाठी तयार",
+        "Sauces & Spreads": "सॉस आणि स्प्रेड",
+        "Fresh Vegetables": "ताज्या भाज्या",
+        "Fresh Fruits": "ताजी फळे",
+        "Fresh Herbs": "ताज्या हर्ब्स",
+        "Dairy & Eggs": "दुग्धजन्य पदार्थ आणि अंडी"
+    }
+};
+
+// Add translations for common product names
+const productTranslations = {
+    hi: {
+        "Tata Salt (1kg)": "टाटा नमक (1kg)",
+        "Fortune Sunflower Oil (1L)": "फॉर्च्यून सनफ्लावर ऑयल (1L)",
+        "Aashirvaad Atta (5kg)": "आशीर्वाद आटा (5kg)",
+        "Tata Sampann Toor Dal (1kg)": "टाटा सम्पन्न तूर दाल (1kg)",
+        "Madhur Sugar (1kg)": "मधुर चीनी (1kg)",
+        "India Gate Basmati Rice (5kg)": "इंडिया गेट बासमती चावल (5kg)",
+        "Taj Mahal Tea (500g)": "ताज महल चाय (500g)",
+        "Nescafe Classic Coffee (200g)": "नेस्काफे क्लासिक कॉफी (200g)",
+        "Maggi Noodles (Pack of 10)": "मैगी नूडल्स (10 का पैक)",
+        "Amul Butter (500g)": "अमूल बटर (500g)",
+        "Amul Milk (1L)": "अमूल दूध (1L)",
+        "Amul Cheese Slices (200g)": "अमूल चीज़ स्लाइस (200g)",
+        "MTR Masala (100g)": "MTR मसाला (100g)",
+        "Everest Turmeric Powder (100g)": "एवरेस्ट हल्दी पाउडर (100g)",
+        "Saffola Cooking Oil (5L)": "सफोला कुकिंग ऑयल (5L)",
+        "Kissan Tomato Ketchup (500g)": "किसान टमाटर केचप (500g)",
+        "Parle-G Biscuits (800g)": "पार्ले-जी बिस्कुट (800g)",
+        "Britannia Good Day (200g)": "ब्रिटानिया गुड डे (200g)",
+        "Organic Potatoes (1kg)": "ऑर्गेनिक आलू (1kg)",
+        "Fresh Tomatoes (500g)": "ताजे टमाटर (500g)",
+        "Organic Onions (1kg)": "ऑर्गेनिक प्याज (1kg)",
+        "Fresh Coriander (100g)": "ताजा धनिया (100g)",
+        "Green Chillies (100g)": "हरी मिर्च (100g)",
+        "Fresh Bananas (6 pcs)": "ताजे केले (6 पीस)",
+        "Apples (4 pcs)": "सेब (4 पीस)",
+        "Fresh Mangoes (1kg)": "ताजे आम (1kg)",
+        "Paneer (200g)": "पनीर (200g)",
+        "Farm Fresh Eggs (12 pcs)": "फार्म फ्रेश अंडे (12 पीस)",
+        "Fresh Spinach (250g)": "ताजा पालक (250g)",
+        "Mint Leaves (100g)": "पुदीना पत्ते (100g)",
+        "Fresh Cauliflower (1 pc)": "ताजा फूलगोभी (1 पीस)",
+        "Fresh Cabbage (1 pc)": "ताजा पत्तागोभी (1 पीस)",
+        "Ginger (250g)": "अदरक (250g)",
+        "Garlic (250g)": "लहसुन (250g)",
+        "Fresh Coconut (1 pc)": "ताजा नारियल (1 पीस)",
+        "Organic Cucumber (500g)": "ऑर्गेनिक खीरा (500g)"
+    },
+    mr: {
+        "Tata Salt (1kg)": "टाटा मीठ (1kg)",
+        "Fortune Sunflower Oil (1L)": "फॉर्च्यून सनफ्लॉवर तेल (1L)",
+        "Aashirvaad Atta (5kg)": "आशीर्वाद पीठ (5kg)",
+        "Tata Sampann Toor Dal (1kg)": "टाटा संपन्न तूर डाळ (1kg)",
+        "Madhur Sugar (1kg)": "मधुर साखर (1kg)",
+        "India Gate Basmati Rice (5kg)": "इंडिया गेट बासमती तांदूळ (5kg)",
+        "Taj Mahal Tea (500g)": "ताज महल चहा (500g)",
+        "Nescafe Classic Coffee (200g)": "नेस्काफे क्लासिक कॉफी (200g)",
+        "Maggi Noodles (Pack of 10)": "मॅगी नूडल्स (10 चा पॅक)",
+        "Amul Butter (500g)": "अमूल बटर (500g)",
+        "Amul Milk (1L)": "अमूल दूध (1L)",
+        "Amul Cheese Slices (200g)": "अमूल चीझ स्लाईस (200g)",
+        "MTR Masala (100g)": "MTR मसाला (100g)",
+        "Everest Turmeric Powder (100g)": "एवरेस्ट हळद पावडर (100g)",
+        "Saffola Cooking Oil (5L)": "सफोला कुकिंग ऑइल (5L)",
+        "Kissan Tomato Ketchup (500g)": "किसन टोमॅटो केचप (500g)",
+        "Parle-G Biscuits (800g)": "पार्ले-जी बिस्किट (800g)",
+        "Britannia Good Day (200g)": "ब्रिटानिया गुड डे (200g)",
+        "Organic Potatoes (1kg)": "सेंद्रिय बटाटे (1kg)",
+        "Fresh Tomatoes (500g)": "ताजे टोमॅटो (500g)",
+        "Organic Onions (1kg)": "सेंद्रिय कांदे (1kg)",
+        "Fresh Coriander (100g)": "ताजी कोथिंबीर (100g)",
+        "Green Chillies (100g)": "हिरवी मिरची (100g)",
+        "Fresh Bananas (6 pcs)": "ताजी केळी (6 नग)",
+        "Apples (4 pcs)": "सफरचंद (4 नग)",
+        "Fresh Mangoes (1kg)": "ताजी आंबे (1kg)",
+        "Paneer (200g)": "पनीर (200g)",
+        "Farm Fresh Eggs (12 pcs)": "फार्म फ्रेश अंडी (12 नग)",
+        "Fresh Spinach (250g)": "ताजी पालक (250g)",
+        "Mint Leaves (100g)": "पुदिना (100g)",
+        "Fresh Cauliflower (1 pc)": "ताजी फुलकोबी (1 नग)",
+        "Fresh Cabbage (1 pc)": "ताजी कोबी (1 नग)",
+        "Ginger (250g)": "आले (250g)",
+        "Garlic (250g)": "लसूण (250g)",
+        "Fresh Coconut (1 pc)": "ताजे नारळ (1 नग)",
+        "Organic Cucumber (500g)": "सेंद्रिय काकडी (500g)"
+    }
+};
+
 // Initialize the app
 function init() {
-    // Set initial store to QuickKart
-    switchStore('quickkart');
-    updateCartUI();
-    loadCartFromStorage();
-    loadCustomerInfo();
-    setupEventListeners();
-    updateUILanguage();
+    // Initialize DOM elements
+    productContainer = document.getElementById('product-container') || document.querySelector('.product-grid');
+    categoryFilter = document.getElementById('category-filter');
+    cartItems = document.getElementById('cart-items');
+    cartTotal = document.getElementById('cart-total');
+    cartCount = document.getElementById('cart-count');
+    checkoutBtn = document.getElementById('checkout-btn');
+    searchInput = document.getElementById('search-input');
+    clearSearchBtn = document.getElementById('clear-search');
+    customerInfoBtn = document.getElementById('customer-info-btn');
+    customerInfoDisplay = document.getElementById('customer-info-display');
+    sortSelect = document.getElementById('sort-select');
     
-    // Load and apply theme preference
+    // Set up customer info modal if it exists
+    const customerInfoModalEl = document.getElementById('customerInfoModal');
+    if (customerInfoModalEl) {
+        customerInfoModal = new bootstrap.Modal(customerInfoModalEl);
+    }
+    
+    const saveInfoBtn = document.getElementById('save-customer-info');
+    if (saveInfoBtn) {
+        saveCustomerInfoBtn = saveInfoBtn;
+    }
+    
+    updateTextTranslations();
+    
+    // Load theme preference
     const savedTheme = localStorage.getItem('theme');
     const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
     
@@ -723,112 +873,51 @@ function init() {
     }
 }
 
-// Setup event listeners
-function setupEventListeners() {
-    // Store switcher
-    storeSwitcher.addEventListener('change', (e) => {
-        switchStore(e.target.value);
-    });
-
-    // Customer info modal
-    editCustomerInfoBtn.addEventListener('click', () => {
-        document.getElementById('customer-name').value = customerInfo.name;
-        document.getElementById('customer-phone').value = customerInfo.phone;
-        document.getElementById('customer-address').value = customerInfo.address;
-        customerInfoModal.show();
-    });
-
-    saveCustomerInfoBtn.addEventListener('click', saveCustomerInfo);
-
-    // Search functionality
-    searchInput.addEventListener('input', (e) => {
-        currentSearchTerm = e.target.value.toLowerCase();
-        renderProducts();
-    });
-
-    clearSearchBtn.addEventListener('click', () => {
-        searchInput.value = '';
-        currentSearchTerm = '';
-        renderProducts();
-    });
-
-    // Payment method selection
-    document.querySelectorAll('input[name="paymentMethod"]').forEach(radio => {
-        radio.addEventListener('change', (e) => {
-            selectedPaymentMethod = e.target.value;
-            proceedToWhatsappBtn.disabled = false;
-        });
-    });
-
-    // Checkout button
-    checkoutBtn.addEventListener('click', () => {
-        if (!customerInfo.name) {
-            alert(translations[currentLanguage].addDeliveryDetails);
-            editCustomerInfoBtn.click();
-            return;
-        }
-        paymentModal.show();
-    });
-
-    // Proceed to WhatsApp button
-    proceedToWhatsappBtn.addEventListener('click', handleCheckout);
-    
-    // Language switcher
-    if (languageSwitcher) {
-        languageSwitcher.querySelectorAll('button').forEach(button => {
-            button.addEventListener('click', () => {
-                // Remove active class from all buttons
-                languageSwitcher.querySelectorAll('button').forEach(btn => {
-                    btn.classList.remove('active');
-                });
-                // Add active class to clicked button
-                button.classList.add('active');
-                // Set current language
-                currentLanguage = button.dataset.lang;
-                // Update UI language
-                updateUILanguage();
-            });
-        });
-    }
-}
-
-// Update UI language
-function updateUILanguage() {
+// Update text translations
+function updateTextTranslations() {
     const t = translations[currentLanguage];
     
-    // Update static elements
-    document.querySelector('h1').textContent = t.appTitle;
-    document.getElementById('app-description').textContent = t.appDescription;
-    document.getElementById('cart-title').textContent = t.yourCart;
-    document.getElementById('checkout-btn-text').textContent = t.proceedToPayment;
-    document.getElementById('payment-modal-title').textContent = t.selectPaymentMethod;
-    document.getElementById('payment-section-title').textContent = t.selectPaymentMethod;
-    document.getElementById('upi-label').textContent = t.upiPayment;
-    document.getElementById('cod-label').textContent = t.cashOnDelivery;
-    document.getElementById('whatsapp-btn-text').textContent = t.sendOrderViaWhatsApp;
-    document.querySelector('.modal-title').textContent = t.deliveryDetails;
-    document.querySelector('label[for="customer-name"]').textContent = t.name;
-    document.querySelector('label[for="customer-phone"]').textContent = t.phone;
-    document.querySelector('label[for="customer-address"]').textContent = t.address;
-    document.getElementById('save-customer-info').textContent = t.saveDetails;
-    document.getElementById('close-payment-btn').textContent = t.close;
-    
+    // Update placeholders and labels
     if (searchInput) {
         searchInput.placeholder = t.searchProducts;
     }
     
-    // If we're on the Dukan Se info page, update its content
-    if (STORE_CONFIG.isInfoPage) {
-        const currentStore = STORES[STORE_CONFIG.storeId || 'quickkart'];
-        if (currentStore && currentStore.description && currentStore.description[currentLanguage]) {
-            productCatalog.innerHTML = currentStore.description[currentLanguage];
-        }
-    } else {
-        // Re-render products and categories
-        renderCategories();
-        renderProducts();
+    // Update cart/checkout text
+    if (document.getElementById('cart-text')) {
+        document.getElementById('cart-text').textContent = t.yourCart;
     }
     
+    if (document.getElementById('total-text')) {
+        document.getElementById('total-text').textContent = t.total;
+    }
+    
+    if (document.getElementById('checkout-text')) {
+        document.getElementById('checkout-text').textContent = t.sendOrder || t.checkout;
+    }
+    
+    // Update sort options if they exist
+    if (sortSelect) {
+        const options = sortSelect.options;
+        if (options[0]) options[0].text = t.defaultSort || 'Default';
+        if (options[1]) options[1].text = t.priceLowHigh || 'Price: Low to High';
+        if (options[2]) options[2].text = t.priceHighLow || 'Price: High to Low';
+        if (options[3]) options[3].text = t.weightLowHigh || 'Weight: Low to High';
+        if (options[4]) options[4].text = t.weightHighLow || 'Weight: High to Low';
+        
+        // Update sort label
+        const sortLabel = document.querySelector('.sort-label');
+        if (sortLabel) {
+            sortLabel.textContent = t.sortBy || 'Sort by:';
+        }
+    }
+    
+    // Update customer info button text
+    if (customerInfoBtn) {
+        customerInfoBtn.textContent = t.addDeliveryDetails;
+    }
+    
+    // Reinitialize the UI
+    updateCustomerInfoDisplay();
     updateCartUI();
 }
 
@@ -1002,6 +1091,61 @@ function enhanceProductRendering() {
             handleImageError(this);
         };
     });
+}
+
+// Sort products based on current sorting option
+function sortProducts(productsToSort) {
+    const sortedProducts = [...productsToSort];
+    
+    switch (currentSort) {
+        case 'price-low':
+            sortedProducts.sort((a, b) => a.price - b.price);
+            break;
+        case 'price-high':
+            sortedProducts.sort((a, b) => b.price - a.price);
+            break;
+        case 'weight-low':
+            sortedProducts.sort((a, b) => {
+                const aWeight = extractWeight(a.name);
+                const bWeight = extractWeight(b.name);
+                return aWeight - bWeight;
+            });
+            break;
+        case 'weight-high':
+            sortedProducts.sort((a, b) => {
+                const aWeight = extractWeight(a.name);
+                const bWeight = extractWeight(b.name);
+                return bWeight - aWeight;
+            });
+            break;
+        default:
+            // Keep original order
+            break;
+    }
+    
+    return sortedProducts;
+}
+
+// Helper function to extract weight from product name
+function extractWeight(name) {
+    const regex = /(\d+\.?\d*)\s*(kg|g|ml|l)/i;
+    const match = name.match(regex);
+    
+    if (match) {
+        const value = parseFloat(match[1]);
+        const unit = match[2].toLowerCase();
+        
+        // Convert to a common unit (grams)
+        if (unit === 'kg') {
+            return value * 1000;
+        } else if (unit === 'l') {
+            return value * 1000;
+        }
+        
+        return value;
+    }
+    
+    return 0; // Default weight if not found
 }
 
 // Original render products function with image error handling
@@ -1315,4 +1459,106 @@ window.handleCheckout = handleCheckout;
 window.handleImageError = handleImageError;
 
 // Initialize the app
-init(); 
+init();
+
+// Load store data from the server or JSON file
+async function loadStoreData() {
+    try {
+        // Fetch from products.json or use default data
+        let response;
+        try {
+            response = await fetch('products.json');
+            const data = await response.json();
+            
+            // Update STORES with data from JSON file
+            Object.keys(data).forEach(storeId => {
+                if (STORES[storeId]) {
+                    Object.assign(STORES[storeId], data[storeId]);
+                } else {
+                    STORES[storeId] = data[storeId];
+                }
+            });
+        } catch (error) {
+            console.warn('Could not load products.json, using default data:', error);
+        }
+        
+        // Add category and product translations to each store
+        Object.keys(STORES).forEach(storeId => {
+            const store = STORES[storeId];
+            
+            // Add category translations if not already present
+            if (store.categories && store.categories.length > 0) {
+                if (!store.categoryTranslations) {
+                    store.categoryTranslations = {};
+                }
+                
+                // Add Hindi translations
+                if (!store.categoryTranslations.hi) {
+                    store.categoryTranslations.hi = {};
+                }
+                
+                store.categories.forEach(category => {
+                    if (categoryTranslations.hi[category] && !store.categoryTranslations.hi[category]) {
+                        store.categoryTranslations.hi[category] = categoryTranslations.hi[category];
+                    }
+                });
+                
+                // Add Marathi translations
+                if (!store.categoryTranslations.mr) {
+                    store.categoryTranslations.mr = {};
+                }
+                
+                store.categories.forEach(category => {
+                    if (categoryTranslations.mr[category] && !store.categoryTranslations.mr[category]) {
+                        store.categoryTranslations.mr[category] = categoryTranslations.mr[category];
+                    }
+                });
+            }
+            
+            // Add product translations if not already present
+            if (store.products && store.products.length > 0) {
+                if (!store.productTranslations) {
+                    store.productTranslations = {};
+                }
+                
+                // Add Hindi translations
+                if (!store.productTranslations.hi) {
+                    store.productTranslations.hi = {};
+                }
+                
+                store.products.forEach(product => {
+                    if (productTranslations.hi[product.name] && !store.productTranslations.hi[product.name]) {
+                        store.productTranslations.hi[product.name] = productTranslations.hi[product.name];
+                    }
+                });
+                
+                // Add Marathi translations
+                if (!store.productTranslations.mr) {
+                    store.productTranslations.mr = {};
+                }
+                
+                store.products.forEach(product => {
+                    if (productTranslations.mr[product.name] && !store.productTranslations.mr[product.name]) {
+                        store.productTranslations.mr[product.name] = productTranslations.mr[product.name];
+                    }
+                });
+            }
+        });
+        
+        // Initialize with current store
+        const currentStoreId = storeSwitcher ? storeSwitcher.value : 'krishna';
+        switchStore(currentStoreId);
+        
+        // Update UI after loading data
+        updateUILanguage();
+        loadCartFromStorage();
+        updateCartUI();
+    } catch (error) {
+        console.error('Error loading store data:', error);
+    }
+}
+
+// Initialize the app
+document.addEventListener('DOMContentLoaded', function() {
+    initializeApp();
+});
