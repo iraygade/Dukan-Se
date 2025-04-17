@@ -491,6 +491,9 @@ let currentCategory = 'all';
 // Language state
 let currentLanguage = 'en';
 
+// Theme state
+let currentTheme = localStorage.getItem('theme') || 'light';
+
 // Translations
 const translations = {
     en: {
@@ -584,12 +587,16 @@ const storeSwitcher = document.getElementById('store-switcher');
 const paymentModal = new bootstrap.Modal(document.getElementById('paymentModal'));
 const proceedToWhatsappBtn = document.getElementById('proceed-to-whatsapp');
 const languageSwitcher = document.querySelector('.language-switcher');
+const themeToggleInput = document.getElementById('theme-toggle-input');
 
 // Payment state
 let selectedPaymentMethod = null;
 
 // Initialize the app
 function init() {
+    // Apply saved theme
+    applyTheme(currentTheme);
+    
     // Set initial store to QuickKart
     switchStore('quickkart');
     updateCartUI();
@@ -664,6 +671,18 @@ function setupEventListeners() {
                 // Update UI language
                 updateUILanguage();
             });
+        });
+    }
+
+    // Theme toggle
+    if (themeToggleInput) {
+        // Set initial state based on saved preference
+        themeToggleInput.checked = currentTheme === 'dark';
+        
+        themeToggleInput.addEventListener('change', () => {
+            currentTheme = themeToggleInput.checked ? 'dark' : 'light';
+            applyTheme(currentTheme);
+            localStorage.setItem('theme', currentTheme);
         });
     }
 }
@@ -1189,6 +1208,17 @@ window.addToCart = addToCart;
 window.updateQuantity = updateQuantity;
 window.handleCheckout = handleCheckout;
 window.handleImageError = handleImageError;
+
+// Apply theme to document
+function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    currentTheme = theme;
+    
+    // Update theme toggle input state if it exists
+    if (themeToggleInput) {
+        themeToggleInput.checked = theme === 'dark';
+    }
+}
 
 // Initialize the app
 init(); 
