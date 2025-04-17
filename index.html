@@ -1,105 +1,136 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <meta name="theme-color" content="#f8f9fa">
     <title>Dukan Se - Order Online</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Noto+Sans:wght@400;500;700&family=Noto+Sans+Devanagari:wght@400;500;700&display=swap">
     <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
 </head>
 <body>
-    <div class="container py-4">
-        <!-- Header Section -->
-        <header class="mb-4">
-            <div class="row align-items-center">
-                <div class="col-12">
-                    <div class="store-header">
-                        <h1 id="store-name">Dukan Se</h1>
-                        <p id="app-description" class="text-muted">Online Ordering System</p>
+    <div class="container">
+        <header class="text-center my-4">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+                <h1 class="mb-0">Dukan Se</h1>
+                <div class="d-flex align-items-center">
+                    <div class="theme-toggle-container me-3">
+                        <input type="checkbox" id="theme-toggle" class="theme-toggle">
+                        <label for="theme-toggle" class="theme-toggle-label">
+                            <i class="fas fa-sun"></i>
+                            <i class="fas fa-moon"></i>
+                            <span class="ball"></span>
+                        </label>
                     </div>
-                    
-                    <div class="store-controls d-flex flex-wrap justify-content-center mt-3">
-                        <div class="theme-toggle-container mx-2 mb-2">
-                            <input type="checkbox" id="theme-toggle" class="theme-toggle">
-                            <label for="theme-toggle" class="theme-toggle-label"></label>
-                        </div>
-                        
-                        <div class="store-switcher mx-2 mb-2">
-                            <select id="store-switcher" class="form-select">
-                                <option value="quickkart">Dukan Se</option>
-                                <option value="krishna">Krishna Grocery</option>
-                                <option value="chemicals">A to Z Chemicals</option>
-                            </select>
-                        </div>
-                        
-                        <div class="language-switcher mx-2 mb-2">
-                            <button class="btn-lang active" data-lang="en">EN</button>
-                            <button class="btn-lang" data-lang="hi">हिन्दी</button>
-                            <button class="btn-lang" data-lang="mr">मराठी</button>
-                        </div>
+                    <div class="store-switcher ms-3">
+                        <select id="store-switcher" class="form-select">
+                            <option value="quickkart">Dukan Se (About)</option>
+                            <option value="chemicals">A to Z Chemicals</option>
+                            <option value="krishna">Krishna Grocery</option>
+                            <option value="food">Good Food Store</option>
+                            <option value="ir">IR</option>
+                        </select>
                     </div>
                 </div>
             </div>
+            <p class="text-muted" id="app-description">Your local stores, now online! Order directly via WhatsApp with just a few clicks.</p>
+            
+            <!-- Language Switcher -->
+            <div class="language-switcher mb-3">
+                <button class="btn btn-sm btn-outline-secondary me-1 active" data-lang="en">English</button>
+                <button class="btn btn-sm btn-outline-secondary me-1" data-lang="hi">हिंदी</button>
+                <button class="btn btn-sm btn-outline-secondary" data-lang="mr">मराठी</button>
+            </div>
         </header>
 
-        <!-- App Description -->
-        <div id="app-info-container" class="mb-4">
-            <!-- App info will be loaded here -->
-        </div>
-
-        <!-- Customer Information Section -->
-        <div id="customer-info-section" class="customer-info-section mb-4">
-            <button id="customer-info-btn" class="btn btn-primary w-100">
-                Add/Edit Delivery Details
+        <!-- Customer Info Button -->
+        <div class="customer-info-section mb-4 text-center">
+            <button id="edit-customer-info" class="btn btn-outline-primary">
+                <i class="bi bi-person-circle"></i> Add/Edit Delivery Details
             </button>
-            <div id="customer-info-display" class="mt-3" style="display: none;"></div>
-        </div>
-
-        <!-- Search Section -->
-        <div class="search-section mb-4">
-            <div class="input-group">
-                <span class="input-group-text"><i class="bi bi-search"></i></span>
-                <input type="text" id="search-input" class="form-control" placeholder="Search for products...">
-                <button id="clear-search" class="btn btn-outline-secondary">Clear</button>
+            <div id="customer-info-display" class="mt-2 d-none">
+                <p class="mb-1"><strong>Name:</strong> <span id="customer-name-display"></span></p>
+                <p class="mb-1"><strong>Phone:</strong> <span id="customer-phone-display"></span></p>
+                <p class="mb-0"><strong>Address:</strong> <span id="customer-address-display"></span></p>
             </div>
         </div>
 
-        <!-- Category Filter -->
+        <!-- Search Bar -->
+        <div class="search-section mb-4">
+            <div class="input-group">
+                <span class="input-group-text bg-white">
+                    <i class="bi bi-search"></i>
+                </span>
+                <input type="text" id="search-input" class="form-control" placeholder="Search products...">
+                <button class="btn btn-outline-secondary" type="button" id="clear-search">
+                    <i class="bi bi-x-lg"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Category Filters -->
         <div id="category-filter" class="mb-4">
             <!-- Categories will be loaded here -->
         </div>
 
-        <!-- Product Catalog Section -->
-        <div class="row">
-            <div class="col-md-8 mb-4">
-                <div id="product-container" class="row product-grid row-cols-2 row-cols-sm-3 row-cols-md-3 row-cols-lg-4 g-3">
-                    <!-- Products will be loaded here -->
+        <!-- Product Catalog -->
+        <div id="product-catalog" class="row g-3">
+            <!-- Products will be loaded here -->
+        </div>
+
+        <!-- Cart Section -->
+        <div class="col-md-4">
+            <div class="cart-section">
+                <h5 class="mb-0" id="cart-title">Your Cart <span id="cart-count" class="badge bg-primary">0</span></h5>
+                <div id="cart-items" class="cart-items"></div>
+            </div>
+        </div>
+
+        <!-- Fixed Checkout Button -->
+        <div class="checkout-fixed" id="fixed-checkout">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <span id="fixed-cart-total" class="fw-bold">₹0</span>
+                    <button id="checkout-btn" class="btn btn-primary" disabled>
+                        <span id="checkout-btn-text">Proceed to Payment</span>
+                    </button>
                 </div>
             </div>
-            <div class="col-md-4 mb-4">
-                <div class="cart-container">
-                    <h5 class="mb-3">Your Cart</h5>
-                    <div id="cart-items" class="cart-items">
-                        <!-- Cart items will be loaded here -->
+        </div>
+
+        <!-- Payment Section Modal -->
+        <div class="modal fade" id="paymentModal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="payment-modal-title">Select Payment Method</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                     </div>
-                    <hr>
-                    <div class="d-flex justify-content-between align-items-center mb-2">
-                        <span>Total:</span>
-                        <span id="cart-total" class="fw-bold">₹0</span>
-                    </div>
-                    <div class="d-flex justify-content-between">
-                        <span>Items:</span>
-                        <span id="cart-count">0</span>
-                    </div>
-                    <hr>
-                    <div class="row g-2">
-                        <div class="col-12">
-                            <button id="checkout-btn" class="btn btn-primary w-100" disabled>
-                                Send Order via WhatsApp
-                            </button>
+                    <div class="modal-body">
+                        <div id="payment-section">
+                            <h6 class="mb-2" id="payment-section-title">Select Payment Method</h6>
+                            <div class="payment-options">
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="paymentMethod" id="upi" value="upi">
+                                    <label class="form-check-label" for="upi" id="upi-label">
+                                        UPI Payment
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="paymentMethod" id="cod" value="cod">
+                                    <label class="form-check-label" for="cod" id="cod-label">
+                                        Cash on Delivery / UPI on Delivery
+                                    </label>
+                                </div>
+                            </div>
                         </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="close-payment-btn">Close</button>
+                        <button id="proceed-to-whatsapp" class="btn btn-success" disabled id="whatsapp-btn">
+                            <span id="whatsapp-btn-text">Send Order via WhatsApp</span>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -107,17 +138,17 @@
     </div>
 
     <!-- Customer Info Modal -->
-    <div class="modal fade" id="customerInfoModal" tabindex="-1" aria-hidden="true">
+    <div class="modal fade" id="customerInfoModal" tabindex="-1">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Your Details</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <h5 class="modal-title">Delivery Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="customer-form">
+                    <form id="customer-info-form">
                         <div class="mb-3">
-                            <label for="customer-name" class="form-label">Full Name</label>
+                            <label for="customer-name" class="form-label">Name</label>
                             <input type="text" class="form-control" id="customer-name" required>
                         </div>
                         <div class="mb-3">
@@ -131,8 +162,8 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-primary" id="save-customer-info">Save Information</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="save-customer-info">Save Details</button>
                 </div>
             </div>
         </div>
