@@ -1,18 +1,142 @@
+/* Theme Variables */
 :root {
+    /* Light Theme (Default) */
     --primary-color: #007bff;
     --secondary-color: #6c757d;
     --success-color: #28a745;
     --light-bg: #f8f9fa;
     --border-color: #dee2e6;
     --text-color: #333;
-    --light-gray: #f8f9fa;
+    --card-bg: #ffffff;
+    --shadow-color: rgba(0,0,0,0.1);
+}
+
+[data-theme="dark"] {
+    /* Dark Theme */
+    --primary-color: #0d6efd;
+    --secondary-color: #6c757d;
+    --success-color: #198754;
+    --light-bg: #212529;
+    --border-color: #495057;
+    --text-color: #f8f9fa;
+    --card-bg: #343a40;
+    --shadow-color: rgba(0,0,0,0.3);
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    color: var(--text-color);
-    padding-bottom: 70px; /* Space for fixed cart */
     background-color: var(--light-bg);
+    color: var(--text-color);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    padding-bottom: 70px; /* Space for fixed cart */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Theme Toggle */
+.theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    margin-left: 15px;
+}
+
+.theme-toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+
+.theme-toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.theme-toggle-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 24px;
+}
+
+.theme-toggle-slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .theme-toggle-slider {
+    background-color: var(--primary-color);
+}
+
+input:checked + .theme-toggle-slider:before {
+    transform: translateX(26px);
+}
+
+.theme-toggle i {
+    margin: 0 5px;
+    font-size: 14px;
+}
+
+/* Dark mode adjustments for existing components */
+[data-theme="dark"] .product-card {
+    background-color: var(--card-bg);
+    box-shadow: 0 2px 8px var(--shadow-color);
+}
+
+[data-theme="dark"] .search-section,
+[data-theme="dark"] .payment-options,
+[data-theme="dark"] .customer-info-section {
+    background-color: var(--card-bg);
+}
+
+[data-theme="dark"] .modal-content {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+}
+
+[data-theme="dark"] .btn-outline-primary {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+[data-theme="dark"] .btn-outline-primary:hover,
+[data-theme="dark"] .btn-outline-primary.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+[data-theme="dark"] .app-info {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+}
+
+[data-theme="dark"] .checkout-fixed {
+    background-color: rgba(33, 37, 41, 0.95);
+}
+
+[data-theme="dark"] .cart-section,
+[data-theme="dark"] .cart-item {
+    background-color: var(--card-bg);
+}
+
+[data-theme="dark"] .product-quantity button {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+[data-theme="dark"] .product-quantity span {
+    background-color: var(--card-bg);
 }
 
 /* Search Section */
