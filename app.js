@@ -6,8 +6,53 @@ let categories = [];
 // Store configurations
 const STORES = {
     quickkart: {
-        name: "QuickKart",
-        whatsappNumber: "918390020796",
+        name: "Dukan Se",
+        whatsappNumber: "",
+        isInfoPage: true,
+        description: {
+            en: `<div class="app-info">
+                <h3>About Dukan Se</h3>
+                <p>Dukan Se brings local stores online, helping them compete with corporate digital platforms.</p>
+                <p>Our mission is to empower small businesses by providing them a simple way to reach customers online without expensive technical investments.</p>
+                <h4>Key Features:</h4>
+                <ul>
+                    <li><strong>Simple Setup:</strong> Store owners can be online in minutes</li>
+                    <li><strong>WhatsApp Integration:</strong> Use existing communication channels</li>
+                    <li><strong>No Commission:</strong> Unlike corporate platforms, we don't take a cut</li>
+                    <li><strong>Local Focus:</strong> Support neighborhood businesses</li>
+                    <li><strong>Multilingual:</strong> Serve diverse communities in their language</li>
+                </ul>
+                <p>Select a store from the dropdown above to start shopping!</p>
+            </div>`,
+            hi: `<div class="app-info">
+                <h3>दुकान से के बारे में</h3>
+                <p>दुकान से स्थानीय दुकानों को ऑनलाइन लाता है, जिससे उन्हें कॉर्पोरेट डिजिटल प्लेटफॉर्म के साथ प्रतिस्पर्धा करने में मदद मिलती है।</p>
+                <p>हमारा मिशन छोटे व्यवसायों को महंगे तकनीकी निवेशों के बिना ऑनलाइन ग्राहकों तक पहुंचने का एक सरल तरीका प्रदान करके सशक्त बनाना है।</p>
+                <h4>मुख्य विशेषताएँ:</h4>
+                <ul>
+                    <li><strong>सरल सेटअप:</strong> स्टोर मालिक मिनटों में ऑनलाइन हो सकते हैं</li>
+                    <li><strong>व्हाट्सएप एकीकरण:</strong> मौजूदा संचार चैनलों का उपयोग करें</li>
+                    <li><strong>कोई कमीशन नहीं:</strong> कॉर्पोरेट प्लेटफॉर्मों के विपरीत, हम कोई हिस्सा नहीं लेते</li>
+                    <li><strong>स्थानीय फोकस:</strong> पड़ोस के व्यवसायों का समर्थन करें</li>
+                    <li><strong>बहुभाषी:</strong> विविध समुदायों को उनकी भाषा में सेवा दें</li>
+                </ul>
+                <p>खरीदारी शुरू करने के लिए ऊपर ड्रॉपडाउन से एक स्टोर चुनें!</p>
+            </div>`,
+            mr: `<div class="app-info">
+                <h3>दुकान से बद्दल</h3>
+                <p>दुकान से स्थानिक दुकानांना ऑनलाइन आणते, त्यांना कॉर्पोरेट डिजिटल प्लॅटफॉर्मसह स्पर्धा करण्यात मदत करते.</p>
+                <p>आमचे लक्ष्य छोट्या व्यवसायांना महागड्या तांत्रिक गुंतवणुकीशिवाय ऑनलाइन ग्राहकांपर्यंत पोहोचण्याचा सोपा मार्ग देऊन सशक्त करणे आहे.</p>
+                <h4>मुख्य वैशिष्ट्ये:</h4>
+                <ul>
+                    <li><strong>सोपी सेटअप:</strong> स्टोअर मालक मिनिटांमध्ये ऑनलाइन होऊ शकतात</li>
+                    <li><strong>व्हाट्सअॅप एकत्रीकरण:</strong> विद्यमान संवाद चॅनेल वापरा</li>
+                    <li><strong>कमिशन नाही:</strong> कॉर्पोरेट प्लॅटफॉर्मच्या विपरीत, आम्ही हिस्सा घेत नाही</li>
+                    <li><strong>स्थानिक फोकस:</strong> शेजारील व्यवसायांना समर्थन द्या</li>
+                    <li><strong>बहुभाषिक:</strong> विविध समुदायांना त्यांच्या भाषेत सेवा द्या</li>
+                </ul>
+                <p>खरेदी सुरू करण्यासाठी वरील ड्रॉपडाउनमधून स्टोअर निवडा!</p>
+            </div>`
+        },
         products: [],
         categories: []
     },
@@ -20,59 +65,95 @@ const STORES = {
                 name: "Sodium Hydroxide (NaOH)",
                 price: 450,
                 category: "Industrial Chemicals",
-                image: "https://via.placeholder.com/150?text=NaOH"
+                image: "https://dummyimage.com/150x150/cccccc/333333.png&text=NaOH"
             },
             {
                 id: 2,
                 name: "Hydrochloric Acid (HCl)",
                 price: 380,
                 category: "Industrial Chemicals",
-                image: "https://via.placeholder.com/150?text=HCl"
+                image: "https://dummyimage.com/150x150/cccccc/333333.png&text=HCl"
             },
             {
                 id: 3,
                 name: "Sulfuric Acid (H2SO4)",
                 price: 420,
                 category: "Industrial Chemicals",
-                image: "https://via.placeholder.com/150?text=H2SO4"
+                image: "https://dummyimage.com/150x150/cccccc/333333.png&text=H2SO4"
             },
             {
                 id: 4,
                 name: "Ethanol (C2H5OH)",
                 price: 550,
                 category: "Solvents",
-                image: "https://via.placeholder.com/150?text=Ethanol"
+                image: "https://dummyimage.com/150x150/cccccc/333333.png&text=Ethanol"
             },
             {
                 id: 5,
                 name: "Acetone (C3H6O)",
                 price: 480,
                 category: "Solvents",
-                image: "https://via.placeholder.com/150?text=Acetone"
+                image: "https://dummyimage.com/150x150/cccccc/333333.png&text=Acetone"
             },
             {
                 id: 6,
                 name: "Ammonia Solution",
                 price: 320,
                 category: "Cleaning Agents",
-                image: "https://via.placeholder.com/150?text=Ammonia"
+                image: "https://dummyimage.com/150x150/cccccc/333333.png&text=Ammonia"
             },
             {
                 id: 7,
                 name: "Hydrogen Peroxide (H2O2)",
                 price: 280,
                 category: "Cleaning Agents",
-                image: "https://via.placeholder.com/150?text=H2O2"
+                image: "https://dummyimage.com/150x150/cccccc/333333.png&text=H2O2"
             },
             {
                 id: 8,
                 name: "Sodium Bicarbonate",
                 price: 150,
                 category: "Laboratory Chemicals",
-                image: "https://via.placeholder.com/150?text=NaHCO3"
+                image: "https://dummyimage.com/150x150/cccccc/333333.png&text=NaHCO3"
             }
         ],
-        categories: ["Industrial Chemicals", "Solvents", "Cleaning Agents", "Laboratory Chemicals"]
+        categories: ["Industrial Chemicals", "Solvents", "Cleaning Agents", "Laboratory Chemicals"],
+        productTranslations: {
+            hi: {
+                "Sodium Hydroxide (NaOH)": "सोडियम हाइड्रॉक्साइड (NaOH)",
+                "Hydrochloric Acid (HCl)": "हाइड्रोक्लोरिक एसिड (HCl)",
+                "Sulfuric Acid (H2SO4)": "सल्फ्यूरिक एसिड (H2SO4)",
+                "Ethanol (C2H5OH)": "इथेनॉल (C2H5OH)",
+                "Acetone (C3H6O)": "एसीटोन (C3H6O)",
+                "Ammonia Solution": "अमोनिया सॉल्यूशन",
+                "Hydrogen Peroxide (H2O2)": "हाइड्रोजन पेरोक्साइड (H2O2)",
+                "Sodium Bicarbonate": "सोडियम बाइकार्बोनेट"
+            },
+            mr: {
+                "Sodium Hydroxide (NaOH)": "सोडियम हायड्रॉक्साईड (NaOH)",
+                "Hydrochloric Acid (HCl)": "हायड्रोक्लोरिक अॅसिड (HCl)",
+                "Sulfuric Acid (H2SO4)": "सल्फ्युरिक अॅसिड (H2SO4)",
+                "Ethanol (C2H5OH)": "इथेनॉल (C2H5OH)",
+                "Acetone (C3H6O)": "अॅसिटोन (C3H6O)",
+                "Ammonia Solution": "अमोनिया सोल्युशन",
+                "Hydrogen Peroxide (H2O2)": "हायड्रोजन पेरॉक्साईड (H2O2)",
+                "Sodium Bicarbonate": "सोडियम बायकार्बोनेट"
+            }
+        },
+        categoryTranslations: {
+            hi: {
+                "Industrial Chemicals": "औद्योगिक रसायन",
+                "Solvents": "विलायक",
+                "Cleaning Agents": "सफाई एजेंट",
+                "Laboratory Chemicals": "प्रयोगशाला रसायन"
+            },
+            mr: {
+                "Industrial Chemicals": "औद्योगिक रसायने",
+                "Solvents": "द्रावक",
+                "Cleaning Agents": "सफाई एजंट",
+                "Laboratory Chemicals": "प्रयोगशाळा रसायने"
+            }
+        }
     },
     krishna: {
         name: "Krishna Grocery",
@@ -83,59 +164,93 @@ const STORES = {
                 name: "Basmati Rice (5kg)",
                 price: 450,
                 category: "Grains & Pulses",
-                image: "https://via.placeholder.com/150?text=Rice"
+                image: "https://dummyimage.com/150x150/cccccc/333333.png&text=Rice"
             },
             {
                 id: 2,
                 name: "Toor Dal (1kg)",
                 price: 120,
                 category: "Grains & Pulses",
-                image: "https://via.placeholder.com/150?text=Dal"
+                image: "https://dummyimage.com/150x150/cccccc/333333.png&text=Dal"
             },
             {
                 id: 3,
                 name: "Sugar (1kg)",
                 price: 45,
                 category: "Essentials",
-                image: "https://via.placeholder.com/150?text=Sugar"
+                image: "https://dummyimage.com/150x150/cccccc/333333.png&text=Sugar"
             },
             {
                 id: 4,
                 name: "Wheat Flour (5kg)",
                 price: 220,
                 category: "Grains & Pulses",
-                image: "https://via.placeholder.com/150?text=Flour"
+                image: "https://dummyimage.com/150x150/cccccc/333333.png&text=Flour"
             },
             {
                 id: 5,
                 name: "Cooking Oil (1L)",
                 price: 180,
                 category: "Essentials",
-                image: "https://via.placeholder.com/150?text=Oil"
+                image: "https://dummyimage.com/150x150/cccccc/333333.png&text=Oil"
             },
             {
                 id: 6,
                 name: "Salt (1kg)",
                 price: 25,
                 category: "Essentials",
-                image: "https://via.placeholder.com/150?text=Salt"
+                image: "https://dummyimage.com/150x150/cccccc/333333.png&text=Salt"
             },
             {
                 id: 7,
                 name: "Tea Powder (500g)",
                 price: 150,
                 category: "Beverages",
-                image: "https://via.placeholder.com/150?text=Tea"
+                image: "https://dummyimage.com/150x150/cccccc/333333.png&text=Tea"
             },
             {
                 id: 8,
                 name: "Coffee Powder (200g)",
                 price: 200,
                 category: "Beverages",
-                image: "https://via.placeholder.com/150?text=Coffee"
+                image: "https://dummyimage.com/150x150/cccccc/333333.png&text=Coffee"
             }
         ],
-        categories: ["Grains & Pulses", "Essentials", "Beverages"]
+        categories: ["Grains & Pulses", "Essentials", "Beverages"],
+        productTranslations: {
+            hi: {
+                "Basmati Rice (5kg)": "बासमती चावल (5kg)",
+                "Toor Dal (1kg)": "तूर दाल (1kg)",
+                "Sugar (1kg)": "चीनी (1kg)",
+                "Wheat Flour (5kg)": "गेहूं का आटा (5kg)",
+                "Cooking Oil (1L)": "खाना पकाने का तेल (1L)",
+                "Salt (1kg)": "नमक (1kg)",
+                "Tea Powder (500g)": "चाय पाउडर (500g)",
+                "Coffee Powder (200g)": "कॉफी पाउडर (200g)"
+            },
+            mr: {
+                "Basmati Rice (5kg)": "बासमती तांदूळ (5kg)",
+                "Toor Dal (1kg)": "तूर डाळ (1kg)",
+                "Sugar (1kg)": "साखर (1kg)",
+                "Wheat Flour (5kg)": "गव्हाचे पीठ (5kg)",
+                "Cooking Oil (1L)": "खाद्यतेल (1L)",
+                "Salt (1kg)": "मीठ (1kg)",
+                "Tea Powder (500g)": "चहा पावडर (500g)",
+                "Coffee Powder (200g)": "कॉफी पावडर (200g)"
+            }
+        },
+        categoryTranslations: {
+            hi: {
+                "Grains & Pulses": "अनाज और दालें",
+                "Essentials": "आवश्यक सामग्री",
+                "Beverages": "पेय पदार्थ"
+            },
+            mr: {
+                "Grains & Pulses": "धान्य आणि डाळी",
+                "Essentials": "आवश्यक वस्तू",
+                "Beverages": "पेय पदार्थ"
+            }
+        }
     },
     food: {
         name: "Good Food Store",
@@ -146,59 +261,91 @@ const STORES = {
                 name: "Fresh Milk (1L)",
                 price: 60,
                 category: "Dairy & Eggs",
-                image: "https://via.placeholder.com/150?text=Milk"
+                image: "https://dummyimage.com/150x150/cccccc/333333.png&text=Milk"
             },
             {
                 id: 2,
                 name: "Eggs (Dozen)",
                 price: 80,
                 category: "Dairy & Eggs",
-                image: "https://via.placeholder.com/150?text=Eggs"
+                image: "https://dummyimage.com/150x150/cccccc/333333.png&text=Eggs"
             },
             {
                 id: 3,
                 name: "Bread (400g)",
                 price: 40,
                 category: "Bakery",
-                image: "https://via.placeholder.com/150?text=Bread"
+                image: "https://dummyimage.com/150x150/cccccc/333333.png&text=Bread"
             },
             {
                 id: 4,
                 name: "Butter (100g)",
                 price: 50,
                 category: "Dairy & Eggs",
-                image: "https://via.placeholder.com/150?text=Butter"
+                image: "https://dummyimage.com/150x150/cccccc/333333.png&text=Butter"
             },
             {
                 id: 5,
                 name: "Cheese (200g)",
                 price: 120,
                 category: "Dairy & Eggs",
-                image: "https://via.placeholder.com/150?text=Cheese"
+                image: "https://dummyimage.com/150x150/cccccc/333333.png&text=Cheese"
             },
             {
                 id: 6,
                 name: "Yogurt (500g)",
                 price: 45,
                 category: "Dairy & Eggs",
-                image: "https://via.placeholder.com/150?text=Yogurt"
+                image: "https://dummyimage.com/150x150/cccccc/333333.png&text=Yogurt"
             },
             {
                 id: 7,
                 name: "Croissant (Pack of 4)",
                 price: 100,
                 category: "Bakery",
-                image: "https://via.placeholder.com/150?text=Croissant"
+                image: "https://dummyimage.com/150x150/cccccc/333333.png&text=Croissant"
             },
             {
                 id: 8,
                 name: "Muffins (Pack of 6)",
                 price: 150,
                 category: "Bakery",
-                image: "https://via.placeholder.com/150?text=Muffins"
+                image: "https://dummyimage.com/150x150/cccccc/333333.png&text=Muffins"
             }
         ],
-        categories: ["Dairy & Eggs", "Bakery"]
+        categories: ["Dairy & Eggs", "Bakery"],
+        productTranslations: {
+            hi: {
+                "Fresh Milk (1L)": "ताजा दूध (1L)",
+                "Eggs (Dozen)": "अंडे (दर्जन)",
+                "Bread (400g)": "ब्रेड (400g)",
+                "Butter (100g)": "मक्खन (100g)",
+                "Cheese (200g)": "पनीर (200g)",
+                "Yogurt (500g)": "दही (500g)",
+                "Croissant (Pack of 4)": "क्रोइसेंट (4 का पैक)",
+                "Muffins (Pack of 6)": "मफिन्स (6 का पैक)"
+            },
+            mr: {
+                "Fresh Milk (1L)": "ताजे दूध (1L)",
+                "Eggs (Dozen)": "अंडी (डझन)",
+                "Bread (400g)": "ब्रेड (400g)",
+                "Butter (100g)": "लोणी (100g)",
+                "Cheese (200g)": "चीझ (200g)",
+                "Yogurt (500g)": "दही (500g)",
+                "Croissant (Pack of 4)": "क्रोसाँ (4 चा पॅक)",
+                "Muffins (Pack of 6)": "मफिन्स (6 चा पॅक)"
+            }
+        },
+        categoryTranslations: {
+            hi: {
+                "Dairy & Eggs": "डेयरी और अंडे",
+                "Bakery": "बेकरी उत्पाद"
+            },
+            mr: {
+                "Dairy & Eggs": "दुग्धजन्य आणि अंडी",
+                "Bakery": "बेकरी उत्पादने"
+            }
+        }
     },
     ir: {
         name: "IR",
@@ -209,73 +356,123 @@ const STORES = {
                 name: "Common Cold",
                 price: 99,
                 category: "Viral Infections",
-                image: "https://via.placeholder.com/150?text=🤧"
+                image: "https://dummyimage.com/150x150/cccccc/333333.png&text=🤧"
             },
             {
                 id: 2,
                 name: "High Blood Pressure",
                 price: 499,
                 category: "Chronic Conditions",
-                image: "https://via.placeholder.com/150?text=🫀"
+                image: "https://dummyimage.com/150x150/cccccc/333333.png&text=🫀"
             },
             {
                 id: 3,
                 name: "Diabetes",
                 price: 999,
                 category: "Chronic Conditions",
-                image: "https://via.placeholder.com/150?text=🍬"
+                image: "https://dummyimage.com/150x150/cccccc/333333.png&text=🍬"
             },
             {
                 id: 4,
                 name: "Migraine",
                 price: 299,
                 category: "Neurological",
-                image: "https://via.placeholder.com/150?text=🤕"
+                image: "https://dummyimage.com/150x150/cccccc/333333.png&text=🤕"
             },
             {
                 id: 5,
                 name: "Insomnia",
                 price: 399,
                 category: "Sleep Disorders",
-                image: "https://via.placeholder.com/150?text=😴"
+                image: "https://dummyimage.com/150x150/cccccc/333333.png&text=😴"
             },
             {
                 id: 6,
                 name: "Anxiety",
                 price: 199,
                 category: "Mental Health",
-                image: "https://via.placeholder.com/150?text=😰"
+                image: "https://dummyimage.com/150x150/cccccc/333333.png&text=😰"
             },
             {
                 id: 7,
                 name: "Allergies",
                 price: 149,
                 category: "Immune System",
-                image: "https://via.placeholder.com/150?text=🤧"
+                image: "https://dummyimage.com/150x150/cccccc/333333.png&text=🤧"
             },
             {
                 id: 8,
                 name: "Back Pain",
                 price: 249,
                 category: "Musculoskeletal",
-                image: "https://via.placeholder.com/150?text=🦴"
+                image: "https://dummyimage.com/150x150/cccccc/333333.png&text=🦴"
             },
             {
                 id: 9,
                 name: "Acne",
                 price: 79,
                 category: "Skin Conditions",
-                image: "https://via.placeholder.com/150?text=😳"
+                image: "https://dummyimage.com/150x150/cccccc/333333.png&text=😳"
             },
             {
                 id: 10,
                 name: "Hair Loss",
                 price: 599,
                 category: "Hair & Scalp",
-                image: "https://via.placeholder.com/150?text=💇"
+                image: "https://dummyimage.com/150x150/cccccc/333333.png&text=💇"
             }
         ],
-        categories: ["Viral Infections", "Chronic Conditions", "Neurological", "Sleep Disorders", "Mental Health", "Immune System", "Musculoskeletal", "Skin Conditions", "Hair & Scalp"]
+        categories: ["Viral Infections", "Chronic Conditions", "Neurological", "Sleep Disorders", "Mental Health", "Immune System", "Musculoskeletal", "Skin Conditions", "Hair & Scalp"],
+        productTranslations: {
+            hi: {
+                "Common Cold": "जुकाम",
+                "High Blood Pressure": "उच्च रक्तचाप",
+                "Diabetes": "मधुमेह",
+                "Migraine": "माइग्रेन",
+                "Insomnia": "अनिद्रा",
+                "Anxiety": "चिंता",
+                "Allergies": "एलर्जी",
+                "Back Pain": "पीठ दर्द",
+                "Acne": "मुंहासे",
+                "Hair Loss": "बालों का झड़ना"
+            },
+            mr: {
+                "Common Cold": "सर्दी",
+                "High Blood Pressure": "उच्च रक्तदाब",
+                "Diabetes": "मधुमेह",
+                "Migraine": "अर्धशिशी",
+                "Insomnia": "अनिद्रा",
+                "Anxiety": "चिंता",
+                "Allergies": "अॅलर्जी",
+                "Back Pain": "पाठीचा त्रास",
+                "Acne": "मुरुम",
+                "Hair Loss": "केस गळणे"
+            }
+        },
+        categoryTranslations: {
+            hi: {
+                "Viral Infections": "वायरल संक्रमण",
+                "Chronic Conditions": "पुरानी बीमारियां",
+                "Neurological": "तंत्रिका संबंधी",
+                "Sleep Disorders": "नींद विकार",
+                "Mental Health": "मानसिक स्वास्थ्य",
+                "Immune System": "प्रतिरक्षा प्रणाली",
+                "Musculoskeletal": "मांसपेशी-कंकाल",
+                "Skin Conditions": "त्वचा की स्थिति",
+                "Hair & Scalp": "बाल और खोपड़ी"
+            },
+            mr: {
+                "Viral Infections": "विषाणूजन्य संसर्ग",
+                "Chronic Conditions": "दीर्घकालीन आजार",
+                "Neurological": "चेतासंस्थेविषयक",
+                "Sleep Disorders": "झोपेचे विकार",
+                "Mental Health": "मानसिक आरोग्य",
+                "Immune System": "रोगप्रतिकारशक्ती",
+                "Musculoskeletal": "स्नायू-अस्थि",
+                "Skin Conditions": "त्वचेचे आजार",
+                "Hair & Scalp": "केस आणि कवटी"
+            }
+        }
     }
 };
 
@@ -507,10 +704,24 @@ function switchStore(storeId) {
     const store = STORES[storeId];
     if (!store) return;
 
+    // Clear the cart when switching stores
+    if (cart.length > 0) {
+        if (confirm('Switching stores will clear your current cart. Continue?')) {
+            cart = [];
+            saveCartToStorage();
+        } else {
+            // User cancelled, revert the dropdown
+            storeSwitcher.value = STORE_CONFIG.storeId || 'quickkart';
+            return;
+        }
+    }
+
     // Update store configuration
     STORE_CONFIG = {
         storeName: store.name,
-        whatsappNumber: store.whatsappNumber
+        whatsappNumber: store.whatsappNumber,
+        isInfoPage: store.isInfoPage || false,
+        storeId: storeId
     };
 
     // Update products and categories
@@ -523,11 +734,28 @@ function switchStore(storeId) {
     // Reset search and category
     currentSearchTerm = '';
     currentCategory = 'all';
-    searchInput.value = '';
+    if (searchInput) searchInput.value = '';
 
-    // Re-render UI
-    renderCategories();
-    renderProducts();
+    // Handle info page vs store page
+    if (store.isInfoPage) {
+        // Show description
+        productCatalog.innerHTML = store.description[currentLanguage];
+        
+        // Hide other elements
+        if (categoryFilter) categoryFilter.style.display = 'none';
+        if (searchInput) searchInput.parentElement.parentElement.style.display = 'none';
+        document.getElementById('fixed-checkout').style.display = 'none';
+    } else {
+        // Show store elements
+        if (categoryFilter) categoryFilter.style.display = 'flex';
+        if (searchInput) searchInput.parentElement.parentElement.style.display = 'block';
+        document.getElementById('fixed-checkout').style.display = 'block';
+        
+        // Render store content
+        renderCategories();
+        renderProducts();
+    }
+    
     updateCartUI();
 }
 
@@ -576,19 +804,30 @@ function loadCustomerInfo() {
 
 // Render category filters
 function renderCategories() {
-    if (!categoryFilter) return;
+    if (!categoryFilter || STORE_CONFIG.isInfoPage) return;
     
     const t = translations[currentLanguage];
+    const currentStore = STORES[storeSwitcher.value];
     
     categoryFilter.innerHTML = `
         <button class="btn btn-outline-primary me-2 mb-2 active" data-category="all">
             ${t.allItems}
         </button>
-        ${categories.map(category => `
-            <button class="btn btn-outline-primary me-2 mb-2" data-category="${category}">
-                ${category}
-            </button>
-        `).join('')}
+        ${categories.map(category => {
+            // Get translated category name if available
+            let categoryName = category;
+            if (currentLanguage !== 'en' && currentStore.categoryTranslations && 
+                currentStore.categoryTranslations[currentLanguage] && 
+                currentStore.categoryTranslations[currentLanguage][category]) {
+                categoryName = currentStore.categoryTranslations[currentLanguage][category];
+            }
+            
+            return `
+                <button class="btn btn-outline-primary me-2 mb-2" data-category="${category}">
+                    ${categoryName}
+                </button>
+            `;
+        }).join('')}
     `;
 
     // Add event listeners to category buttons
@@ -615,8 +854,28 @@ function filterProducts() {
     });
 }
 
-// Render products in the catalog
+// Function to handle broken images
+function handleImageError(img) {
+    const productName = img.alt || 'Product';
+    img.src = `https://dummyimage.com/150x150/cccccc/333333.png&text=${encodeURIComponent(productName.split(' ')[0])}`;
+    img.onerror = null; // Prevent infinite error loop
+}
+
+// Function to enhance product rendering with image error handling
+function enhanceProductRendering() {
+    // Add error handler to all product images
+    document.querySelectorAll('.product-image').forEach(img => {
+        img.onerror = function() {
+            handleImageError(this);
+        };
+    });
+}
+
+// Original render products function with image error handling
 function renderProducts() {
+    // If this is an info page, don't render products
+    if (STORE_CONFIG.isInfoPage) return;
+    
     const t = translations[currentLanguage];
     const filteredProducts = filterProducts();
 
@@ -631,11 +890,21 @@ function renderProducts() {
 
     productCatalog.innerHTML = filteredProducts.map(product => {
         const quantity = getProductQuantityInCart(product.id);
+        
+        // Get translated product name if available
+        let productName = product.name;
+        const currentStore = STORES[storeSwitcher.value];
+        if (currentLanguage !== 'en' && currentStore.productTranslations && 
+            currentStore.productTranslations[currentLanguage] && 
+            currentStore.productTranslations[currentLanguage][product.name]) {
+            productName = currentStore.productTranslations[currentLanguage][product.name];
+        }
+        
         return `
             <div class="col-6 col-md-4 mb-4">
                 <div class="product-card">
-                    <img src="${product.image}" alt="${product.name}" class="product-image">
-                    <h5 class="mt-2">${product.name}</h5>
+                    <img src="${product.image}" alt="${productName}" class="product-image" onerror="handleImageError(this)">
+                    <h5 class="mt-2">${productName}</h5>
                     <p class="text-muted">₹${product.price}</p>
                     ${quantity === 0 ? 
                         `<button class="btn btn-primary w-100" onclick="addToCart(${product.id})">
@@ -652,6 +921,9 @@ function renderProducts() {
             </div>
         `;
     }).join('');
+    
+    // Apply error handling to all images
+    enhanceProductRendering();
 }
 
 // Get product quantity in cart
@@ -671,14 +943,25 @@ function addToCart(productId) {
     const product = products.find(p => p.id === productId);
     const existingItem = cart.find(item => item.id === productId);
 
+    // Get translated product name if available
+    let productName = product.name;
+    const currentStore = STORES[storeSwitcher.value];
+    if (currentLanguage !== 'en' && currentStore.productTranslations && 
+        currentStore.productTranslations[currentLanguage] && 
+        currentStore.productTranslations[currentLanguage][product.name]) {
+        productName = currentStore.productTranslations[currentLanguage][product.name];
+    }
+
     if (existingItem) {
         existingItem.quantity += 1;
     } else {
         cart.push({
             id: product.id,
             name: product.name,
+            displayName: productName,
             price: product.price,
-            quantity: 1
+            quantity: 1,
+            storeId: storeSwitcher.value
         });
     }
 
@@ -717,19 +1000,32 @@ function updateCartUI() {
         cartItems.innerHTML = `<p class="text-muted text-center">${t.emptyCart}</p>`;
         checkoutBtn.disabled = true;
     } else {
-        cartItems.innerHTML = cart.map(item => `
-            <div class="cart-item">
-                <div>
-                    <h6 class="mb-0">${item.name}</h6>
-                    <small class="text-muted">₹${item.price} × ${item.quantity}</small>
+        cartItems.innerHTML = cart.map(item => {
+            // Get translated product name if available
+            let productName = item.displayName || item.name;
+            if (!item.displayName && currentLanguage !== 'en') {
+                const itemStore = STORES[item.storeId];
+                if (itemStore && itemStore.productTranslations && 
+                    itemStore.productTranslations[currentLanguage] && 
+                    itemStore.productTranslations[currentLanguage][item.name]) {
+                    productName = itemStore.productTranslations[currentLanguage][item.name];
+                }
+            }
+            
+            return `
+                <div class="cart-item">
+                    <div>
+                        <h6 class="mb-0">${productName}</h6>
+                        <small class="text-muted">₹${item.price} × ${item.quantity}</small>
+                    </div>
+                    <div class="quantity-controls">
+                        <button class="btn btn-sm btn-outline-secondary" onclick="updateQuantity(${item.id}, -1)">-</button>
+                        <span>${item.quantity}</span>
+                        <button class="btn btn-sm btn-outline-secondary" onclick="updateQuantity(${item.id}, 1)">+</button>
+                    </div>
                 </div>
-                <div class="quantity-controls">
-                    <button class="btn btn-sm btn-outline-secondary" onclick="updateQuantity(${item.id}, -1)">-</button>
-                    <span>${item.quantity}</span>
-                    <button class="btn btn-sm btn-outline-secondary" onclick="updateQuantity(${item.id}, 1)">+</button>
-                </div>
-            </div>
-        `).join('');
+            `;
+        }).join('');
         checkoutBtn.disabled = !customerInfo.name;
     }
 
@@ -742,15 +1038,26 @@ function updateCartUI() {
 
 // Generate WhatsApp message and form data
 function generateOrderData() {
-    const items = cart.map(item => 
-        `${item.name} (${item.quantity} × ₹${item.price})`
-    ).join('\n');
+    const items = cart.map(item => {
+        // Get translated product name if available
+        let productName = item.displayName || item.name;
+        if (!item.displayName && currentLanguage !== 'en') {
+            const itemStore = STORES[item.storeId];
+            if (itemStore && itemStore.productTranslations && 
+                itemStore.productTranslations[currentLanguage] && 
+                itemStore.productTranslations[currentLanguage][item.name]) {
+                productName = itemStore.productTranslations[currentLanguage][item.name];
+            }
+        }
+        
+        return `${productName} (${item.quantity} × ₹${item.price})`;
+    }).join('\n');
     
     const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
     
     const paymentMethod = selectedPaymentMethod === 'upi' 
-        ? 'UPI Payment' 
-        : 'Cash on Delivery / UPI on Delivery';
+        ? translations[currentLanguage].upiPayment
+        : translations[currentLanguage].cashOnDelivery;
     
     // Format WhatsApp message with proper line breaks
     const whatsappMessage = [
@@ -872,6 +1179,7 @@ function loadCartFromStorage() {
 window.addToCart = addToCart;
 window.updateQuantity = updateQuantity;
 window.handleCheckout = handleCheckout;
+window.handleImageError = handleImageError;
 
 // Initialize the app
 init(); 
