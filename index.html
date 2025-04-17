@@ -4,31 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <meta name="theme-color" content="#f8f9fa">
-    <title>Dukan Se! - Order Online</title>
+    <title>Dukan Se - Order Online</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
 </head>
 <body>
-    <div class="container mt-4">
-        <header class="mb-4 text-center">
-            <h1 id="app-title">Dukan Se!</h1>
-            <p id="app-description" class="text-muted">Your local stores, now online!</p>
-            <div class="theme-toggle-container mx-auto">
-                <input type="checkbox" id="theme-toggle" class="theme-toggle">
-                <label for="theme-toggle" class="theme-toggle-label"></label>
+    <div class="container">
+        <header class="text-center my-4">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+                <h1 class="mb-0">Dukan Se</h1>
+                <div class="d-flex align-items-center">
+                    <div class="theme-toggle-container me-3">
+                        <input type="checkbox" id="theme-toggle" class="theme-toggle">
+                        <label for="theme-toggle" class="theme-toggle-label">
+                            <i class="fas fa-sun"></i>
+                            <i class="fas fa-moon"></i>
+                            <span class="ball"></span>
+                        </label>
+                    </div>
+                    <div class="store-switcher ms-3">
+                        <select id="store-switcher" class="form-select">
+                            <option value="quickkart">Dukan Se (About)</option>
+                            <option value="chemicals">A to Z Chemicals</option>
+                            <option value="krishna">Krishna Grocery</option>
+                            <option value="food">Good Food Store</option>
+                            <option value="ir">IR</option>
+                        </select>
+                    </div>
+                </div>
             </div>
-            <div class="language-switcher mt-3">
-                <button data-lang="en" class="btn btn-sm btn-outline-primary active">English</button>
-                <button data-lang="hi" class="btn btn-sm btn-outline-primary">हिंदी</button>
-                <button data-lang="mr" class="btn btn-sm btn-outline-primary">मराठी</button>
-            </div>
-            <div class="store-switcher mt-3">
-                <select id="store-switcher" class="form-select w-auto mx-auto">
-                    <option value="dukanSe">Dukan Se!</option>
-                    <option value="krishna">Krishna Grocery</option>
-                    <option value="goodfood">Good Food Mart</option>
-                </select>
+            <p class="text-muted" id="app-description">Your local stores, now online! Order directly via WhatsApp with just a few clicks.</p>
+            
+            <!-- Language Switcher -->
+            <div class="language-switcher mb-3">
+                <button class="btn btn-sm btn-outline-secondary me-1 active" data-lang="en">English</button>
+                <button class="btn btn-sm btn-outline-secondary me-1" data-lang="hi">हिंदी</button>
+                <button class="btn btn-sm btn-outline-secondary" data-lang="mr">मराठी</button>
             </div>
         </header>
 
@@ -44,59 +56,45 @@
             </div>
         </div>
 
-        <!-- Search & Sort Section -->
-        <div class="row mb-3">
-            <div class="col-md-6 mb-3 mb-md-0">
-                <div class="search-section">
-                    <div class="input-group">
-                        <span class="input-group-text"><i class="fas fa-search"></i></span>
-                        <input type="text" id="search-input" class="form-control" placeholder="Search products..." aria-label="Search products">
-                        <button class="btn btn-outline-secondary" type="button" id="clear-search"><i class="fas fa-times"></i></button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="search-section">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <label for="sort-select" class="mb-0 me-2 sort-label">Sort by:</label>
-                        <select class="form-select" id="sort-select">
-                            <option value="default">Default</option>
-                            <option value="price-low">Price: Low to High</option>
-                            <option value="price-high">Price: High to Low</option>
-                            <option value="weight-low">Weight: Low to High</option>
-                            <option value="weight-high">Weight: High to Low</option>
-                        </select>
-                    </div>
-                </div>
+        <!-- Search Bar -->
+        <div class="search-section mb-4">
+            <div class="input-group">
+                <span class="input-group-text bg-white">
+                    <i class="bi bi-search"></i>
+                </span>
+                <input type="text" id="search-input" class="form-control" placeholder="Search products...">
+                <button class="btn btn-outline-secondary" type="button" id="clear-search">
+                    <i class="bi bi-x-lg"></i>
+                </button>
             </div>
         </div>
 
-        <!-- Category Filter -->
-        <div id="category-filter" class="category-filter"></div>
+        <!-- Category Filters -->
+        <div id="category-filter" class="mb-4">
+            <!-- Categories will be loaded here -->
+        </div>
 
-        <!-- Product Container and Cart -->
-        <div class="row">
-            <!-- Product Container -->
-            <div class="col-md-8 mb-4">
-                <div id="product-container" class="row product-grid"></div>
+        <!-- Product Catalog -->
+        <div id="product-catalog" class="row g-3">
+            <!-- Products will be loaded here -->
+        </div>
+
+        <!-- Cart Section -->
+        <div class="col-md-4">
+            <div class="cart-section">
+                <h5 class="mb-0" id="cart-title">Your Cart <span id="cart-count" class="badge bg-primary">0</span></h5>
+                <div id="cart-items" class="cart-items"></div>
             </div>
+        </div>
 
-            <!-- Cart Section -->
-            <div class="col-md-4">
-                <div class="cart-container">
-                    <div class="d-flex justify-content-between align-items-center mb-3">
-                        <h5 class="mb-0"><i class="fas fa-shopping-cart"></i> <span id="cart-text">Your Cart</span></h5>
-                        <span class="badge bg-primary rounded-pill" id="cart-count">0</span>
-                    </div>
-                    <div id="cart-items" class="cart-items"></div>
-                    <div class="d-flex justify-content-between align-items-center mt-3">
-                        <div>
-                            <strong><span id="total-text">Total:</span> <span id="cart-total">₹0</span></strong>
-                        </div>
-                        <button id="checkout-btn" class="btn btn-primary" disabled>
-                            <span id="checkout-text">Send Order via WhatsApp</span>
-                        </button>
-                    </div>
+        <!-- Fixed Checkout Button -->
+        <div class="checkout-fixed" id="fixed-checkout">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <span id="fixed-cart-total" class="fw-bold">₹0</span>
+                    <button id="checkout-btn" class="btn btn-primary" disabled>
+                        <span id="checkout-btn-text">Proceed to Payment</span>
+                    </button>
                 </div>
             </div>
         </div>
