@@ -291,13 +291,88 @@ let customerInfo = {
 let currentSearchTerm = '';
 let currentCategory = 'all';
 
+// Language state
+let currentLanguage = 'en';
+
+// Translations
+const translations = {
+    en: {
+        appTitle: "Dukan Se",
+        appDescription: "Your local stores, now online! Order directly via WhatsApp with just a few clicks.",
+        addToCart: "Add to Cart",
+        yourCart: "Your Cart",
+        emptyCart: "Your cart is empty",
+        proceedToPayment: "Proceed to Payment",
+        selectPaymentMethod: "Select Payment Method",
+        upiPayment: "UPI Payment",
+        cashOnDelivery: "Cash on Delivery / UPI on Delivery",
+        sendOrderViaWhatsApp: "Send Order via WhatsApp",
+        deliveryDetails: "Delivery Details",
+        name: "Name",
+        phone: "Phone Number",
+        address: "Delivery Address",
+        saveDetails: "Save Details",
+        close: "Close",
+        searchProducts: "Search products...",
+        noProductsFound: "No products found. Try adjusting your search or category.",
+        allItems: "All Items",
+        addDeliveryDetails: "Add/Edit Delivery Details",
+        orderSuccess: "Order submitted successfully! Please check WhatsApp for confirmation."
+    },
+    hi: {
+        appTitle: "दुकान से",
+        appDescription: "आपकी स्थानीय दुकानें, अब ऑनलाइन! व्हाट्सएप के माध्यम से सीधे कुछ ही क्लिक में ऑर्डर करें।",
+        addToCart: "कार्ट में जोड़ें",
+        yourCart: "आपका कार्ट",
+        emptyCart: "आपका कार्ट खाली है",
+        proceedToPayment: "भुगतान के लिए आगे बढ़ें",
+        selectPaymentMethod: "भुगतान विधि चुनें",
+        upiPayment: "यूपीआई भुगतान",
+        cashOnDelivery: "डिलीवरी पर नकद / यूपीआई",
+        sendOrderViaWhatsApp: "व्हाट्सएप के माध्यम से ऑर्डर भेजें",
+        deliveryDetails: "डिलीवरी विवरण",
+        name: "नाम",
+        phone: "फोन नंबर",
+        address: "डिलीवरी पता",
+        saveDetails: "विवरण सहेजें",
+        close: "बंद करें",
+        searchProducts: "उत्पाद खोजें...",
+        noProductsFound: "कोई उत्पाद नहीं मिला। अपनी खोज या श्रेणी को समायोजित करें।",
+        allItems: "सभी आइटम",
+        addDeliveryDetails: "डिलीवरी विवरण जोड़ें/संपादित करें",
+        orderSuccess: "ऑर्डर सफलतापूर्वक सबमिट किया गया! पुष्टि के लिए व्हाट्सएप देखें।"
+    },
+    mr: {
+        appTitle: "दुकान से",
+        appDescription: "तुमच्या स्थानिक दुकाने, आता ऑनलाइन! व्हाट्सअॅप द्वारे थेट काही क्लिकमध्ये ऑर्डर करा.",
+        addToCart: "कार्टमध्ये जोडा",
+        yourCart: "तुमचे कार्ट",
+        emptyCart: "तुमचे कार्ट रिकामे आहे",
+        proceedToPayment: "पेमेंटसाठी पुढे जा",
+        selectPaymentMethod: "पेमेंट पद्धत निवडा",
+        upiPayment: "यूपीआय पेमेंट",
+        cashOnDelivery: "डिलिव्हरीवर रोख / यूपीआय",
+        sendOrderViaWhatsApp: "व्हाट्सअॅपद्वारे ऑर्डर पाठवा",
+        deliveryDetails: "डिलिव्हरी तपशील",
+        name: "नाव",
+        phone: "फोन नंबर",
+        address: "डिलिव्हरी पत्ता",
+        saveDetails: "तपशील जतन करा",
+        close: "बंद करा",
+        searchProducts: "उत्पादने शोधा...",
+        noProductsFound: "कोणतीही उत्पादने सापडली नाहीत. तुमचा शोध किंवा श्रेणी समायोजित करा.",
+        allItems: "सर्व आयटम",
+        addDeliveryDetails: "डिलिव्हरी तपशील जोडा/संपादित करा",
+        orderSuccess: "ऑर्डर यशस्वीरित्या सबमिट केले! पुष्टीकरणासाठी व्हाट्सअॅप तपासा."
+    }
+};
+
 // DOM Elements
 const productCatalog = document.getElementById('product-catalog');
 const cartItems = document.getElementById('cart-items');
 const cartCount = document.getElementById('cart-count');
 const checkoutBtn = document.getElementById('checkout-btn');
-const paymentSection = document.getElementById('payment-section');
-const proceedToWhatsappBtn = document.getElementById('proceed-to-whatsapp');
+const fixedCartTotal = document.getElementById('fixed-cart-total');
 const categoryFilter = document.getElementById('category-filter');
 const customerInfoModal = new bootstrap.Modal(document.getElementById('customerInfoModal'));
 const editCustomerInfoBtn = document.getElementById('edit-customer-info');
@@ -309,6 +384,9 @@ const customerAddressDisplay = document.getElementById('customer-address-display
 const searchInput = document.getElementById('search-input');
 const clearSearchBtn = document.getElementById('clear-search');
 const storeSwitcher = document.getElementById('store-switcher');
+const paymentModal = new bootstrap.Modal(document.getElementById('paymentModal'));
+const proceedToWhatsappBtn = document.getElementById('proceed-to-whatsapp');
+const languageSwitcher = document.querySelector('.language-switcher');
 
 // Payment state
 let selectedPaymentMethod = null;
@@ -321,6 +399,7 @@ function init() {
     loadCartFromStorage();
     loadCustomerInfo();
     setupEventListeners();
+    updateUILanguage();
 }
 
 // Setup event listeners
@@ -363,16 +442,64 @@ function setupEventListeners() {
     // Checkout button
     checkoutBtn.addEventListener('click', () => {
         if (!customerInfo.name) {
-            alert('Please add your delivery details before checkout');
+            alert(translations[currentLanguage].addDeliveryDetails);
             editCustomerInfoBtn.click();
             return;
         }
-        paymentSection.classList.remove('d-none');
-        checkoutBtn.classList.add('d-none');
+        paymentModal.show();
     });
 
     // Proceed to WhatsApp button
     proceedToWhatsappBtn.addEventListener('click', handleCheckout);
+    
+    // Language switcher
+    if (languageSwitcher) {
+        languageSwitcher.querySelectorAll('button').forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                languageSwitcher.querySelectorAll('button').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                // Add active class to clicked button
+                button.classList.add('active');
+                // Set current language
+                currentLanguage = button.dataset.lang;
+                // Update UI language
+                updateUILanguage();
+            });
+        });
+    }
+}
+
+// Update UI language
+function updateUILanguage() {
+    const t = translations[currentLanguage];
+    
+    // Update static elements
+    document.querySelector('h1').textContent = t.appTitle;
+    document.getElementById('app-description').textContent = t.appDescription;
+    document.getElementById('cart-title').textContent = t.yourCart;
+    document.getElementById('checkout-btn-text').textContent = t.proceedToPayment;
+    document.getElementById('payment-modal-title').textContent = t.selectPaymentMethod;
+    document.getElementById('payment-section-title').textContent = t.selectPaymentMethod;
+    document.getElementById('upi-label').textContent = t.upiPayment;
+    document.getElementById('cod-label').textContent = t.cashOnDelivery;
+    document.getElementById('whatsapp-btn-text').textContent = t.sendOrderViaWhatsApp;
+    document.querySelector('.modal-title').textContent = t.deliveryDetails;
+    document.querySelector('label[for="customer-name"]').textContent = t.name;
+    document.querySelector('label[for="customer-phone"]').textContent = t.phone;
+    document.querySelector('label[for="customer-address"]').textContent = t.address;
+    document.getElementById('save-customer-info').textContent = t.saveDetails;
+    document.getElementById('close-payment-btn').textContent = t.close;
+    
+    if (searchInput) {
+        searchInput.placeholder = t.searchProducts;
+    }
+    
+    // Re-render products and categories
+    renderCategories();
+    renderProducts();
+    updateCartUI();
 }
 
 // Switch store
@@ -451,9 +578,11 @@ function loadCustomerInfo() {
 function renderCategories() {
     if (!categoryFilter) return;
     
+    const t = translations[currentLanguage];
+    
     categoryFilter.innerHTML = `
         <button class="btn btn-outline-primary me-2 mb-2 active" data-category="all">
-            All Items
+            ${t.allItems}
         </button>
         ${categories.map(category => `
             <button class="btn btn-outline-primary me-2 mb-2" data-category="${category}">
@@ -488,35 +617,53 @@ function filterProducts() {
 
 // Render products in the catalog
 function renderProducts() {
+    const t = translations[currentLanguage];
     const filteredProducts = filterProducts();
 
     if (filteredProducts.length === 0) {
         productCatalog.innerHTML = `
             <div class="col-12 text-center">
-                <p class="text-muted">No products found. Try adjusting your search or category.</p>
+                <p class="text-muted">${t.noProductsFound}</p>
             </div>
         `;
         return;
     }
 
-    productCatalog.innerHTML = filteredProducts.map(product => `
-        <div class="col-6 col-md-4">
-            <div class="product-card">
-                <img src="${product.image}" alt="${product.name}" class="product-image">
-                <h5 class="mt-2">${product.name}</h5>
-                <p class="text-muted">₹${product.price}</p>
-                <button class="btn btn-primary w-100" onclick="addToCart(${product.id})">
-                    Add to Cart
-                </button>
+    productCatalog.innerHTML = filteredProducts.map(product => {
+        const quantity = getProductQuantityInCart(product.id);
+        return `
+            <div class="col-6 col-md-4 mb-4">
+                <div class="product-card">
+                    <img src="${product.image}" alt="${product.name}" class="product-image">
+                    <h5 class="mt-2">${product.name}</h5>
+                    <p class="text-muted">₹${product.price}</p>
+                    ${quantity === 0 ? 
+                        `<button class="btn btn-primary w-100" onclick="addToCart(${product.id})">
+                            ${t.addToCart}
+                        </button>` 
+                        : 
+                        `<div class="product-quantity">
+                            <button onclick="updateQuantity(${product.id}, -1)">-</button>
+                            <span>${quantity}</span>
+                            <button onclick="updateQuantity(${product.id}, 1)">+</button>
+                        </div>`
+                    }
+                </div>
             </div>
-        </div>
-    `).join('');
+        `;
+    }).join('');
+}
+
+// Get product quantity in cart
+function getProductQuantityInCart(productId) {
+    const item = cart.find(item => item.id === productId);
+    return item ? item.quantity : 0;
 }
 
 // Add product to cart
 function addToCart(productId) {
     if (!customerInfo.name) {
-        alert('Please add your delivery details before adding items to cart');
+        alert(translations[currentLanguage].addDeliveryDetails);
         editCustomerInfoBtn.click();
         return;
     }
@@ -537,6 +684,7 @@ function addToCart(productId) {
 
     updateCartUI();
     saveCartToStorage();
+    renderProducts(); // Re-render to update quantity buttons
 }
 
 // Remove product from cart
@@ -562,11 +710,12 @@ function updateQuantity(productId, change) {
 
 // Update cart UI
 function updateCartUI() {
+    const t = translations[currentLanguage];
+    const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    
     if (cart.length === 0) {
-        cartItems.innerHTML = '<p class="text-muted text-center">Your cart is empty</p>';
+        cartItems.innerHTML = `<p class="text-muted text-center">${t.emptyCart}</p>`;
         checkoutBtn.disabled = true;
-        paymentSection.classList.add('d-none');
-        checkoutBtn.classList.remove('d-none');
     } else {
         cartItems.innerHTML = cart.map(item => `
             <div class="cart-item">
@@ -585,6 +734,10 @@ function updateCartUI() {
     }
 
     cartCount.textContent = cart.reduce((total, item) => total + item.quantity, 0);
+    fixedCartTotal.textContent = `₹${total}`;
+    
+    // Re-render products to update quantity controls
+    renderProducts();
 }
 
 // Generate WhatsApp message and form data
@@ -666,7 +819,7 @@ async function submitToGoogleForm(formData) {
 // Handle checkout
 async function handleCheckout() {
     if (!selectedPaymentMethod) {
-        alert('Please select a payment method');
+        alert(translations[currentLanguage].selectPaymentMethod);
         return;
     }
 
@@ -687,15 +840,14 @@ async function handleCheckout() {
         cart = [];
         saveCartToStorage();
         updateCartUI();
-        paymentSection.classList.add('d-none');
-        checkoutBtn.classList.remove('d-none');
+        paymentModal.hide();
         selectedPaymentMethod = null;
         document.querySelectorAll('input[name="paymentMethod"]').forEach(radio => {
             radio.checked = false;
         });
 
         // Show success message
-        alert('Order submitted successfully! Please check WhatsApp for confirmation.');
+        alert(translations[currentLanguage].orderSuccess);
     } catch (error) {
         console.error('Error during checkout:', error);
         alert('There was an error processing your order. Please try again.');
