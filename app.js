@@ -18,6 +18,7 @@ const STORES = {
                 <ul>
                     <li><strong>Simple Setup:</strong> Store owners can be online in minutes</li>
                     <li><strong>WhatsApp Integration:</strong> Use existing communication channels</li>
+                    <li><strong>No Data Collected:</strong> No data collected. Ever. Legally guaranteed</li>
                     <li><strong>No Commission:</strong> Unlike corporate platforms, we don't take a cut</li>
                     <li><strong>Local Focus:</strong> Support neighborhood businesses</li>
                     <li><strong>Multilingual:</strong> Serve diverse communities in their language</li>
