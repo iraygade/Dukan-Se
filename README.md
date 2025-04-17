@@ -1,75 +1,114 @@
-# Dukan Se - Local Store Ordering System
+Dukan Se!
+---------
 
-Dukan Se is a simple, no-code solution for local stores to accept online orders via WhatsApp. It's completely free to use and requires no technical knowledge to set up.
 
-## Features
+An Online Ordering System for Local Stores.
+-------------------------------------------
 
--  Simple product catalog
--  Add to cart functionality
--  WhatsApp checkout
--  Mobile-first design
--  Zero operational cost
--  Easy inventory management
+Dukan Se! is a simple solution that enables stores to accept online orders through their store app/URL. 
 
-## Setup Instructions
+The orders are sent by customers and recieved by the merchant via WhatsApp.
 
-1. **Host the Website**
-   - Create an account on [Netlify](https://www.netlify.com/) or [Vercel](https://vercel.com/)
-   - Upload the contents of the `app` folder
-   - Your store will be live at a URL like `your-store-name.netlify.app`
+Orders are also visible and manageable on merchant phone or computer.
 
-2. **Customize Your Store**
-   - Edit the `products.json` file with your products
-   - Update the `whatsappNumber` with your store's WhatsApp number
-   - Change the `storeName` to your store's name
 
-3. **Generate QR Code**
-   - Use a free QR code generator (like [QR Code Generator](https://www.qr-code-generator.com/))
-   - Generate a QR code for your store's URL
-   - Print and display the QR code in your store
+_____________________________________________
 
-## Managing Products
 
-To update your product catalog:
+App features for customers:
+---------------------------
 
-1. Open the `products.json` file
-2. Edit the products array with your items
-3. Each product should have:
-   - `id`: Unique number for each product
-   - `name`: Product name
-   - `price`: Price in rupees
-   - `image`: URL of product image
+- Product catalog
+- Sort by item type/price/weight/fresh
+- Add to cart functionality
+- Pay using CoD/UPI
+- Custom UPI QR for order amounts
+- WhatsApp message checkout
 
-Example product entry:
-```json
-{
-    "id": 1,
-    "name": "Milk (1L)",
-    "price": 60,
-    "image": "https://example.com/milk.jpg"
-}
-```
 
-## How It Works
+Features for Merchant:
+----------------------
 
-1. Customers scan the QR code or visit your store's URL
-2. They browse products and add items to their cart
-3. When ready, they click "Send Order via WhatsApp"
-4. A pre-filled message opens in WhatsApp with their order
-5. You receive the order in WhatsApp and process it as usual
+- Sale tracking
+- Inventory overview
+- Expiry tracking
+- Stock reminder
+- Sale analytics
 
-## Tips for Store Owners
 
-- Keep product images simple and clear
-- Update prices regularly in the `products.json` file
-- Make sure your WhatsApp number is correct
-- Display the QR code prominently in your store
-- Consider adding product categories if you have many items
+_____________________________________________
 
-## Support
 
-If you need help setting up Dukan Se, please contact me at satan.is.at@gmail.com
 
-## License
+Onboarding process:
+-------------------
 
-Dukan Se is open-source and free to use for any purpose. 
+
+1. If inventory is digital:
+---------------------------
+
+- Sync inventory with app.
+
+- Generate a QR code for your store's URL and app.
+
+- Display QR and spread the news.
+
+- You are now ready to start taking orders online!
+
+
+
+2. If inventory manual:
+-----------------------
+
+
+- Set-up tech.
+
+- Create a digital inventory by logging all items during store down-time.
+
+- Generate a QR code for your store's URL and app.
+
+- Display QR and spread the news.
+
+- You are now ready to start taking orders online
+  
+
+_____________________________________________
+
+
+
+How It Works:
+--------------
+
+
+1. Customers scan the QR code to download the app or visit your store's URL.
+
+2. They register using their Name, Address and Phone Number.
+
+3. They browse products and add items to their cart.
+
+4. When ready, they click "Proceed to payment" and select payment mode.
+
+5. If UPI is selected, a payment request opens on customer's UPI app with pre-entered order amount ready for payment.
+
+6. If CoD is selected, payment is taken in cash or UPI using QR.
+
+7. After payment process, "Send Order via WhatsApp" can be clicked.
+
+8. This sends a pre-filled message with their order using WhatsApp to the merchant with their order.
+
+9. Merchant receives the order on WhatsApp and on their dashboard.
+
+10. Store packs and delivers order.
+
+
+The orders can be viewed and managed on merchant phone or computer.
+
+_____________________________________________
+
+Data is collected only for record-keeping.
+No data collected by the service is sold.
+------------------------------------------
+
+
+If you would like to set up Dukan Se! for your store, contact me at ipraygade@yahoo.com.
+-------------------------------------------
