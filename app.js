@@ -76,32 +76,134 @@ const STORES = {
                 <p class="text-center mt-4">Select a store from the dropdown above to start shopping!</p>
             </div>`,
             hi: `<div class="app-info">
-                <h3>दुकान से के बारे में</h3>
-                <p>दुकान से स्थानीय दुकानों को ऑनलाइन लाता है, जिससे उन्हें कॉर्पोरेट डिजिटल प्लेटफॉर्म के साथ प्रतिस्पर्धा करने में मदद मिलती है।</p>
-                <p>आमचे लक्ष्य छोटे व्यवसायों को महंगे तकनीकी निवेशों के बिना ऑनलाइन ग्राहकों तक पहुंचने का एक सरल तरीका प्रदान करके सशक्त बनाना है।</p>
-                <h4>मुख्य विशेषताएँ:</h4>
+                <h2 class="text-center mb-4">दुकान से!</h2>
+                <h5 class="text-center mb-4">स्थानीय दुकानों के लिए ऑनलाइन ऑर्डरिंग सिस्टम।</h5>
+                
+                <p>दुकान से! एक सरल समाधान है जो दुकानों को अपने स्टोर ऐप/URL के माध्यम से ऑनलाइन ऑर्डर स्वीकार करने की सुविधा देता है।</p>
+                <p>ग्राहकों द्वारा ऑर्डर भेजे जाते हैं और व्यापारी द्वारा व्हाट्सएप के माध्यम से प्राप्त किए जाते हैं।</p>
+                <p>ऑर्डर व्यापारी के फोन या कंप्यूटर पर भी दिखाई देते हैं और प्रबंधनीय होते हैं।</p>
+                
+                <h4>ग्राहकों के लिए ऐप सुविधाएँ</h4>
                 <ul>
-                    <li><strong>सरल सेटअप:</strong> स्टोर मालिक मिनटों में ऑनलाइन हो सकते हैं</li>
-                    <li><strong>व्हाट्सएप एकीकरण:</strong> मौजूदा संचार चैनलों का उपयोग करें</li>
-                    <li><strong>कोई कमीशन नहीं:</strong> कॉर्पोरेट प्लेटफॉर्मों के विपरीत, हम कोई हिस्सा नहीं लेते</li>
-                    <li><strong>स्थानीय फोकस:</strong> पड़ोस के व्यवसायों का समर्थन करें</li>
-                    <li><strong>बहुभाषी:</strong> विविध समुदायों को उनकी भाषा में सेवा दें</li>
+                    <li>उत्पाद कैटलॉग</li>
+                    <li>आइटम प्रकार/मूल्य/वजन/ताज़ा के अनुसार क्रमबद्ध करें</li>
+                    <li>कार्ट में जोड़ने की कार्यक्षमता</li>
+                    <li>CoD/UPI का उपयोग करके भुगतान करें</li>
+                    <li>ऑर्डर राशि के लिए कस्टम UPI QR</li>
+                    <li>व्हाट्सएप मैसेज चेकआउट</li>
                 </ul>
-                <p>खरीदारी शुरू करने के लिए ऊपर ड्रॉपडाउन से एक स्टोर चुनें!</p>
+                
+                <h4>व्यापारी के लिए सुविधाएँ</h4>
+                <ul>
+                    <li>बिक्री ट्रैकिंग</li>
+                    <li>इन्वेंटरी ओवरव्यू</li>
+                    <li>एक्सपायरी ट्रैकिंग</li>
+                    <li>स्टॉक रिमाइंडर</li>
+                    <li>बिक्री विश्लेषण</li>
+                </ul>
+                
+                <h4>ऑनबोर्डिंग प्रक्रिया</h4>
+                <p><strong>यदि इन्वेंटरी डिजिटल है:</strong></p>
+                <ol>
+                    <li>ऐप के साथ इन्वेंटरी सिंक करें।</li>
+                    <li>अपने स्टोर के URL और ऐप के लिए QR कोड जनरेट करें।</li>
+                    <li>QR प्रदर्शित करें और समाचार फैलाएं।</li>
+                    <li>अब आप ऑनलाइन ऑर्डर लेने के लिए तैयार हैं!</li>
+                </ol>
+                
+                <p><strong>यदि इन्वेंटरी मैनुअल है:</strong></p>
+                <ol>
+                    <li>टेक सेट-अप करें।</li>
+                    <li>स्टोर के डाउन-टाइम के दौरान सभी आइटम को लॉग करके डिजिटल इन्वेंटरी बनाएं।</li>
+                    <li>अपने स्टोर के URL और ऐप के लिए QR कोड जनरेट करें।</li>
+                    <li>QR प्रदर्शित करें और समाचार फैलाएं।</li>
+                    <li>अब आप ऑनलाइन ऑर्डर लेने के लिए तैयार हैं।</li>
+                </ol>
+                
+                <h4>यह कैसे काम करता है:</h4>
+                <ol>
+                    <li>ग्राहक ऐप डाउनलोड करने के लिए किंवा तुमच्या स्टोर के URL पर जाने के लिए QR कोड स्कैन करते हैं।</li>
+                    <li>वे अपना नाम, पता और फोन नंबर का उपयोग करके पंजीकरण करते हैं।</li>
+                    <li>वे उत्पादों को ब्राउज़ करते हैं और अपनी कार्ट में आइटम जोड़ते हैं।</li>
+                    <li>जब तैयार हों, वे "भुगतान के लिए आगे बढ़ें" पर क्लिक करते हैं और भुगतान मोड का चयन करते हैं।</li>
+                    <li>यदि UPI चुना जाता है, तो ग्राहक के UPI ऐप पर पहले से दर्ज ऑर्डर राशि के साथ भुगतान के लिए तैयार भुगतान अनुरोध खुलता है।</li>
+                    <li>यदि CoD चुना जाता है, तो भुगतान नकद या QR का उपयोग करके UPI में लिया जाता है।</li>
+                    <li>भुगतान प्रक्रिया के बाद, "व्हाट्सएप के माध्यम से ऑर्डर भेजें" पर क्लिक किया जा सकता है।</li>
+                    <li>यह व्यापारी को उनके ऑर्डर के साथ व्हाट्सएप का उपयोग करके उनके ऑर्डर के साथ एक पहले से भरा हुआ संदेश भेजता है।</li>
+                    <li>व्यापारी व्हाट्सएप पर और अपने डैशबोर्ड पर ऑर्डर प्राप्त करता है।</li>
+                    <li>स्टोर ऑर्डर पैक करता है और डिलीवर करता है।</li>
+                    <li>ऑर्डर व्यापारी के फोन या कंप्यूटर पर देखे और प्रबंधित किए जा सकते हैं।</li>
+                </ol>
+                
+                <p class="mt-4"><strong>डेटा केवल नोंदी ठेवन्यासाठी गोळा केला जातो. सेवेद्वारे गोळा केलेला कोणताही डेटा विकला जात नाही.</strong></p>
+                <p>यदि आप अपने स्टोर के लिए दुकान से! सेट अप करना चाहते हैं, तो मुझसे <a href="mailto:ipraygade@yahoo.com">ipraygade@yahoo.com</a> पर संपर्क करें।</p>
+                
+                <p class="text-center mt-4">खरीदारी शुरू करने के लिए ऊपर ड्रॉपडाउन से स्टोर चुनें!</p>
             </div>`,
             mr: `<div class="app-info">
-                <h3>दुकान से बद्दल</h3>
-                <p>दुकान से स्थानिक दुकानांना ऑनलाइन आणते, त्यांना कॉर्पोरेट डिजिटल प्लॅटफॉर्मसह स्पर्धा करण्यात मदत करते.</p>
-                <p>आमचे लक्ष्य छोट्या व्यवसायांना महागड्या तांत्रिक गुंतवणुकीशिवाय ऑनलाइन ग्राहकांपर्यंत पोहोचण्याचा सोपा मार्ग देऊन सशक्त करणे आहे.</p>
-                <h4>मुख्य वैशिष्ट्ये:</h4>
+                <h2 class="text-center mb-4">दुकान से!</h2>
+                <h5 class="text-center mb-4">स्थानिक दुकानांसाठी ऑनलाइन ऑर्डरिंग सिस्टम.</h5>
+                
+                <p>दुकान से! हे एक सोपे उपाय आहे जे दुकानांना त्यांच्या स्टोअर अॅप/URL द्वारे ऑनलाइन ऑर्डर स्वीकारण्याची क्षमता देते.</p>
+                <p>ग्राहकांकडून ऑर्डर पाठवले जातात आणि व्यापाऱ्यांना व्हाट्सअॅप द्वारे प्राप्त होतात.</p>
+                <p>ऑर्डर व्यापारी फोन किंवा संगणकावर देखील दिसतात आणि व्यवस्थापित केले जाऊ शकतात.</p>
+                
+                <h4>ग्राहकांसाठी अॅप वैशिष्ट्ये</h4>
                 <ul>
-                    <li><strong>सोपी सेटअप:</strong> स्टोअर मालक मिनिटांमध्ये ऑनलाइन होऊ शकतात</li>
-                    <li><strong>व्हाट्सअॅप एकत्रीकरण:</strong> विद्यमान संवाद चॅनेल वापरा</li>
-                    <li><strong>कमिशन नाही:</strong> कॉर्पोरेट प्लॅटफॉर्मच्या विपरीत, आम्ही हिस्सा घेत नाही</li>
-                    <li><strong>स्थानिक फोकस:</strong> शेजारील व्यवसायांना समर्थन द्या</li>
-                    <li><strong>बहुभाषिक:</strong> विविध समुदायांना त्यांच्या भाषेत सेवा द्या</li>
+                    <li>उत्पादन कॅटलॉग</li>
+                    <li>आयटम प्रकार/किंमत/वजन/ताजे द्वारे क्रमवारी लावा</li>
+                    <li>कार्टमध्ये जोडण्याची कार्यक्षमता</li>
+                    <li>CoD/UPI वापरून पेमेंट करा</li>
+                    <li>ऑर्डर रकमेसाठी कस्टम UPI QR</li>
+                    <li>व्हाट्सअॅप संदेश चेकआउट</li>
                 </ul>
-                <p>खरेदी सुरू करण्यासाठी वरील ड्रॉपडाउनमधून स्टोअर निवडा!</p>
+                
+                <h4>व्यापाऱ्यांसाठी वैशिष्ट्ये</h4>
+                <ul>
+                    <li>विक्री ट्रॅकिंग</li>
+                    <li>इन्व्हेंटरी ओव्हरव्ह्यू</li>
+                    <li>एक्स्पायरी ट्रॅकिंग</li>
+                    <li>स्टॉक रिमाइंडर</li>
+                    <li>विक्री अॅनालिटिक्स</li>
+                </ul>
+                
+                <h4>ऑनबोर्डिंग प्रक्रिया</h4>
+                <p><strong>जर इन्व्हेंटरी डिजिटल असेल:</strong></p>
+                <ol>
+                    <li>अॅपसह इन्व्हेंटरी सिंक करा.</li>
+                    <li>तुमच्या स्टोअरच्या URL आणि अॅपसाठी QR कोड तयार करा.</li>
+                    <li>QR प्रदर्शित करा आणि बातमी पसरवा.</li>
+                    <li>आता तुम्ही ऑनलाइन ऑर्डर घेण्यास तयार आहात!</li>
+                </ol>
+                
+                <p><strong>जर इन्व्हेंटरी मॅन्युअल असेल:</strong></p>
+                <ol>
+                    <li>तंत्रज्ञान सेट-अप करा.</li>
+                    <li>स्टोअर डाउन-टाइम दरम्यान सर्व आयटम्स लॉग करून डिजिटल इन्व्हेंटरी तयार करा.</li>
+                    <li>तुमच्या स्टोअरच्या URL आणि अॅपसाठी QR कोड तयार करा.</li>
+                    <li>QR प्रदर्शित करा आणि बातमी पसरवा.</li>
+                    <li>आता तुम्ही ऑनलाइन ऑर्डर घेण्यास तयार आहात.</li>
+                </ol>
+                
+                <h4>हे कसे कार्य करते:</h4>
+                <ol>
+                    <li>ग्राहक अॅप डाउनलोड करण्यासाठी किंवा तुमच्या स्टोअरच्या URL ला भेट देण्यासाठी QR कोड स्कॅन करतात.</li>
+                    <li>ते त्यांचे नाव, पत्ता आणि फोन नंबर वापरून नोंदणी करतात.</li>
+                    <li>ते उत्पादने ब्राउझ करतात आणि त्यांच्या कार्टमध्ये आयटम्स जोडतात.</li>
+                    <li>तयार असल्यावर, ते "पेमेंटसाठी पुढे जा" वर क्लिक करतात आणि पेमेंट मोड निवडतात.</li>
+                    <li>जर UPI निवडले असेल, तर ग्राहकाच्या UPI अॅपवर आधीपासूनच भरलेल्या ऑर्डर रकमेसह पेमेंटसाठी तयार पेमेंट विनंती उघडते.</li>
+                    <li>जर CoD निवडले असेल, तर पेमेंट रोख किंवा QR वापरून UPI द्वारे घेतले जाते.</li>
+                    <li>पेमेंट प्रक्रियेनंतर, "व्हाट्सअॅप द्वारे ऑर्डर पाठवा" वर क्लिक केले जाऊ शकते.</li>
+                    <li>हे व्यापाऱ्याला त्यांच्या ऑर्डरसह व्हाट्सअॅप वापरून त्यांच्या ऑर्डरसह एक पूर्व-भरलेला संदेश पाठवते.</li>
+                    <li>व्यापारी व्हाट्सअॅपवर आणि त्यांच्या डॅशबोर्डवर ऑर्डर प्राप्त करतो.</li>
+                    <li>स्टोअर ऑर्डर पॅक करते आणि वितरित करते.</li>
+                    <li>ऑर्डर व्यापारी फोन किंवा संगणकावर पाहिले आणि व्यवस्थापित केले जाऊ शकतात.</li>
+                </ol>
+                
+                <p class="mt-4"><strong>डेटा केवळ नोंदी ठेवण्यासाठी गोळा केला जातो. सेवेद्वारे गोळा केलेला कोणताही डेटा विकला जात नाही.</strong></p>
+                <p>जर तुम्हाला तुमच्या स्टोअरसाठी दुकान से! सेट अप करायचे असेल, तर मला <a href="mailto:ipraygade@yahoo.com">ipraygade@yahoo.com</a> वर संपर्क करा.</p>
+                
+                <p class="text-center mt-4">खरेदी सुरू करण्यासाठी वरील ड्रॉपडाउनमधून स्टोअर निवडा!</p>
             </div>`
         },
         products: [],
@@ -213,172 +315,181 @@ const STORES = {
             {
                 id: 1,
                 name: "Tata Sampann Toor Dal (1kg)",
-                price: 160,
+                price: 140,
                 category: "Dals & Pulses",
-                image: "https://dummyimage.com/150x150/cccccc/333333.png&text=Toor+Dal"
+                image: "https://dummyimage.com/150x150/f2f2f2/333333.png&text=Toor+Dal"
             },
             {
                 id: 2,
                 name: "Aashirvaad Atta (5kg)",
-                price: 250,
-                category: "Atta & Flour",
-                image: "https://dummyimage.com/150x150/cccccc/333333.png&text=Atta"
+                price: 275,
+                category: "Atta & Flours",
+                image: "https://dummyimage.com/150x150/f2f2f2/333333.png&text=Atta"
             },
             {
                 id: 3,
                 name: "Fortune Sunflower Oil (1L)",
-                price: 140,
+                price: 165,
                 category: "Oils & Ghee",
-                image: "https://dummyimage.com/150x150/cccccc/333333.png&text=Oil"
+                image: "https://dummyimage.com/150x150/f2f2f2/333333.png&text=Oil"
             },
             {
                 id: 4,
-                name: "Daawat Basmati Rice (5kg)",
-                price: 450,
+                name: "India Gate Basmati Rice (5kg)",
+                price: 550,
                 category: "Rice & Grains",
-                image: "https://dummyimage.com/150x150/cccccc/333333.png&text=Rice"
+                image: "https://dummyimage.com/150x150/f2f2f2/333333.png&text=Basmati"
             },
             {
                 id: 5,
                 name: "Amul Pure Ghee (500ml)",
-                price: 275,
+                price: 295,
                 category: "Oils & Ghee",
-                image: "https://dummyimage.com/150x150/cccccc/333333.png&text=Ghee"
+                image: "https://dummyimage.com/150x150/f2f2f2/333333.png&text=Ghee"
             },
             {
                 id: 6,
-                name: "Madhur Pure Sugar (1kg)",
-                price: 55,
-                category: "Essentials",
-                image: "https://dummyimage.com/150x150/cccccc/333333.png&text=Sugar"
+                name: "Tata Salt (1kg)",
+                price: 28,
+                category: "Masalas & Spices",
+                image: "https://dummyimage.com/150x150/f2f2f2/333333.png&text=Salt"
             },
             {
                 id: 7,
-                name: "Tata Salt (1kg)",
-                price: 25,
-                category: "Essentials",
-                image: "https://dummyimage.com/150x150/cccccc/333333.png&text=Salt"
+                name: "Maggi Noodles (Pack of 6)",
+                price: 90,
+                category: "Instant Food",
+                image: "https://dummyimage.com/150x150/f2f2f2/333333.png&text=Maggi"
             },
             {
                 id: 8,
-                name: "Everest Turmeric Powder (100g)",
-                price: 60,
-                category: "Spices",
-                image: "https://dummyimage.com/150x150/cccccc/333333.png&text=Turmeric"
+                name: "MDH Garam Masala (100g)",
+                price: 80,
+                category: "Masalas & Spices",
+                image: "https://dummyimage.com/150x150/f2f2f2/333333.png&text=Masala"
             },
             {
                 id: 9,
-                name: "MTR Red Chilli Powder (100g)",
-                price: 65,
-                category: "Spices",
-                image: "https://dummyimage.com/150x150/cccccc/333333.png&text=Chilli"
+                name: "Nestle Everyday Dairy Whitener (400g)",
+                price: 190,
+                category: "Dairy & Eggs",
+                image: "https://dummyimage.com/150x150/f2f2f2/333333.png&text=Milk+Powder"
             },
             {
                 id: 10,
-                name: "Parle-G Biscuits (250g)",
-                price: 30,
-                category: "Biscuits & Snacks",
-                image: "https://dummyimage.com/150x150/cccccc/333333.png&text=Parle-G"
+                name: "Parle-G Gold Biscuits (1kg)",
+                price: 130,
+                category: "Snacks & Biscuits",
+                image: "https://dummyimage.com/150x150/f2f2f2/333333.png&text=Parle-G"
             },
             {
                 id: 11,
-                name: "Maggi Noodles (Pack of 4)",
-                price: 60,
-                category: "Instant Food",
-                image: "https://dummyimage.com/150x150/cccccc/333333.png&text=Maggi"
+                name: "Red Label Tea (500g)",
+                price: 240,
+                category: "Tea & Coffee",
+                image: "https://dummyimage.com/150x150/f2f2f2/333333.png&text=Tea"
             },
             {
                 id: 12,
-                name: "Amul Milk (500ml)",
-                price: 30,
-                category: "Dairy",
-                image: "https://dummyimage.com/150x150/cccccc/333333.png&text=Milk"
+                name: "Nescafe Classic Coffee (200g)",
+                price: 410,
+                category: "Tea & Coffee",
+                image: "https://dummyimage.com/150x150/f2f2f2/333333.png&text=Coffee"
             },
             {
                 id: 13,
-                name: "Britannia Bread (400g)",
-                price: 40,
-                category: "Bread & Bakery",
-                image: "https://dummyimage.com/150x150/cccccc/333333.png&text=Bread"
+                name: "Saffola Oats (1kg)",
+                price: 170,
+                category: "Breakfast Cereals",
+                image: "https://dummyimage.com/150x150/f2f2f2/333333.png&text=Oats"
             },
             {
                 id: 14,
-                name: "Red Label Tea (250g)",
-                price: 140,
-                category: "Tea & Coffee",
-                image: "https://dummyimage.com/150x150/cccccc/333333.png&text=Tea"
+                name: "Madhur Pure Sugar (1kg)",
+                price: 50,
+                category: "Sugar & Jaggery",
+                image: "https://dummyimage.com/150x150/f2f2f2/333333.png&text=Sugar"
             },
             {
                 id: 15,
-                name: "Nescafe Classic Coffee (50g)",
-                price: 160,
-                category: "Tea & Coffee",
-                image: "https://dummyimage.com/150x150/cccccc/333333.png&text=Coffee"
+                name: "Haldiram's Bhujia (400g)",
+                price: 90,
+                category: "Snacks & Biscuits",
+                image: "https://dummyimage.com/150x150/f2f2f2/333333.png&text=Bhujia"
+            },
+            {
+                id: 16,
+                name: "Mother Dairy Milk (1L)",
+                price: 68,
+                category: "Dairy & Eggs",
+                image: "https://dummyimage.com/150x150/f2f2f2/333333.png&text=Milk"
             }
         ],
-        categories: ["Dals & Pulses", "Atta & Flour", "Rice & Grains", "Oils & Ghee", "Essentials", "Spices", "Biscuits & Snacks", "Instant Food", "Dairy", "Bread & Bakery", "Tea & Coffee"],
+        categories: ["Dals & Pulses", "Atta & Flours", "Oils & Ghee", "Rice & Grains", "Masalas & Spices", "Instant Food", "Dairy & Eggs", "Snacks & Biscuits", "Tea & Coffee", "Breakfast Cereals", "Sugar & Jaggery"],
         productTranslations: {
             hi: {
                 "Tata Sampann Toor Dal (1kg)": "टाटा सम्पन्न तूर दाल (1kg)",
                 "Aashirvaad Atta (5kg)": "आशीर्वाद आटा (5kg)",
                 "Fortune Sunflower Oil (1L)": "फॉर्च्यून सनफ्लावर ऑयल (1L)",
-                "Daawat Basmati Rice (5kg)": "दावत बासमती चावल (5kg)",
+                "India Gate Basmati Rice (5kg)": "इंडिया गेट बासमती चावल (5kg)",
                 "Amul Pure Ghee (500ml)": "अमूल शुद्ध घी (500ml)",
-                "Madhur Pure Sugar (1kg)": "मधुर शुद्ध चीनी (1kg)",
                 "Tata Salt (1kg)": "टाटा नमक (1kg)",
-                "Everest Turmeric Powder (100g)": "एवरेस्ट हल्दी पाउडर (100g)",
-                "MTR Red Chilli Powder (100g)": "MTR लाल मिर्च पाउडर (100g)",
-                "Parle-G Biscuits (250g)": "पार्ले-जी बिस्कुट (250g)",
-                "Maggi Noodles (Pack of 4)": "मैगी नूडल्स (4 का पैक)",
-                "Amul Milk (500ml)": "अमूल दूध (500ml)",
-                "Britannia Bread (400g)": "ब्रिटानिया ब्रेड (400g)",
-                "Red Label Tea (250g)": "रेड लेबल चाय (250g)",
-                "Nescafe Classic Coffee (50g)": "नेस्कैफे क्लासिक कॉफी (50g)"
+                "Maggi Noodles (Pack of 6)": "मैगी नूडल्स (6 का पैक)",
+                "MDH Garam Masala (100g)": "एमडीएच गरम मसाला (100g)",
+                "Nestle Everyday Dairy Whitener (400g)": "नेस्ले एवरीडे डेयरी व्हाइटनर (400g)",
+                "Parle-G Gold Biscuits (1kg)": "पार्ले-जी गोल्ड बिस्कुट (1kg)",
+                "Red Label Tea (500g)": "रेड लेबल चाय (500g)",
+                "Nescafe Classic Coffee (200g)": "नेस्काफे क्लासिक कॉफी (200g)",
+                "Saffola Oats (1kg)": "सफोला ओट्स (1kg)",
+                "Madhur Pure Sugar (1kg)": "मधुर शुद्ध चीनी (1kg)",
+                "Haldiram's Bhujia (400g)": "हल्दीराम भुजिया (400g)",
+                "Mother Dairy Milk (1L)": "मदर डेयरी दूध (1L)"
             },
             mr: {
                 "Tata Sampann Toor Dal (1kg)": "टाटा संपन्न तूर डाळ (1kg)",
-                "Aashirvaad Atta (5kg)": "आशीर्वाद पीठ (5kg)",
+                "Aashirvaad Atta (5kg)": "आशीर्वाद गहू पीठ (5kg)",
                 "Fortune Sunflower Oil (1L)": "फॉर्च्यून सूर्यफूल तेल (1L)",
-                "Daawat Basmati Rice (5kg)": "दावत बासमती तांदूळ (5kg)",
+                "India Gate Basmati Rice (5kg)": "इंडिया गेट बासमती तांदूळ (5kg)",
                 "Amul Pure Ghee (500ml)": "अमूल शुद्ध तूप (500ml)",
-                "Madhur Pure Sugar (1kg)": "मधुर शुद्ध साखर (1kg)",
                 "Tata Salt (1kg)": "टाटा मीठ (1kg)",
-                "Everest Turmeric Powder (100g)": "एवरेस्ट हळद पावडर (100g)",
-                "MTR Red Chilli Powder (100g)": "MTR लाल मिरची पावडर (100g)",
-                "Parle-G Biscuits (250g)": "पार्ले-जी बिस्किट (250g)",
-                "Maggi Noodles (Pack of 4)": "मॅगी नूडल्स (4 चा पॅक)",
-                "Amul Milk (500ml)": "अमूल दूध (500ml)",
-                "Britannia Bread (400g)": "ब्रिटानिया ब्रेड (400g)",
-                "Red Label Tea (250g)": "रेड लेबल चहा (250g)",
-                "Nescafe Classic Coffee (50g)": "नेस्कैफे क्लासिक कॉफी (50g)"
+                "Maggi Noodles (Pack of 6)": "मॅगी नूडल्स (6 का पॅक)",
+                "MDH Garam Masala (100g)": "एमडीएच गरम मसाला (100g)",
+                "Nestle Everyday Dairy Whitener (400g)": "नेस्ले एव्हरीडे दूध पावडर (400g)",
+                "Parle-G Gold Biscuits (1kg)": "पार्ले-जी गोल्ड बिस्किट (1kg)",
+                "Red Label Tea (500g)": "रेड लेबल चहा (500g)",
+                "Nescafe Classic Coffee (200g)": "नेस्काफे क्लासिक कॉफी (200g)",
+                "Saffola Oats (1kg)": "सफोला ओट्स (1kg)",
+                "Madhur Pure Sugar (1kg)": "मधुर शुद्ध साखर (1kg)",
+                "Haldiram's Bhujia (400g)": "हल्दीराम भुजिया (400g)",
+                "Mother Dairy Milk (1L)": "मदर डेरी दूध (1L)"
             }
         },
         categoryTranslations: {
             hi: {
                 "Dals & Pulses": "दाल और अनाज",
-                "Atta & Flour": "आटा और मैदा",
-                "Rice & Grains": "चावल और अनाज",
+                "Atta & Flours": "आटा और मैदा",
                 "Oils & Ghee": "तेल और घी",
-                "Essentials": "आवश्यक सामग्री",
-                "Spices": "मसाले",
-                "Biscuits & Snacks": "बिस्कुट और स्नैक्स",
-                "Instant Food": "इंस्टेंट खाना",
-                "Dairy": "डेयरी",
-                "Bread & Bakery": "ब्रेड और बेकरी",
-                "Tea & Coffee": "चाय और कॉफी"
+                "Rice & Grains": "चावल और अनाज",
+                "Masalas & Spices": "मसाले",
+                "Instant Food": "इंस्टेंट फूड",
+                "Dairy & Eggs": "डेयरी और अंडे",
+                "Snacks & Biscuits": "स्नैक्स और बिस्कुट",
+                "Tea & Coffee": "चाय और कॉफी",
+                "Breakfast Cereals": "नाश्ता अनाज",
+                "Sugar & Jaggery": "चीनी और गुड़"
             },
             mr: {
-                "Dals & Pulses": "डाळी आणि कडधान्य",
-                "Atta & Flour": "पीठ आणि मैदा",
-                "Rice & Grains": "तांदूळ आणि धान्य",
+                "Dals & Pulses": "डाळी आणि कडधान्ये",
+                "Atta & Flours": "पीठ आणि मैदा",
                 "Oils & Ghee": "तेल आणि तूप",
-                "Essentials": "आवश्यक वस्तू",
-                "Spices": "मसाले",
-                "Biscuits & Snacks": "बिस्किट आणि स्नॅक्स",
-                "Instant Food": "इन्स्टंट अन्न",
-                "Dairy": "दुग्धजन्य",
-                "Bread & Bakery": "ब्रेड आणि बेकरी",
-                "Tea & Coffee": "चहा आणि कॉफी"
+                "Rice & Grains": "तांदूळ आणि धान्य",
+                "Masalas & Spices": "मसाले",
+                "Instant Food": "इन्स्टंट फूड",
+                "Dairy & Eggs": "दुग्धजन्य आणि अंडी",
+                "Snacks & Biscuits": "स्नॅक्स आणि बिस्किट",
+                "Tea & Coffee": "चहा आणि कॉफी",
+                "Breakfast Cereals": "नाश्ता धान्य",
+                "Sugar & Jaggery": "साखर आणि गूळ"
             }
         }
     },
@@ -685,103 +796,73 @@ prefersDarkScheme.addEventListener('change', (e) => {
 // Translations
 const translations = {
     en: {
-        appName: "Dukan Se",
-        allItems: "All Items",
-        search: "Search products...",
-        clearSearch: "Clear",
+        appTitle: "Dukan Se",
+        appDescription: "Your local stores, now online! Order directly via WhatsApp with just a few clicks.",
+        addToCart: "Add to Cart",
         yourCart: "Your Cart",
         emptyCart: "Your cart is empty",
-        total: "Total",
-        items: "items",
-        checkoutBtn: "Proceed to Payment",
-        customerInfo: "Your Delivery Details",
-        editCustomerInfo: "Add/Edit Delivery Details",
-        saveCustomerInfo: "Save Details",
-        customerName: "Full Name",
-        customerPhone: "Phone Number",
-        customerAddress: "Delivery Address",
-        placeOrder: "Place Order",
-        sendViaWhatsApp: "Send Order via WhatsApp",
-        addToCart: "Add",
+        proceedToPayment: "Proceed to Payment",
         selectPaymentMethod: "Select Payment Method",
-        cashOnDelivery: "Cash on Delivery",
         upiPayment: "UPI Payment",
-        errorMessage: "Please fill all the details before proceeding",
-        enterDetails: "Please enter your delivery details before adding to cart",
-        paymentModalTitle: "Payment & Checkout",
-        closeBtn: "Close",
-        orderSuccess: "Order placed successfully!",
-        orderDetails: "Order Details",
-        orderTotal: "Order Total",
-        deliveryTo: "Delivery to",
-        quantity: "Qty",
-        privacyNote: "Your data is secure and only used for order processing"
+        cashOnDelivery: "Cash on Delivery / UPI on Delivery",
+        sendOrderViaWhatsApp: "Send Order via WhatsApp",
+        deliveryDetails: "Delivery Details",
+        name: "Name",
+        phone: "Phone Number",
+        address: "Delivery Address",
+        saveDetails: "Save Details",
+        close: "Close",
+        searchProducts: "Search products...",
+        noProductsFound: "No products found. Try adjusting your search or category.",
+        allItems: "All Items",
+        addDeliveryDetails: "Add/Edit Delivery Details",
+        orderSuccess: "Order submitted successfully! Please check WhatsApp for confirmation."
     },
     hi: {
-        appName: "दुकान से",
-        allItems: "सभी आइटम",
-        search: "उत्पाद खोजें...",
-        clearSearch: "साफ़ करें",
+        appTitle: "दुकान से",
+        appDescription: "आपकी स्थानीय दुकानें, अब ऑनलाइन! व्हाट्सएप के माध्यम से सीधे कुछ ही क्लिक में ऑर्डर करें।",
+        addToCart: "कार्ट में जोड़ें",
         yourCart: "आपका कार्ट",
-        emptyCart: "आपकी कार्ट खाली है",
-        total: "कुल",
-        items: "आइटम",
-        checkoutBtn: "भुगतान के लिए आगे बढ़ें",
-        customerInfo: "आपका डिलीवरी विवरण",
-        editCustomerInfo: "डिलीवरी विवरण जोड़ें/संपादित करें",
-        saveCustomerInfo: "विवरण सहेजें",
-        customerName: "पूरा नाम",
-        customerPhone: "फोन नंबर",
-        customerAddress: "डिलीवरी का पता",
-        placeOrder: "ऑर्डर करें",
-        sendViaWhatsApp: "WhatsApp के माध्यम से ऑर्डर भेजें",
-        addToCart: "जोड़ें",
+        emptyCart: "आपका कार्ट खाली है",
+        proceedToPayment: "भुगतान के लिए आगे बढ़ें",
         selectPaymentMethod: "भुगतान विधि चुनें",
-        cashOnDelivery: "डिलीवरी पर नकद भुगतान",
-        upiPayment: "UPI भुगतान",
-        errorMessage: "आगे बढ़ने से पहले कृपया सभी विवरण भरें",
-        enterDetails: "कार्ट में जोडण्यापूर्वी कृपया तुमचा डिलीवरी विवरण दर्ज करें",
-        paymentModalTitle: "भुगतान और चेकआउट",
-        closeBtn: "बंद करें",
-        orderSuccess: "ऑर्डर सफलतापूर्वक दिया गया!",
-        orderDetails: "ऑर्डर विवरण",
-        orderTotal: "ऑर्डर का कुल",
-        deliveryTo: "डिलीवरी",
-        quantity: "संख्या",
-        privacyNote: "तुमचा डेटा सुरक्षित आहे आणि फक्त ऑर्डर प्रक्रियेसाठी वापरला जातो"
+        upiPayment: "यूपीआई भुगतान",
+        cashOnDelivery: "डिलीवरी पर नकद / यूपीआई",
+        sendOrderViaWhatsApp: "व्हाट्सएप के माध्यम से ऑर्डर भेजें",
+        deliveryDetails: "डिलीवरी विवरण",
+        name: "नाम",
+        phone: "फोन नंबर",
+        address: "डिलीवरी पता",
+        saveDetails: "विवरण सहेजें",
+        close: "बंद करें",
+        searchProducts: "उत्पाद खोजें...",
+        noProductsFound: "कोई उत्पाद नहीं मिला। अपनी खोज या श्रेणी को समायोजित करें।",
+        allItems: "सभी आइटम",
+        addDeliveryDetails: "डिलीवरी विवरण जोड़ें/संपादित करें",
+        orderSuccess: "ऑर्डर सफलतापूर्वक सबमिट किया गया! पुष्टि के लिए व्हाट्सएप देखें।"
     },
     mr: {
-        appName: "दुकान से",
-        allItems: "सर्व आयटम",
-        search: "उत्पादने शोधा...",
-        clearSearch: "साफ करा",
-        yourCart: "तुमची कार्ट",
-        emptyCart: "तुमची कार्ट रिकामी आहे",
-        total: "एकूण",
-        items: "आयटम",
-        checkoutBtn: "पेमेंटसाठी पुढे जा",
-        customerInfo: "तुमचा डिलिव्हरी तपशील",
-        editCustomerInfo: "डिलिव्हरी तपशील जोडा/संपादित करा",
-        saveCustomerInfo: "तपशील जतन करा",
-        customerName: "पूर्ण नाव",
-        customerPhone: "फोन नंबर",
-        customerAddress: "डिलिव्हरी पत्ता",
-        placeOrder: "ऑर्डर करा",
-        sendViaWhatsApp: "WhatsApp द्वारे ऑर्डर पाठवा",
-        addToCart: "जोडा",
+        appTitle: "दुकान से",
+        appDescription: "तुमच्या स्थानिक दुकाने, आता ऑनलाइन! व्हाट्सअॅप द्वारे थेट काही क्लिकमध्ये ऑर्डर करा.",
+        addToCart: "कार्टमध्ये जोडा",
+        yourCart: "तुमचे कार्ट",
+        emptyCart: "तुमचे कार्ट रिकामे आहे",
+        proceedToPayment: "पेमेंटसाठी पुढे जा",
         selectPaymentMethod: "पेमेंट पद्धत निवडा",
-        cashOnDelivery: "डिलिव्हरीवर रोख",
-        upiPayment: "UPI पेमेंट",
-        errorMessage: "पुढे जाण्यापूर्वी कृपया सर्व तपशील भरा",
-        enterDetails: "कार्टमध्ये जोडण्यापूर्वी कृपया तुमचा डिलिव्हरी तपशील भरा",
-        paymentModalTitle: "पेमेंट आणि चेकआउट",
-        closeBtn: "बंद करा",
-        orderSuccess: "ऑर्डर यशस्वीरित्या दिले गेले!",
-        orderDetails: "ऑर्डर तपशील",
-        orderTotal: "ऑर्डर एकूण",
-        deliveryTo: "डिलिव्हरी",
-        quantity: "संख्या",
-        privacyNote: "तुमचा डेटा सुरक्षित आहे आणि फक्त ऑर्डर प्रक्रियेसाठी वापरला जातो"
+        upiPayment: "यूपीआय पेमेंट",
+        cashOnDelivery: "डिलिव्हरीवर रोख / यूपीआय",
+        sendOrderViaWhatsApp: "व्हाट्सअॅपद्वारे ऑर्डर पाठवा",
+        deliveryDetails: "डिलिव्हरी तपशील",
+        name: "नाव",
+        phone: "फोन नंबर",
+        address: "डिलिव्हरी पत्ता",
+        saveDetails: "तपशील जतन करा",
+        close: "बंद करा",
+        searchProducts: "उत्पादने शोधा...",
+        noProductsFound: "कोणतीही उत्पादने सापडली नाहीत. तुमचा शोध किंवा श्रेणी समायोजित करा.",
+        allItems: "सर्व आयटम",
+        addDeliveryDetails: "डिलिव्हरी तपशील जोडा/संपादित करा",
+        orderSuccess: "ऑर्डर यशस्वीरित्या सबमिट केले! पुष्टीकरणासाठी व्हाट्सअॅप तपासा."
     }
 };
 
@@ -906,24 +987,24 @@ function updateUILanguage() {
     const t = translations[currentLanguage];
     
     // Update static elements
-    document.querySelector('h1').textContent = t.appName;
+    document.querySelector('h1').textContent = t.appTitle;
     document.getElementById('app-description').textContent = t.appDescription;
     document.getElementById('cart-title').textContent = t.yourCart;
-    document.getElementById('checkout-btn-text').textContent = t.checkoutBtn;
-    document.getElementById('payment-modal-title').textContent = t.paymentModalTitle;
+    document.getElementById('checkout-btn-text').textContent = t.proceedToPayment;
+    document.getElementById('payment-modal-title').textContent = t.selectPaymentMethod;
     document.getElementById('payment-section-title').textContent = t.selectPaymentMethod;
     document.getElementById('upi-label').textContent = t.upiPayment;
     document.getElementById('cod-label').textContent = t.cashOnDelivery;
-    document.getElementById('whatsapp-btn-text').textContent = t.sendViaWhatsApp;
-    document.querySelector('.modal-title').textContent = t.customerInfo;
-    document.querySelector('label[for="customer-name"]').textContent = t.customerName;
-    document.querySelector('label[for="customer-phone"]').textContent = t.customerPhone;
-    document.querySelector('label[for="customer-address"]').textContent = t.customerAddress;
-    document.getElementById('save-customer-info').textContent = t.saveCustomerInfo;
-    document.getElementById('close-payment-btn').textContent = t.closeBtn;
+    document.getElementById('whatsapp-btn-text').textContent = t.sendOrderViaWhatsApp;
+    document.querySelector('.modal-title').textContent = t.deliveryDetails;
+    document.querySelector('label[for="customer-name"]').textContent = t.name;
+    document.querySelector('label[for="customer-phone"]').textContent = t.phone;
+    document.querySelector('label[for="customer-address"]').textContent = t.address;
+    document.getElementById('save-customer-info').textContent = t.saveDetails;
+    document.getElementById('close-payment-btn').textContent = t.close;
     
     if (searchInput) {
-        searchInput.placeholder = t.search;
+        searchInput.placeholder = t.searchProducts;
     }
     
     // If we're on the Dukan Se info page, update its content
@@ -1115,57 +1196,67 @@ function enhanceProductRendering() {
 
 // Original render products function with image error handling
 function renderProducts() {
-    // If this is an info page, don't render products
-    if (STORE_CONFIG.isInfoPage) return;
+    if (!productCatalog || STORE_CONFIG.isInfoPage) return;
     
     const t = translations[currentLanguage];
-    const filteredProducts = filterProducts();
-
+    
+    productCatalog.innerHTML = '';
+    let filteredProducts = products;
+    
+    // Apply search filter
+    if (currentSearchTerm.trim() !== '') {
+        const query = currentSearchTerm.toLowerCase();
+        filteredProducts = products.filter(product => {
+            const name = getTranslatedProductName(product).toLowerCase();
+            return name.includes(query);
+        });
+    }
+    
+    // Apply category filter
+    if (currentCategory && currentCategory !== 'all') {
+        filteredProducts = filteredProducts.filter(product => product.category === currentCategory);
+    }
+    
     if (filteredProducts.length === 0) {
-        productCatalog.innerHTML = `
-            <div class="col-12 text-center">
-                <p class="text-muted">${t.noProductsFound}</p>
-            </div>
-        `;
+        productCatalog.innerHTML = `<div class="col-12 text-center py-5"><h5>${t.noProductsFound}</h5></div>`;
         return;
     }
-
-    productCatalog.innerHTML = filteredProducts.map(product => {
-        const quantity = getProductQuantityInCart(product.id);
+    
+    filteredProducts.forEach(product => {
+        const productEl = document.createElement('div');
+        productEl.className = 'col';
         
         // Get translated product name if available
-        let productName = product.name;
-        const currentStore = STORES[storeSwitcher.value];
-        if (currentLanguage !== 'en' && currentStore.productTranslations && 
-            currentStore.productTranslations[currentLanguage] && 
-            currentStore.productTranslations[currentLanguage][product.name]) {
-            productName = currentStore.productTranslations[currentLanguage][product.name];
-        }
+        const productName = getTranslatedProductName(product);
         
-        return `
-            <div class="col-6 col-md-4 mb-4">
-                <div class="product-card">
-                    <img src="${product.image}" alt="${productName}" class="product-image" onerror="handleImageError(this)">
-                    <h5 class="mt-2">${productName}</h5>
-                    <p class="text-muted">₹${product.price}</p>
-                    ${quantity === 0 ? 
-                        `<button class="btn btn-primary w-100" onclick="addToCart(${product.id})">
-                            ${t.addToCart}
-                        </button>` 
-                        : 
-                        `<div class="product-quantity">
-                            <button onclick="updateQuantity(${product.id}, -1)">-</button>
-                            <span>${quantity}</span>
-                            <button onclick="updateQuantity(${product.id}, 1)">+</button>
-                        </div>`
-                    }
+        const cartQuantity = getProductQuantityInCart(product.id);
+        
+        productEl.innerHTML = `
+            <div class="product-card">
+                <img src="${product.image}" alt="${productName}" class="product-image" onerror="handleImageError(this)">
+                <div class="card-body">
+                    <h5 class="product-title">${productName}</h5>
+                    <p class="text-muted mb-0">${product.category}</p>
+                    <div class="product-price">${STORE_CONFIG.currency}${product.price}</div>
+                    <div class="d-flex justify-content-between align-items-center mt-auto">
+                        ${cartQuantity > 0 ? `
+                            <div class="product-quantity">
+                                <button class="btn btn-sm btn-outline-secondary" onclick="updateQuantity(${product.id}, -1)">-</button>
+                                <span class="mx-2">${cartQuantity}</span>
+                                <button class="btn btn-sm btn-outline-secondary" onclick="updateQuantity(${product.id}, 1)">+</button>
+                            </div>
+                        ` : `
+                            <button class="btn btn-sm btn-primary" onclick="addToCart(${product.id})">
+                                ${t.addToCart}
+                            </button>
+                        `}
+                    </div>
                 </div>
             </div>
         `;
-    }).join('');
-    
-    // Apply error handling to all images
-    enhanceProductRendering();
+        
+        productCatalog.appendChild(productEl);
+    });
 }
 
 // Get product quantity in cart
@@ -1177,7 +1268,7 @@ function getProductQuantityInCart(productId) {
 // Add product to cart
 function addToCart(productId) {
     if (!customerInfo.name) {
-        alert(translations[currentLanguage].enterDetails);
+        alert(translations[currentLanguage].addDeliveryDetails);
         editCustomerInfoBtn.click();
         return;
     }
@@ -1237,81 +1328,46 @@ function updateQuantity(productId, change) {
 function updateCartUI() {
     if (!cartItems) return;
     
-    // Get cart from localStorage
-    const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+    const t = translations[currentLanguage];
+    const cart = getCart();
+    const cartArray = Object.values(cart);
     
-    // Update cart count badges
-    if (cartCount) cartCount.textContent = cart.length;
+    cartCount.textContent = cartArray.reduce((total, item) => total + item.quantity, 0);
     
-    // Update fixed cart count
-    const fixedCartCount = document.getElementById('fixed-cart-count');
-    if (fixedCartCount) fixedCartCount.textContent = cart.length;
-    
-    // Calculate total
     let total = 0;
-    cart.forEach(item => {
-        const product = products.find(p => p.id === item.id);
-        if (product) {
-            total += product.price * item.quantity;
-        }
-    });
-    
-    // Update cart totals
-    if (cartTotal) cartTotal.textContent = `${STORE_CONFIG.currency}${total}`;
-    
-    // Update fixed cart total
-    const fixedCartTotal = document.getElementById('fixed-cart-total');
-    if (fixedCartTotal) fixedCartTotal.textContent = `${STORE_CONFIG.currency}${total}`;
-    
-    // Enable/disable checkout button
-    if (checkoutBtn) {
-        checkoutBtn.disabled = cart.length === 0;
-    }
-    
-    // Show/hide fixed checkout
-    const fixedCheckout = document.getElementById('checkout-fixed');
-    if (fixedCheckout) {
-        if (cart.length > 0) {
-            fixedCheckout.classList.remove('d-none');
-        } else {
-            fixedCheckout.classList.add('d-none');
-        }
-    }
-    
-    // Clear and rebuild cart items
     cartItems.innerHTML = '';
     
-    // Add items to cart
-    cart.forEach(item => {
-        const product = products.find(p => p.id === item.id);
-        if (!product) return;
+    if (cartArray.length === 0) {
+        cartItems.innerHTML = `<div class="text-center py-3">${t.emptyCart}</div>`;
+        fixedCartTotal.textContent = `${STORE_CONFIG.currency}0`;
+        checkoutBtn.disabled = true;
+        return;
+    }
+    
+    cartArray.forEach(item => {
+        const itemTotal = item.price * item.quantity;
+        total += itemTotal;
         
-        // Get translated product name if available
-        let productName = product.name;
-        if (currentLanguage !== 'en' && STORE_CONFIG.productTranslations && 
-            STORE_CONFIG.productTranslations[currentLanguage] && 
-            STORE_CONFIG.productTranslations[currentLanguage][product.name]) {
-            productName = STORE_CONFIG.productTranslations[currentLanguage][product.name];
-        }
-        
-        const cartItem = document.createElement('div');
-        cartItem.className = 'cart-item';
-        cartItem.innerHTML = `
-            <div class="cart-item-name">${productName}</div>
-            <div class="d-flex justify-content-between align-items-center">
-                <div>${STORE_CONFIG.currency}${product.price} × ${item.quantity}</div>
-                <div class="d-flex align-items-center">
-                    <button class="item-quantity-btn me-2" onclick="updateQuantity(${product.id}, -1)">-</button>
-                    <span class="me-2">${item.quantity}</span>
-                    <button class="item-quantity-btn" onclick="updateQuantity(${product.id}, 1)">+</button>
+        const itemEl = document.createElement('div');
+        itemEl.className = 'cart-item';
+        itemEl.innerHTML = `
+            <div class="d-flex justify-content-between align-items-start">
+                <div>
+                    <div class="cart-item-name">${item.name}</div>
+                    <div class="cart-item-price">${STORE_CONFIG.currency}${item.price} × ${item.quantity}</div>
+                </div>
+                <div class="cart-item-quantity">
+                    <button class="item-quantity-btn" onclick="updateQuantity(${item.id}, -1)">-</button>
+                    <button class="item-quantity-btn" onclick="updateQuantity(${item.id}, 1)">+</button>
                 </div>
             </div>
         `;
-        cartItems.appendChild(cartItem);
+        
+        cartItems.appendChild(itemEl);
     });
     
-    // Save cart to localStorage
-    saveCartToStorage();
+    fixedCartTotal.textContent = `${STORE_CONFIG.currency}${total}`;
+    checkoutBtn.disabled = false;
 }
 
 // Generate WhatsApp message and form data
