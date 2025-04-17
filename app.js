@@ -693,9 +693,18 @@ function updateUILanguage() {
         searchInput.placeholder = t.searchProducts;
     }
     
-    // Re-render products and categories
-    renderCategories();
-    renderProducts();
+    // If we're on the Dukan Se info page, update its content
+    if (STORE_CONFIG.isInfoPage) {
+        const currentStore = STORES[STORE_CONFIG.storeId || 'quickkart'];
+        if (currentStore && currentStore.description && currentStore.description[currentLanguage]) {
+            productCatalog.innerHTML = currentStore.description[currentLanguage];
+        }
+    } else {
+        // Re-render products and categories
+        renderCategories();
+        renderProducts();
+    }
+    
     updateCartUI();
 }
 
