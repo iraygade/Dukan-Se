@@ -15,7 +15,7 @@ Orders are also visible and manageable on merchant phone or computer.
 _____________________________________________
 
 
-App features for customers:
+App features for customers
 ---------------------------
 
 - Product catalog
@@ -26,7 +26,7 @@ App features for customers:
 - WhatsApp message checkout
 
 
-Features for Merchant:
+Features for Merchant
 ----------------------
 
 - Sale tracking
@@ -40,7 +40,7 @@ _____________________________________________
 
 
 
-Onboarding process:
+Onboarding process
 -------------------
 
 
@@ -60,7 +60,6 @@ Onboarding process:
 2. If inventory is  manual:
 -----------------------
 
-
 - Set-up tech.
 
 - Create a digital inventory by logging all items during store down-time.
@@ -78,7 +77,6 @@ _____________________________________________
 
 How It Works:
 --------------
-
 
 1. Customers scan the QR code to download the app or visit your store's URL.
 
@@ -100,8 +98,7 @@ How It Works:
 
 10. Store packs and delivers order.
 
-
-The orders can be viewed and managed on merchant phone or computer.
+11. The orders can be viewed and managed on merchant phone or computer.
 
 _____________________________________________
 
