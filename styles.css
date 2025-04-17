@@ -573,17 +573,26 @@ h1, h2, h3, h4, h5, h6 {
     padding: 20px;
     box-shadow: 0 2px 4px var(--shadow-color);
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
-.app-info h3 {
+.app-info h2 {
     color: var(--primary-color);
     margin-bottom: 1.5rem;
-    font-weight: 600;
+    font-weight: 700;
 }
 
 .app-info h4 {
+    color: var(--primary-color);
+    margin: 1.8rem 0 1rem;
+    font-weight: 600;
+    padding-bottom: 5px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.app-info h5 {
     color: var(--secondary-color);
-    margin: 1.5rem 0 1rem;
     font-weight: 600;
 }
 
@@ -592,13 +601,29 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 1.6;
 }
 
-.app-info ul {
+.app-info ul, .app-info ol {
     padding-left: 1.5rem;
     margin-bottom: 1.5rem;
 }
 
 .app-info li {
     margin-bottom: 0.5rem;
+    line-height: 1.6;
+}
+
+.app-info a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.app-info a:hover {
+    text-decoration: underline;
+}
+
+.app-info strong {
+    font-weight: 600;
+    color: var(--text-color);
 }
 
 .form-check-input {
