@@ -11,19 +11,69 @@ const STORES = {
         isInfoPage: true,
         description: {
             en: `<div class="app-info">
-                <h3>About Dukan Se</h3>
-                <p>Dukan Se brings local stores online, helping them compete with corporate digital platforms.</p>
-                <p>Our mission is to empower small businesses by providing them a simple way to reach customers online without expensive technical investments.</p>
-                <h4>Key Features:</h4>
+                <h2 class="text-center mb-4">Dukan Se!</h2>
+                <h5 class="text-center mb-4">An Online Ordering System for Local Stores.</h5>
+                
+                <p>Dukan Se! is a simple solution that enables stores to accept online orders through their store app/URL.</p>
+                <p>The orders are sent by customers and recieved by the merchant via WhatsApp.</p>
+                <p>Orders are also visible and manageable on merchant phone or computer.</p>
+                
+                <h4>App features for customers</h4>
                 <ul>
-                    <li><strong>Simple Setup:</strong> Store owners can be online in minutes</li>
-                    <li><strong>WhatsApp Integration:</strong> Use existing communication channels</li>
-                    <li><strong>No Data Collected:</strong> No data collected. Ever. Legally guaranteed</li>
-                    <li><strong>No Commission:</strong> Unlike corporate platforms, we don't take a cut</li>
-                    <li><strong>Local Focus:</strong> Support neighborhood businesses</li>
-                    <li><strong>Multilingual:</strong> Serve diverse communities in their language</li>
+                    <li>Product catalog</li>
+                    <li>Sort by item type/price/weight/fresh</li>
+                    <li>Add to cart functionality</li>
+                    <li>Pay using CoD/UPI</li>
+                    <li>Custom UPI QR for order amounts</li>
+                    <li>WhatsApp message checkout</li>
                 </ul>
-                <p>Select a store from the dropdown above to start shopping!</p>
+                
+                <h4>Features for Merchant</h4>
+                <ul>
+                    <li>Sale tracking</li>
+                    <li>Inventory overview</li>
+                    <li>Expiry tracking</li>
+                    <li>Stock reminder</li>
+                    <li>Sale analytics</li>
+                </ul>
+                
+                <h4>Onboarding process</h4>
+                <p><strong>If inventory is digital:</strong></p>
+                <ol>
+                    <li>Sync inventory with app.</li>
+                    <li>Generate a QR code for your store's URL and app.</li>
+                    <li>Display QR and spread the news.</li>
+                    <li>You are now ready to start taking orders online!</li>
+                </ol>
+                
+                <p><strong>If inventory is manual:</strong></p>
+                <ol>
+                    <li>Set-up tech.</li>
+                    <li>Create a digital inventory by logging all items during store down-time.</li>
+                    <li>Generate a QR code for your store's URL and app.</li>
+                    <li>Display QR and spread the news.</li>
+                    <li>You are now ready to start taking orders online</li>
+                </ol>
+                
+                <h4>How It Works:</h4>
+                <ol>
+                    <li>Customers scan the QR code to download the app or visit your store's URL.</li>
+                    <li>They register using their Name, Address and Phone Number.</li>
+                    <li>They browse products and add items to their cart.</li>
+                    <li>When ready, they click "Proceed to payment" and select payment mode.</li>
+                    <li>If UPI is selected, a payment request opens on customer's UPI app with pre-entered order amount ready for payment.</li>
+                    <li>If CoD is selected, payment is taken in cash or UPI using QR.</li>
+                    <li>After payment process, "Send Order via WhatsApp" can be clicked.</li>
+                    <li>This sends a pre-filled message with their order using WhatsApp to the merchant with their order.</li>
+                    <li>Merchant receives the order on WhatsApp and on their dashboard.</li>
+                    <li>Store packs and delivers order.</li>
+                    <li>The orders can be viewed and managed on merchant phone or computer.</li>
+                </ol>
+                
+                <p class="mt-4"><strong>Data is collected only for record-keeping. No data collected by the service is sold.</strong></p>
+                <p>If you would like to set up Dukan Se! for your store, contact me at <a href="mailto:ipraygade@yahoo.com">ipraygade@yahoo.com</a>.</p>
+                
+                <p class="text-center mt-4">Select a store from the dropdown above to start shopping!</p>
             </div>`,
             hi: `<div class="app-info">
                 <h3>दुकान से के बारे में</h3>
