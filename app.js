@@ -492,7 +492,65 @@ let currentCategory = 'all';
 let currentLanguage = 'en';
 
 // Theme state
-let currentTheme = localStorage.getItem('theme') || 'light';
+const themeToggle = document.getElementById('theme-toggle');
+const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+
+// Check for saved theme preference or use the system preference
+const savedTheme = localStorage.getItem('theme');
+let currentTheme = savedTheme ? savedTheme : (prefersDarkScheme.matches ? 'dark' : 'light');
+
+// Apply theme on page load
+applyTheme(currentTheme);
+
+// Theme toggle event listener
+themeToggle.addEventListener('change', function() {
+    if (this.checked) {
+        applyTheme('dark');
+    } else {
+        applyTheme('light');
+    }
+});
+
+// Function to apply theme
+function applyTheme(theme) {
+    if (theme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        if (document.getElementById('theme-toggle')) {
+            document.getElementById('theme-toggle').checked = true;
+        }
+    } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+        if (document.getElementById('theme-toggle')) {
+            document.getElementById('theme-toggle').checked = false;
+        }
+    }
+    
+    // Update meta theme-color for mobile devices
+    const metaThemeColor = document.querySelector('meta[name="theme-color"]');
+    if (metaThemeColor) {
+        metaThemeColor.setAttribute('content', theme === 'dark' ? '#222222' : '#f8f9fa');
+    }
+    
+    localStorage.setItem('theme', theme);
+}
+
+// Add theme-color meta tag if it doesn't exist
+if (!document.querySelector('meta[name="theme-color"]')) {
+    const metaTag = document.createElement('meta');
+    metaTag.name = 'theme-color';
+    metaTag.content = currentTheme === 'dark' ? '#222' : '#f8f9fa';
+    document.head.appendChild(metaTag);
+}
+
+// Check if system preference changes
+prefersDarkScheme.addEventListener('change', (e) => {
+    // Only auto-switch if the user hasn't set a preference
+    if (!localStorage.getItem('theme')) {
+        const newTheme = e.matches ? 'dark' : 'light';
+        applyTheme(newTheme);
+        currentTheme = newTheme;
+    }
+});
 
 // Translations
 const translations = {
@@ -587,16 +645,12 @@ const storeSwitcher = document.getElementById('store-switcher');
 const paymentModal = new bootstrap.Modal(document.getElementById('paymentModal'));
 const proceedToWhatsappBtn = document.getElementById('proceed-to-whatsapp');
 const languageSwitcher = document.querySelector('.language-switcher');
-const themeToggleInput = document.getElementById('theme-toggle-input');
 
 // Payment state
 let selectedPaymentMethod = null;
 
 // Initialize the app
 function init() {
-    // Apply saved theme
-    applyTheme(currentTheme);
-    
     // Set initial store to QuickKart
     switchStore('quickkart');
     updateCartUI();
@@ -604,6 +658,18 @@ function init() {
     loadCustomerInfo();
     setupEventListeners();
     updateUILanguage();
+    
+    // Load and apply theme preference
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    
+    if (savedTheme) {
+        applyTheme(savedTheme);
+    } else if (prefersDarkScheme.matches) {
+        applyTheme('dark');
+    } else {
+        applyTheme('light');
+    }
 }
 
 // Setup event listeners
@@ -671,18 +737,6 @@ function setupEventListeners() {
                 // Update UI language
                 updateUILanguage();
             });
-        });
-    }
-
-    // Theme toggle
-    if (themeToggleInput) {
-        // Set initial state based on saved preference
-        themeToggleInput.checked = currentTheme === 'dark';
-        
-        themeToggleInput.addEventListener('change', () => {
-            currentTheme = themeToggleInput.checked ? 'dark' : 'light';
-            applyTheme(currentTheme);
-            localStorage.setItem('theme', currentTheme);
         });
     }
 }
@@ -838,7 +892,7 @@ function renderCategories() {
     const currentStore = STORES[storeSwitcher.value];
     
     categoryFilter.innerHTML = `
-        <button class="btn btn-outline-primary me-2 mb-2 active" data-category="all">
+        <button class="category-btn active" data-category="all">
             ${t.allItems}
         </button>
         ${categories.map(category => {
@@ -851,7 +905,7 @@ function renderCategories() {
             }
             
             return `
-                <button class="btn btn-outline-primary me-2 mb-2" data-category="${category}">
+                <button class="category-btn" data-category="${category}">
                     ${categoryName}
                 </button>
             `;
@@ -1208,17 +1262,6 @@ window.addToCart = addToCart;
 window.updateQuantity = updateQuantity;
 window.handleCheckout = handleCheckout;
 window.handleImageError = handleImageError;
-
-// Apply theme to document
-function applyTheme(theme) {
-    document.documentElement.setAttribute('data-theme', theme);
-    currentTheme = theme;
-    
-    // Update theme toggle input state if it exists
-    if (themeToggleInput) {
-        themeToggleInput.checked = theme === 'dark';
-    }
-}
 
 // Initialize the app
 init(); 
