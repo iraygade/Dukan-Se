@@ -1,0 +1,438 @@
+{
+    "dukanSe": {
+        "name": "Dukan Se!",
+        "whatsappNumber": "918390020796",
+        "products": [
+            {
+                "id": 1,
+                "name": "Tata Salt (1kg)",
+                "price": 24,
+                "category": "Essentials",
+                "image": "https://dummyimage.com/150x150/cccccc/333333.png&text=Salt"
+            },
+            {
+                "id": 2,
+                "name": "Fortune Sunflower Oil (1L)",
+                "price": 210,
+                "category": "Cooking Oils",
+                "image": "https://dummyimage.com/150x150/cccccc/333333.png&text=Oil"
+            },
+            {
+                "id": 3,
+                "name": "Aashirvaad Atta (5kg)",
+                "price": 275,
+                "category": "Flour & Grains",
+                "image": "https://dummyimage.com/150x150/cccccc/333333.png&text=Atta"
+            },
+            {
+                "id": 4,
+                "name": "Tata Sampann Toor Dal (1kg)",
+                "price": 150,
+                "category": "Pulses & Lentils",
+                "image": "https://dummyimage.com/150x150/cccccc/333333.png&text=Dal"
+            },
+            {
+                "id": 5,
+                "name": "Madhur Sugar (1kg)",
+                "price": 55,
+                "category": "Essentials",
+                "image": "https://dummyimage.com/150x150/cccccc/333333.png&text=Sugar"
+            },
+            {
+                "id": 6,
+                "name": "India Gate Basmati Rice (5kg)",
+                "price": 450,
+                "category": "Flour & Grains",
+                "image": "https://dummyimage.com/150x150/cccccc/333333.png&text=Rice"
+            },
+            {
+                "id": 7,
+                "name": "Taj Mahal Tea (500g)",
+                "price": 280,
+                "category": "Beverages",
+                "image": "https://dummyimage.com/150x150/cccccc/333333.png&text=Tea"
+            },
+            {
+                "id": 8,
+                "name": "Nescafe Classic Coffee (200g)",
+                "price": 380,
+                "category": "Beverages",
+                "image": "https://dummyimage.com/150x150/cccccc/333333.png&text=Coffee"
+            },
+            {
+                "id": 9,
+                "name": "Maggi Noodles (Pack of 10)",
+                "price": 120,
+                "category": "Ready to Cook",
+                "image": "https://dummyimage.com/150x150/cccccc/333333.png&text=Maggi"
+            },
+            {
+                "id": 10,
+                "name": "Amul Butter (500g)",
+                "price": 245,
+                "category": "Dairy",
+                "image": "https://dummyimage.com/150x150/cccccc/333333.png&text=Butter"
+            },
+            {
+                "id": 11,
+                "name": "Amul Milk (1L)",
+                "price": 68,
+                "category": "Dairy",
+                "image": "https://dummyimage.com/150x150/cccccc/333333.png&text=Milk"
+            },
+            {
+                "id": 12,
+                "name": "Amul Cheese Slices (200g)",
+                "price": 130,
+                "category": "Dairy",
+                "image": "https://dummyimage.com/150x150/cccccc/333333.png&text=Cheese"
+            },
+            {
+                "id": 13,
+                "name": "MTR Masala (100g)",
+                "price": 85,
+                "category": "Spices",
+                "image": "https://dummyimage.com/150x150/cccccc/333333.png&text=Masala"
+            },
+            {
+                "id": 14,
+                "name": "Everest Turmeric Powder (100g)",
+                "price": 45,
+                "category": "Spices",
+                "image": "https://dummyimage.com/150x150/cccccc/333333.png&text=Turmeric"
+            },
+            {
+                "id": 15,
+                "name": "Saffola Cooking Oil (5L)",
+                "price": 950,
+                "category": "Cooking Oils",
+                "image": "https://dummyimage.com/150x150/cccccc/333333.png&text=Saffola"
+            },
+            {
+                "id": 16,
+                "name": "Kissan Tomato Ketchup (500g)",
+                "price": 125,
+                "category": "Sauces & Spreads",
+                "image": "https://dummyimage.com/150x150/cccccc/333333.png&text=Ketchup"
+            },
+            {
+                "id": 17,
+                "name": "Parle-G Biscuits (800g)",
+                "price": 80,
+                "category": "Snacks",
+                "image": "https://dummyimage.com/150x150/cccccc/333333.png&text=Parle-G"
+            },
+            {
+                "id": 18,
+                "name": "Britannia Good Day (200g)",
+                "price": 30,
+                "category": "Snacks",
+                "image": "https://dummyimage.com/150x150/cccccc/333333.png&text=Good-Day"
+            },
+            {
+                "id": 19,
+                "name": "Potatoes",
+                "price": 45,
+                "category": "Fresh Vegetables",
+                "image": "https://dummyimage.com/150x150/cccccc/333333.png&text=Potatoes",
+                "isWeighted": true,
+                "pricePerKg": 45
+            },
+            {
+                "id": 20,
+                "name": "Tomatoes",
+                "price": 60,
+                "category": "Fresh Vegetables",
+                "image": "https://dummyimage.com/150x150/cccccc/333333.png&text=Tomatoes",
+                "isWeighted": true,
+                "pricePerKg": 60
+            },
+            {
+                "id": 21,
+                "name": "Onions",
+                "price": 35,
+                "category": "Fresh Vegetables",
+                "image": "https://dummyimage.com/150x150/cccccc/333333.png&text=Onions",
+                "isWeighted": true,
+                "pricePerKg": 35
+            },
+            {
+                "id": 22,
+                "name": "Fresh Coriander",
+                "price": 20,
+                "category": "Fresh Herbs",
+                "image": "https://dummyimage.com/150x150/cccccc/333333.png&text=Coriander",
+                "isWeighted": true,
+                "pricePerKg": 200
+            },
+            {
+                "id": 23,
+                "name": "Green Chillies",
+                "price": 15,
+                "category": "Fresh Vegetables",
+                "image": "https://dummyimage.com/150x150/cccccc/333333.png&text=Chillies",
+                "isWeighted": true,
+                "pricePerKg": 150
+            },
+            {
+                "id": 24,
+                "name": "Bananas",
+                "price": 50,
+                "category": "Fresh Fruits",
+                "image": "https://dummyimage.com/150x150/cccccc/333333.png&text=Bananas",
+                "isWeighted": true,
+                "pricePerKg": 60
+            },
+            {
+                "id": 25,
+                "name": "Apples",
+                "price": 120,
+                "category": "Fresh Fruits",
+                "image": "https://dummyimage.com/150x150/cccccc/333333.png&text=Apples",
+                "isWeighted": true,
+                "pricePerKg": 150
+            },
+            {
+                "id": 26,
+                "name": "Mangoes",
+                "price": 200,
+                "category": "Fresh Fruits",
+                "image": "https://dummyimage.com/150x150/cccccc/333333.png&text=Mangoes",
+                "isWeighted": true,
+                "pricePerKg": 200
+            },
+            {
+                "id": 27,
+                "name": "Paneer (200g)",
+                "price": 80,
+                "category": "Dairy & Eggs",
+                "image": "https://dummyimage.com/150x150/cccccc/333333.png&text=Paneer"
+            },
+            {
+                "id": 28,
+                "name": "Farm Fresh Eggs (12 pcs)",
+                "price": 90,
+                "category": "Dairy & Eggs",
+                "image": "https://dummyimage.com/150x150/cccccc/333333.png&text=Eggs"
+            },
+            {
+                "id": 29,
+                "name": "Spinach",
+                "price": 30,
+                "category": "Fresh Vegetables",
+                "image": "https://dummyimage.com/150x150/cccccc/333333.png&text=Spinach",
+                "isWeighted": true,
+                "pricePerKg": 120
+            },
+            {
+                "id": 30,
+                "name": "Mint Leaves",
+                "price": 25,
+                "category": "Fresh Herbs",
+                "image": "https://dummyimage.com/150x150/cccccc/333333.png&text=Mint",
+                "isWeighted": true,
+                "pricePerKg": 250
+            },
+            {
+                "id": 31,
+                "name": "Cauliflower",
+                "price": 40,
+                "category": "Fresh Vegetables",
+                "image": "https://dummyimage.com/150x150/cccccc/333333.png&text=Cauliflower",
+                "isWeighted": true,
+                "pricePerKg": 40
+            },
+            {
+                "id": 32,
+                "name": "Cabbage",
+                "price": 35,
+                "category": "Fresh Vegetables",
+                "image": "https://dummyimage.com/150x150/cccccc/333333.png&text=Cabbage",
+                "isWeighted": true,
+                "pricePerKg": 35
+            },
+            {
+                "id": 33,
+                "name": "Ginger",
+                "price": 35,
+                "category": "Fresh Vegetables",
+                "image": "https://dummyimage.com/150x150/cccccc/333333.png&text=Ginger",
+                "isWeighted": true,
+                "pricePerKg": 140
+            },
+            {
+                "id": 34,
+                "name": "Garlic",
+                "price": 40,
+                "category": "Fresh Vegetables",
+                "image": "https://dummyimage.com/150x150/cccccc/333333.png&text=Garlic",
+                "isWeighted": true,
+                "pricePerKg": 160
+            },
+            {
+                "id": 35,
+                "name": "Fresh Coconut",
+                "price": 50,
+                "category": "Fresh Fruits",
+                "image": "https://dummyimage.com/150x150/cccccc/333333.png&text=Coconut"
+            },
+            {
+                "id": 36,
+                "name": "Cucumber",
+                "price": 40,
+                "category": "Fresh Vegetables",
+                "image": "https://dummyimage.com/150x150/cccccc/333333.png&text=Cucumber",
+                "isWeighted": true,
+                "pricePerKg": 40
+            }
+        ],
+        "categories": ["Essentials", "Flour & Grains", "Pulses & Lentils", "Cooking Oils", "Dairy", "Beverages", "Spices", "Snacks", "Ready to Cook", "Sauces & Spreads", "Fresh Vegetables", "Fresh Fruits", "Fresh Herbs", "Dairy & Eggs"]
+    },
+    "chemicals": {
+        "name": "A to Z Chemicals",
+        "whatsappNumber": "919890084001",
+        "products": [
+            {
+                "id": 1,
+                "name": "Sodium Hydroxide (NaOH)",
+                "price": 450,
+                "category": "Industrial Chemicals",
+                "image": "https://dummyimage.com/150x150/cccccc/333333.png&text=NaOH"
+            },
+            {
+                "id": 2,
+                "name": "Hydrochloric Acid (HCl)",
+                "price": 380,
+                "category": "Industrial Chemicals",
+                "image": "https://dummyimage.com/150x150/cccccc/333333.png&text=HCl"
+            },
+            {
+                "id": 3,
+                "name": "Sulfuric Acid (H2SO4)",
+                "price": 420,
+                "category": "Industrial Chemicals",
+                "image": "https://dummyimage.com/150x150/cccccc/333333.png&text=H2SO4"
+            },
+            {
+                "id": 4,
+                "name": "Ethanol (C2H5OH)",
+                "price": 550,
+                "category": "Solvents",
+                "image": "https://dummyimage.com/150x150/cccccc/333333.png&text=Ethanol"
+            },
+            {
+                "id": 5,
+                "name": "Acetone (C3H6O)",
+                "price": 480,
+                "category": "Solvents",
+                "image": "https://dummyimage.com/150x150/cccccc/333333.png&text=Acetone"
+            },
+            {
+                "id": 6,
+                "name": "Ammonia Solution",
+                "price": 320,
+                "category": "Cleaning Agents",
+                "image": "https://dummyimage.com/150x150/cccccc/333333.png&text=Ammonia"
+            },
+            {
+                "id": 7,
+                "name": "Hydrogen Peroxide (H2O2)",
+                "price": 280,
+                "category": "Cleaning Agents",
+                "image": "https://dummyimage.com/150x150/cccccc/333333.png&text=H2O2"
+            },
+            {
+                "id": 8,
+                "name": "Sodium Bicarbonate",
+                "price": 150,
+                "category": "Laboratory Chemicals",
+                "image": "https://dummyimage.com/150x150/cccccc/333333.png&text=NaHCO3"
+            },
+            {
+                "id": 9,
+                "name": "Calcium Carbonate (CaCO3)",
+                "price": 180,
+                "category": "Laboratory Chemicals",
+                "image": "https://dummyimage.com/150x150/cccccc/333333.png&text=CaCO3"
+            },
+            {
+                "id": 10,
+                "name": "Potassium Hydroxide (KOH)",
+                "price": 470,
+                "category": "Industrial Chemicals",
+                "image": "https://dummyimage.com/150x150/cccccc/333333.png&text=KOH"
+            },
+            {
+                "id": 11,
+                "name": "Nitric Acid (HNO3)",
+                "price": 390,
+                "category": "Industrial Chemicals",
+                "image": "https://dummyimage.com/150x150/cccccc/333333.png&text=HNO3"
+            },
+            {
+                "id": 12,
+                "name": "Methanol (CH3OH)",
+                "price": 490,
+                "category": "Solvents",
+                "image": "https://dummyimage.com/150x150/cccccc/333333.png&text=Methanol"
+            },
+            {
+                "id": 13,
+                "name": "Isopropyl Alcohol (C3H8O)",
+                "price": 520,
+                "category": "Solvents",
+                "image": "https://dummyimage.com/150x150/cccccc/333333.png&text=IPA"
+            },
+            {
+                "id": 14,
+                "name": "Phosphoric Acid (H3PO4)",
+                "price": 410,
+                "category": "Industrial Chemicals",
+                "image": "https://dummyimage.com/150x150/cccccc/333333.png&text=H3PO4"
+            },
+            {
+                "id": 15,
+                "name": "Citric Acid",
+                "price": 240,
+                "category": "Food Grade Chemicals",
+                "image": "https://dummyimage.com/150x150/cccccc/333333.png&text=CitricAcid"
+            },
+            {
+                "id": 16,
+                "name": "Bleach Solution",
+                "price": 190,
+                "category": "Cleaning Agents",
+                "image": "https://dummyimage.com/150x150/cccccc/333333.png&text=Bleach"
+            },
+            {
+                "id": 17,
+                "name": "Magnesium Sulfate (MgSO4)",
+                "price": 220,
+                "category": "Laboratory Chemicals",
+                "image": "https://dummyimage.com/150x150/cccccc/333333.png&text=MgSO4"
+            },
+            {
+                "id": 18,
+                "name": "Sodium Chloride (NaCl)",
+                "price": 120,
+                "category": "Laboratory Chemicals",
+                "image": "https://dummyimage.com/150x150/cccccc/333333.png&text=NaCl"
+            },
+            {
+                "id": 19,
+                "name": "Tartaric Acid",
+                "price": 260,
+                "category": "Food Grade Chemicals",
+                "image": "https://dummyimage.com/150x150/cccccc/333333.png&text=TartaricAcid"
+            },
+            {
+                "id": 20,
+                "name": "Xylene (C8H10)",
+                "price": 580,
+                "category": "Solvents",
+                "image": "https://dummyimage.com/150x150/cccccc/333333.png&text=Xylene"
+            }
+        ],
+        "categories": ["Industrial Chemicals", "Solvents", "Cleaning Agents", "Laboratory Chemicals", "Food Grade Chemicals"]
+    }
+} 

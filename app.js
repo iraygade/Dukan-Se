@@ -5,8 +5,8 @@ let categories = [];
 
 // Store configurations
 const STORES = {
-    quickkart: {
-        name: "Dukan Se",
+    dukanSe: {
+        name: "Dukan Se!",
         whatsappNumber: "",
         isInfoPage: true,
         description: {
@@ -15,93 +15,65 @@ const STORES = {
                 <h5 class="text-center mb-4">An Online Ordering System for Local Stores.</h5>
                 
                 <p>Dukan Se! is a simple solution that enables stores to accept online orders through their store app/URL.</p>
-                <p>The orders are sent by customers and recieved by the merchant via WhatsApp.</p>
-                <p>Orders are also visible and manageable on merchant phone or computer.</p>
-                
-                <h4>App features for customers</h4>
-                <ul>
-                    <li>Product catalog</li>
-                    <li>Sort by item type/price/weight/fresh</li>
-                    <li>Add to cart functionality</li>
-                    <li>Pay using CoD/UPI</li>
-                    <li>Custom UPI QR for order amounts</li>
-                    <li>WhatsApp message checkout</li>
-                </ul>
-                
-                <h4>Features for Merchant</h4>
-                <ul>
-                    <li>Sale tracking</li>
-                    <li>Inventory overview</li>
-                    <li>Expiry tracking</li>
-                    <li>Stock reminder</li>
-                    <li>Sale analytics</li>
-                </ul>
-                
-                <h4>Onboarding process</h4>
-                <p><strong>If inventory is digital:</strong></p>
-                <ol>
-                    <li>Sync inventory with app.</li>
-                    <li>Generate a QR code for your store's URL and app.</li>
-                    <li>Display QR and spread the news.</li>
-                    <li>You are now ready to start taking orders online!</li>
-                </ol>
-                
-                <p><strong>If inventory is manual:</strong></p>
-                <ol>
-                    <li>Set-up tech.</li>
-                    <li>Create a digital inventory by logging all items during store down-time.</li>
-                    <li>Generate a QR code for your store's URL and app.</li>
-                    <li>Display QR and spread the news.</li>
-                    <li>You are now ready to start taking orders online</li>
-                </ol>
-                
-                <h4>How It Works:</h4>
-                <ol>
-                    <li>Customers scan the QR code to download the app or visit your store's URL.</li>
-                    <li>They register using their Name, Address and Phone Number.</li>
-                    <li>They browse products and add items to their cart.</li>
-                    <li>When ready, they click "Proceed to payment" and select payment mode.</li>
-                    <li>If UPI is selected, a payment request opens on customer's UPI app with pre-entered order amount ready for payment.</li>
-                    <li>If CoD is selected, payment is taken in cash or UPI using QR.</li>
-                    <li>After payment process, "Send Order via WhatsApp" can be clicked.</li>
-                    <li>This sends a pre-filled message with their order using WhatsApp to the merchant with their order.</li>
-                    <li>Merchant receives the order on WhatsApp and on their dashboard.</li>
-                    <li>Store packs and delivers order.</li>
-                    <li>The orders can be viewed and managed on merchant phone or computer.</li>
-                </ol>
-                
-                <p class="mt-4"><strong>Data is collected only for record-keeping. No data collected by the service is sold.</strong></p>
-                <p>If you would like to set up Dukan Se! for your store, contact me at <a href="mailto:ipraygade@yahoo.com">ipraygade@yahoo.com</a>.</p>
-                
-                <p class="text-center mt-4">Select a store from the dropdown above to start shopping!</p>
-            </div>`,
+        <!-- ... existing content ... -->
+    </div>`,
             hi: `<div class="app-info">
-                <h3>दुकान से के बारे में</h3>
-                <p>दुकान से स्थानीय दुकानों को ऑनलाइन लाता है, जिससे उन्हें कॉर्पोरेट डिजिटल प्लेटफॉर्म के साथ प्रतिस्पर्धा करने में मदद मिलती है।</p>
-                <p>हमारा मिशन छोटे व्यवसायों को महंगे तकनीकी निवेशों के बिना ऑनलाइन ग्राहकों तक पहुंचने का एक सरल तरीका प्रदान करके सशक्त बनाना है।</p>
-                <h4>मुख्य विशेषताएँ:</h4>
+                <h3 class="text-center mb-4">दुकान से!</h3>
+                <h5 class="text-center mb-4">स्थानीय दुकानों के लिए एक ऑनलाइन ऑर्डरिंग सिस्टम।</h5>
+                
+                <p>दुकान से! एक सरल समाधान है जो दुकानों को अपने स्टोर ऐप/URL के माध्यम से ऑनलाइन ऑर्डर स्वीकार करने में सक्षम बनाता है।</p>
+                <p>ऑर्डर ग्राहकों द्वारा भेजे जाते हैं और व्यापारी द्वारा व्हाट्सएप के माध्यम से प्राप्त किए जाते हैं।</p>
+                <p>ऑर्डर व्यापारी के फोन या कंप्यूटर पर भी दिखाई देते हैं और प्रबंधनीय होते हैं।</p>
+                
+                <h4 class="text-center mb-3">ग्राहकों के लिए ऐप सुविधाएँ</h4>
                 <ul>
-                    <li><strong>सरल सेटअप:</strong> स्टोर मालिक मिनटों में ऑनलाइन हो सकते हैं</li>
-                    <li><strong>व्हाट्सएप एकीकरण:</strong> मौजूदा संचार चैनलों का उपयोग करें</li>
-                    <li><strong>कोई कमीशन नहीं:</strong> कॉर्पोरेट प्लेटफॉर्मों के विपरीत, हम कोई हिस्सा नहीं लेते</li>
-                    <li><strong>स्थानीय फोकस:</strong> पड़ोस के व्यवसायों का समर्थन करें</li>
-                    <li><strong>बहुभाषी:</strong> विविध समुदायों को उनकी भाषा में सेवा दें</li>
+                    <li>उत्पाद कैटलॉग</li>
+                    <li>आइटम प्रकार/मूल्य/वजन/ताजगी के अनुसार क्रमबद्ध करें</li>
+                    <li>कार्ट में जोड़ने की कार्यक्षमता</li>
+                    <li>CoD/UPI का उपयोग करके भुगतान करें</li>
+                    <li>ऑर्डर राशि के लिए कस्टम UPI QR</li>
+                    <li>व्हाट्सएप मैसेज चेकआउट</li>
                 </ul>
-                <p>खरीदारी शुरू करने के लिए ऊपर ड्रॉपडाउन से एक स्टोर चुनें!</p>
+                
+                <h4 class="text-center mb-3">व्यापारी के लिए सुविधाएँ</h4>
+                <ul>
+                    <li>बिक्री ट्रैकिंग</li>
+                    <li>इन्वेंटरी ओवरव्यू</li>
+                    <li>समाप्ति ट्रैकिंग</li>
+                    <li>स्टॉक रिमाइंडर</li>
+                    <li>बिक्री विश्लेषण</li>
+                </ul>
+                
+                <p class="text-center mt-4">शॉपिंग शुरू करने के लिए ऊपर ड्रॉपडाउन से एक स्टोर चुनें!</p>
             </div>`,
             mr: `<div class="app-info">
-                <h3>दुकान से बद्दल</h3>
-                <p>दुकान से स्थानिक दुकानांना ऑनलाइन आणते, त्यांना कॉर्पोरेट डिजिटल प्लॅटफॉर्मसह स्पर्धा करण्यात मदत करते.</p>
-                <p>आमचे लक्ष्य छोट्या व्यवसायांना महागड्या तांत्रिक गुंतवणुकीशिवाय ऑनलाइन ग्राहकांपर्यंत पोहोचण्याचा सोपा मार्ग देऊन सशक्त करणे आहे.</p>
-                <h4>मुख्य वैशिष्ट्ये:</h4>
+                <h3 class="text-center mb-4">दुकान से!</h3>
+                <h5 class="text-center mb-4">स्थानिक दुकानांसाठी ऑनलाइन ऑर्डरिंग सिस्टम.</h5>
+                
+                <p>दुकान से! एक सोपा उपाय आहे जो दुकानांना त्यांच्या स्टोअर अॅप/URL द्वारे ऑनलाइन ऑर्डर स्वीकारण्यास सक्षम करतो.</p>
+                <p>ऑर्डर ग्राहकांकडून पाठविले जातात आणि व्यापाऱ्यांद्वारे व्हाट्सअॅप द्वारे प्राप्त केले जातात.</p>
+                <p>ऑर्डर व्यापारी फोन किंवा संगणकावर देखील दिसतात आणि व्यवस्थापित करण्यायोग्य आहेत.</p>
+                
+                <h4 class="text-center mb-3">ग्राहकांसाठी अॅप वैशिष्ट्ये</h4>
                 <ul>
-                    <li><strong>सोपी सेटअप:</strong> स्टोअर मालक मिनिटांमध्ये ऑनलाइन होऊ शकतात</li>
-                    <li><strong>व्हाट्सअॅप एकत्रीकरण:</strong> विद्यमान संवाद चॅनेल वापरा</li>
-                    <li><strong>कमिशन नाही:</strong> कॉर्पोरेट प्लॅटफॉर्मच्या विपरीत, आम्ही हिस्सा घेत नाही</li>
-                    <li><strong>स्थानिक फोकस:</strong> शेजारील व्यवसायांना समर्थन द्या</li>
-                    <li><strong>बहुभाषिक:</strong> विविध समुदायांना त्यांच्या भाषेत सेवा द्या</li>
+                    <li>उत्पादन कॅटलॉग</li>
+                    <li>आयटम प्रकार/किंमत/वजन/ताजे प्रमाणे क्रमवारी</li>
+                    <li>कार्टमध्ये जोडण्याची कार्यक्षमता</li>
+                    <li>CoD/UPI वापरून पेमेंट</li>
+                    <li>ऑर्डर रकमेसाठी कस्टम UPI QR</li>
+                    <li>व्हाट्सअॅप मेसेज चेकआउट</li>
                 </ul>
-                <p>खरेदी सुरू करण्यासाठी वरील ड्रॉपडाउनमधून स्टोअर निवडा!</p>
+                
+                <h4 class="text-center mb-3">व्यापारी साठी वैशिष्ट्ये</h4>
+                <ul>
+                    <li>विक्री ट्रॅकिंग</li>
+                    <li>इन्व्हेंटरी ओव्हरव्ह्यू</li>
+                    <li>एक्सपायरी ट्रॅकिंग</li>
+                    <li>स्टॉक रिमाइंडर</li>
+                    <li>विक्री विश्लेषण</li>
+                </ul>
+                
+                <p class="text-center mt-4">खरेदी सुरू करण्यासाठी वरील ड्रॉपडाउनमधून स्टोअर निवडा!</p>
             </div>`
         },
         products: [],
@@ -606,8 +578,8 @@ prefersDarkScheme.addEventListener('change', (e) => {
 // Translations
 const translations = {
     en: {
-        appTitle: "Dukan Se",
-        appDescription: "Your local stores, now online! Order directly via WhatsApp with just a few clicks.",
+        appTitle: "Dukan Se!",
+        appDescription: "Your local stores, now online! Order directly in just a few clicks via WhatsApp.",
         addToCart: "Add to Cart",
         yourCart: "Your Cart",
         emptyCart: "Your cart is empty",
@@ -630,10 +602,12 @@ const translations = {
         total: "Total:",
         orderSummary: "Order Summary",
         deliveryTo: "Delivery to:",
-        itemQuantity: "Quantity"
+        itemQuantity: "Quantity",
+        enterWeight: "Enter weight",
+        enterValidWeight: "Please enter a valid weight"
     },
     hi: {
-        appTitle: "दुकान से",
+        appTitle: "दुकान से!",
         appDescription: "आपकी स्थानीय दुकानें, अब ऑनलाइन! व्हाट्सएप के माध्यम से सीधे कुछ ही क्लिक में ऑर्डर करें।",
         addToCart: "कार्ट में जोड़ें",
         yourCart: "आपका कार्ट",
@@ -657,10 +631,12 @@ const translations = {
         total: "कुल:",
         orderSummary: "ऑर्डर सारांश",
         deliveryTo: "डिलीवरी:",
-        itemQuantity: "मात्रा"
+        itemQuantity: "मात्रा",
+        enterWeight: "वजन दर्ज करा",
+        enterValidWeight: "कृपया एक वैध वजन दर्ज करें"
     },
     mr: {
-        appTitle: "दुकान से",
+        appTitle: "दुकान से!",
         appDescription: "तुमच्या स्थानिक दुकाने, आता ऑनलाइन! व्हाट्सअॅप द्वारे थेट काही क्लिकमध्ये ऑर्डर करा.",
         addToCart: "कार्टमध्ये टाका",
         yourCart: "तुमचे कार्ट",
@@ -684,7 +660,9 @@ const translations = {
         total: "एकूण:",
         orderSummary: "ऑर्डर सारांश",
         deliveryTo: "डिलिव्हरी:",
-        itemQuantity: "संख्या"
+        itemQuantity: "संख्या",
+        enterWeight: "वजन प्रविष्ट करा",
+        enterValidWeight: "कृपया वैध वजन प्रविष्ट करा"
     }
 };
 
@@ -732,7 +710,12 @@ const categoryTranslations = {
         "Fresh Vegetables": "ताजी सब्जियां",
         "Fresh Fruits": "ताजे फल",
         "Fresh Herbs": "ताजी जड़ी-बूटियां",
-        "Dairy & Eggs": "डेयरी और अंडे"
+        "Dairy & Eggs": "डेयरी और अंडे",
+        "Industrial Chemicals": "औद्योगिक रसायन",
+        "Solvents": "विलायक",
+        "Cleaning Agents": "सफाई एजेंट",
+        "Laboratory Chemicals": "प्रयोगशाला रसायन",
+        "Food Grade Chemicals": "खाद्य श्रेणी के रसायन"
     },
     mr: {
         "Essentials": "आवश्यक वस्तू",
@@ -748,87 +731,106 @@ const categoryTranslations = {
         "Fresh Vegetables": "ताज्या भाज्या",
         "Fresh Fruits": "ताजी फळे",
         "Fresh Herbs": "ताज्या हर्ब्स",
-        "Dairy & Eggs": "दुग्धजन्य पदार्थ आणि अंडी"
+        "Dairy & Eggs": "दुग्धजन्य पदार्थ आणि अंडी",
+        "Industrial Chemicals": "औद्योगिक रसायने",
+        "Solvents": "द्रावक",
+        "Cleaning Agents": "सफाई एजंट",
+        "Laboratory Chemicals": "प्रयोगशाळा रसायने",
+        "Food Grade Chemicals": "अन्न-दर्जाचे रसायने"
     }
 };
 
 // Add translations for common product names
 const productTranslations = {
     hi: {
+        // Existing translations for grocery items
         "Tata Salt (1kg)": "टाटा नमक (1kg)",
         "Fortune Sunflower Oil (1L)": "फॉर्च्यून सनफ्लावर ऑयल (1L)",
-        "Aashirvaad Atta (5kg)": "आशीर्वाद आटा (5kg)",
-        "Tata Sampann Toor Dal (1kg)": "टाटा सम्पन्न तूर दाल (1kg)",
-        "Madhur Sugar (1kg)": "मधुर चीनी (1kg)",
-        "India Gate Basmati Rice (5kg)": "इंडिया गेट बासमती चावल (5kg)",
-        "Taj Mahal Tea (500g)": "ताज महल चाय (500g)",
-        "Nescafe Classic Coffee (200g)": "नेस्काफे क्लासिक कॉफी (200g)",
-        "Maggi Noodles (Pack of 10)": "मैगी नूडल्स (10 का पैक)",
-        "Amul Butter (500g)": "अमूल बटर (500g)",
-        "Amul Milk (1L)": "अमूल दूध (1L)",
-        "Amul Cheese Slices (200g)": "अमूल चीज़ स्लाइस (200g)",
-        "MTR Masala (100g)": "MTR मसाला (100g)",
-        "Everest Turmeric Powder (100g)": "एवरेस्ट हल्दी पाउडर (100g)",
-        "Saffola Cooking Oil (5L)": "सफोला कुकिंग ऑयल (5L)",
-        "Kissan Tomato Ketchup (500g)": "किसान टमाटर केचप (500g)",
-        "Parle-G Biscuits (800g)": "पार्ले-जी बिस्कुट (800g)",
-        "Britannia Good Day (200g)": "ब्रिटानिया गुड डे (200g)",
-        "Organic Potatoes (1kg)": "ऑर्गेनिक आलू (1kg)",
-        "Fresh Tomatoes (500g)": "ताजे टमाटर (500g)",
-        "Organic Onions (1kg)": "ऑर्गेनिक प्याज (1kg)",
-        "Fresh Coriander (100g)": "ताजा धनिया (100g)",
-        "Green Chillies (100g)": "हरी मिर्च (100g)",
-        "Fresh Bananas (6 pcs)": "ताजे केले (6 पीस)",
-        "Apples (4 pcs)": "सेब (4 पीस)",
-        "Fresh Mangoes (1kg)": "ताजे आम (1kg)",
-        "Paneer (200g)": "पनीर (200g)",
-        "Farm Fresh Eggs (12 pcs)": "फार्म फ्रेश अंडे (12 पीस)",
-        "Fresh Spinach (250g)": "ताजा पालक (250g)",
-        "Mint Leaves (100g)": "पुदीना पत्ते (100g)",
-        "Fresh Cauliflower (1 pc)": "ताजा फूलगोभी (1 पीस)",
-        "Fresh Cabbage (1 pc)": "ताजा पत्तागोभी (1 पीस)",
-        "Ginger (250g)": "अदरक (250g)",
-        "Garlic (250g)": "लहसुन (250g)",
-        "Fresh Coconut (1 pc)": "ताजा नारियल (1 पीस)",
-        "Organic Cucumber (500g)": "ऑर्गेनिक खीरा (500g)"
+        
+        // New translations for fruits and vegetables
+        "Potatoes": "आलू",
+        "Tomatoes": "टमाटर",
+        "Onions": "प्याज",
+        "Fresh Coriander": "ताजा धनिया",
+        "Green Chillies": "हरी मिर्च",
+        "Bananas": "केले",
+        "Apples": "सेब",
+        "Mangoes": "आम",
+        "Spinach": "पालक",
+        "Mint Leaves": "पुदीना",
+        "Cauliflower": "फूलगोभी",
+        "Cabbage": "पत्ता गोभी",
+        "Ginger": "अदरक",
+        "Garlic": "लहसुन",
+        "Fresh Coconut": "ताजा नारियल",
+        "Cucumber": "खीरा",
+        
+        // Chemical product translations
+        "Sodium Hydroxide (NaOH)": "सोडियम हाइड्रॉक्साइड (NaOH)",
+        "Hydrochloric Acid (HCl)": "हाइड्रोक्लोरिक एसिड (HCl)",
+        "Sulfuric Acid (H2SO4)": "सल्फ्यूरिक एसिड (H2SO4)",
+        "Ethanol (C2H5OH)": "इथेनॉल (C2H5OH)",
+        "Acetone (C3H6O)": "एसीटोन (C3H6O)",
+        "Ammonia Solution": "अमोनिया सॉल्यूशन",
+        "Hydrogen Peroxide (H2O2)": "हाइड्रोजन पेरोक्साइड (H2O2)",
+        "Sodium Bicarbonate": "सोडियम बाइकार्बोनेट",
+        "Calcium Carbonate (CaCO3)": "कैल्शियम कार्बोनेट (CaCO3)",
+        "Potassium Hydroxide (KOH)": "पोटेशियम हाइड्रॉक्साइड (KOH)",
+        "Nitric Acid (HNO3)": "नाइट्रिक एसिड (HNO3)",
+        "Methanol (CH3OH)": "मेथानॉल (CH3OH)",
+        "Isopropyl Alcohol (C3H8O)": "आइसोप्रोपिल अल्कोहल (C3H8O)",
+        "Phosphoric Acid (H3PO4)": "फॉस्फोरिक एसिड (H3PO4)",
+        "Citric Acid": "साइट्रिक एसिड",
+        "Bleach Solution": "ब्लीच सॉल्यूशन",
+        "Magnesium Sulfate (MgSO4)": "मैग्नीशियम सल्फेट (MgSO4)",
+        "Sodium Chloride (NaCl)": "सोडियम क्लोराइड (NaCl)",
+        "Tartaric Acid": "टार्टरिक एसिड",
+        "Xylene (C8H10)": "जाइलीन (C8H10)"
     },
     mr: {
+        // Existing translations for grocery items
         "Tata Salt (1kg)": "टाटा मीठ (1kg)",
-        "Fortune Sunflower Oil (1L)": "फॉर्च्यून सनफ्लॉवर तेल (1L)",
-        "Aashirvaad Atta (5kg)": "आशीर्वाद पीठ (5kg)",
-        "Tata Sampann Toor Dal (1kg)": "टाटा संपन्न तूर डाळ (1kg)",
-        "Madhur Sugar (1kg)": "मधुर साखर (1kg)",
-        "India Gate Basmati Rice (5kg)": "इंडिया गेट बासमती तांदूळ (5kg)",
-        "Taj Mahal Tea (500g)": "ताज महल चहा (500g)",
-        "Nescafe Classic Coffee (200g)": "नेस्काफे क्लासिक कॉफी (200g)",
-        "Maggi Noodles (Pack of 10)": "मॅगी नूडल्स (10 चा पॅक)",
-        "Amul Butter (500g)": "अमूल बटर (500g)",
-        "Amul Milk (1L)": "अमूल दूध (1L)",
-        "Amul Cheese Slices (200g)": "अमूल चीझ स्लाईस (200g)",
-        "MTR Masala (100g)": "MTR मसाला (100g)",
-        "Everest Turmeric Powder (100g)": "एवरेस्ट हळद पावडर (100g)",
-        "Saffola Cooking Oil (5L)": "सफोला कुकिंग ऑइल (5L)",
-        "Kissan Tomato Ketchup (500g)": "किसन टोमॅटो केचप (500g)",
-        "Parle-G Biscuits (800g)": "पार्ले-जी बिस्किट (800g)",
-        "Britannia Good Day (200g)": "ब्रिटानिया गुड डे (200g)",
-        "Organic Potatoes (1kg)": "सेंद्रिय बटाटे (1kg)",
-        "Fresh Tomatoes (500g)": "ताजे टोमॅटो (500g)",
-        "Organic Onions (1kg)": "सेंद्रिय कांदे (1kg)",
-        "Fresh Coriander (100g)": "ताजी कोथिंबीर (100g)",
-        "Green Chillies (100g)": "हिरवी मिरची (100g)",
-        "Fresh Bananas (6 pcs)": "ताजी केळी (6 नग)",
-        "Apples (4 pcs)": "सफरचंद (4 नग)",
-        "Fresh Mangoes (1kg)": "ताजी आंबे (1kg)",
-        "Paneer (200g)": "पनीर (200g)",
-        "Farm Fresh Eggs (12 pcs)": "फार्म फ्रेश अंडी (12 नग)",
-        "Fresh Spinach (250g)": "ताजी पालक (250g)",
-        "Mint Leaves (100g)": "पुदिना (100g)",
-        "Fresh Cauliflower (1 pc)": "ताजी फुलकोबी (1 नग)",
-        "Fresh Cabbage (1 pc)": "ताजी कोबी (1 नग)",
-        "Ginger (250g)": "आले (250g)",
-        "Garlic (250g)": "लसूण (250g)",
-        "Fresh Coconut (1 pc)": "ताजे नारळ (1 नग)",
-        "Organic Cucumber (500g)": "सेंद्रिय काकडी (500g)"
+        "Fortune Sunflower Oil (1L)": "फॉर्च्यून सूर्यफूल तेल (1L)",
+        
+        // New translations for fruits and vegetables
+        "Potatoes": "बटाटे",
+        "Tomatoes": "टोमॅटो",
+        "Onions": "कांदे",
+        "Fresh Coriander": "ताजे कोथिंबीर",
+        "Green Chillies": "हिरव्या मिरच्या",
+        "Bananas": "केळी",
+        "Apples": "सफरचंद",
+        "Mangoes": "आंबे",
+        "Spinach": "पालक",
+        "Mint Leaves": "पुदिना",
+        "Cauliflower": "फुलकोबी",
+        "Cabbage": "कोबी",
+        "Ginger": "आले",
+        "Garlic": "लसूण",
+        "Fresh Coconut": "ताजे नारळ",
+        "Cucumber": "काकडी",
+        
+        // Chemical product translations
+        "Sodium Hydroxide (NaOH)": "सोडियम हायड्रॉक्साईड (NaOH)",
+        "Hydrochloric Acid (HCl)": "हायड्रोक्लोरिक अॅसिड (HCl)",
+        "Sulfuric Acid (H2SO4)": "सल्फ्युरिक अॅसिड (H2SO4)",
+        "Ethanol (C2H5OH)": "इथेनॉल (C2H5OH)",
+        "Acetone (C3H6O)": "अॅसिटोन (C3H6O)",
+        "Ammonia Solution": "अमोनिया सोल्युशन",
+        "Hydrogen Peroxide (H2O2)": "हायड्रोजन पेरॉक्साईड (H2O2)",
+        "Sodium Bicarbonate": "सोडियम बायकार्बोनेट",
+        "Calcium Carbonate (CaCO3)": "कॅल्शियम कार्बोनेट (CaCO3)",
+        "Potassium Hydroxide (KOH)": "पोटॅशियम हायड्रॉक्साईड (KOH)",
+        "Nitric Acid (HNO3)": "नायट्रिक अॅसिड (HNO3)",
+        "Methanol (CH3OH)": "मिथेनॉल (CH3OH)",
+        "Isopropyl Alcohol (C3H8O)": "आयसोप्रोपिल अल्कोहोल (C3H8O)",
+        "Phosphoric Acid (H3PO4)": "फॉस्फरिक अॅसिड (H3PO4)",
+        "Citric Acid": "सिट्रिक अॅसिड",
+        "Bleach Solution": "ब्लीच सोल्युशन",
+        "Magnesium Sulfate (MgSO4)": "मॅग्नेशियम सल्फेट (MgSO4)",
+        "Sodium Chloride (NaCl)": "सोडियम क्लोराईड (NaCl)",
+        "Tartaric Acid": "टार्टरिक अॅसिड",
+        "Xylene (C8H10)": "झायलीन (C8H10)"
     }
 };
 
@@ -933,7 +935,7 @@ function switchStore(storeId) {
             saveCartToStorage();
         } else {
             // User cancelled, revert the dropdown
-            storeSwitcher.value = STORE_CONFIG.storeId || 'quickkart';
+            storeSwitcher.value = STORE_CONFIG.storeId || 'dukanSe';
             return;
         }
     }
@@ -1012,12 +1014,12 @@ function updateCustomerInfoDisplay() {
 
 // Save customer info to localStorage
 function saveCustomerInfoToStorage() {
-    localStorage.setItem('quickkart_customer', JSON.stringify(customerInfo));
+    localStorage.setItem('dukanSe_customer', JSON.stringify(customerInfo));
 }
 
 // Load customer info from localStorage
 function loadCustomerInfo() {
-    const savedInfo = localStorage.getItem('quickkart_customer');
+    const savedInfo = localStorage.getItem('dukanSe_customer');
     if (savedInfo) {
         customerInfo = JSON.parse(savedInfo);
         updateCustomerInfoDisplay();
@@ -1177,23 +1179,47 @@ function renderProducts() {
             productName = currentStore.productTranslations[currentLanguage][product.name];
         }
         
+        // Create add to cart button based on whether product is weighted or not
+        let addToCartHtml = '';
+        if (quantity === 0) {
+            if (product.isWeighted) {
+                addToCartHtml = `
+                    <div class="weight-input-container">
+                        <input type="number" class="form-control weight-input" id="weight-${product.id}" 
+                            min="0.1" step="0.1" value="1" placeholder="${t.enterWeight}">
+                        <select class="form-select weight-unit" id="unit-${product.id}">
+                            <option value="kg">kg</option>
+                            <option value="g">g</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-primary w-100 mt-2" onclick="addToCart(${product.id}, true)">
+                        ${t.addToCart} (₹${product.pricePerKg}/kg)
+                    </button>
+                `;
+            } else {
+                addToCartHtml = `
+                    <button class="btn btn-primary w-100" onclick="addToCart(${product.id})">
+                        ${t.addToCart}
+                    </button>
+                `;
+            }
+        } else {
+            addToCartHtml = `
+                <div class="product-quantity">
+                    <button onclick="updateQuantity(${product.id}, -1)">-</button>
+                    <span>${quantity}</span>
+                    <button onclick="updateQuantity(${product.id}, 1)">+</button>
+                </div>
+            `;
+        }
+        
         return `
             <div class="col-6 col-md-4 mb-4">
                 <div class="product-card">
                     <img src="${product.image}" alt="${productName}" class="product-image" onerror="handleImageError(this)">
                     <h5 class="mt-2">${productName}</h5>
-                    <p class="text-muted">₹${product.price}</p>
-                    ${quantity === 0 ? 
-                        `<button class="btn btn-primary w-100" onclick="addToCart(${product.id})">
-                            ${t.addToCart}
-                        </button>` 
-                        : 
-                        `<div class="product-quantity">
-                            <button onclick="updateQuantity(${product.id}, -1)">-</button>
-                            <span>${quantity}</span>
-                            <button onclick="updateQuantity(${product.id}, 1)">+</button>
-                        </div>`
-                    }
+                    <p class="text-muted">₹${product.price}${product.isWeighted ? '/kg' : ''}</p>
+                    ${addToCartHtml}
                 </div>
             </div>
         `;
@@ -1210,7 +1236,7 @@ function getProductQuantityInCart(productId) {
 }
 
 // Add product to cart
-function addToCart(productId) {
+function addToCart(productId, isWeighted = false) {
     if (!customerInfo.name) {
         alert(translations[currentLanguage].addDeliveryDetails);
         editCustomerInfoBtn.click();
@@ -1229,17 +1255,63 @@ function addToCart(productId) {
         productName = currentStore.productTranslations[currentLanguage][product.name];
     }
 
-    if (existingItem) {
-        existingItem.quantity += 1;
+    // Handle weighted products
+    if (isWeighted && product.isWeighted) {
+        const weightInput = document.getElementById(`weight-${productId}`);
+        const unitSelect = document.getElementById(`unit-${productId}`);
+        
+        if (!weightInput || !unitSelect) {
+            console.error('Weight input or unit select not found');
+            return;
+        }
+        
+        let weight = parseFloat(weightInput.value);
+        const unit = unitSelect.value;
+        
+        // Convert grams to kg if needed
+        if (unit === 'g') {
+            weight = weight / 1000;
+        }
+        
+        if (isNaN(weight) || weight <= 0) {
+            alert(translations[currentLanguage].enterValidWeight);
+            return;
+        }
+        
+        // Calculate price based on weight
+        const itemPrice = Math.round(product.pricePerKg * weight);
+        
+        if (existingItem) {
+            existingItem.quantity += 1;
+            existingItem.weight = weight;
+            existingItem.price = itemPrice;
+        } else {
+            cart.push({
+                id: product.id,
+                name: product.name,
+                displayName: productName,
+                price: itemPrice,
+                originalPrice: product.pricePerKg,
+                weight: weight,
+                quantity: 1,
+                storeId: storeSwitcher.value,
+                isWeighted: true
+            });
+        }
     } else {
-        cart.push({
-            id: product.id,
-            name: product.name,
-            displayName: productName,
-            price: product.price,
-            quantity: 1,
-            storeId: storeSwitcher.value
-        });
+        // Handle regular products
+        if (existingItem) {
+            existingItem.quantity += 1;
+        } else {
+            cart.push({
+                id: product.id,
+                name: product.name,
+                displayName: productName,
+                price: product.price,
+                quantity: 1,
+                storeId: storeSwitcher.value
+            });
+        }
     }
 
     updateCartUI();
@@ -1289,11 +1361,16 @@ function updateCartUI() {
                 }
             }
             
+            // Show weight for weighted items
+            const priceDisplay = item.isWeighted 
+                ? `₹${item.price} (${item.weight}kg × ₹${item.originalPrice})` 
+                : `₹${item.price} × ${item.quantity}`;
+            
             return `
                 <div class="cart-item">
                     <div>
                         <h6 class="mb-0">${productName}</h6>
-                        <small class="text-muted">₹${item.price} × ${item.quantity}</small>
+                        <small class="text-muted">${priceDisplay}</small>
                     </div>
                     <div class="quantity-controls">
                         <button class="btn btn-sm btn-outline-secondary" onclick="updateQuantity(${item.id}, -1)">-</button>
@@ -1325,6 +1402,11 @@ function generateOrderData() {
                 itemStore.productTranslations[currentLanguage][item.name]) {
                 productName = itemStore.productTranslations[currentLanguage][item.name];
             }
+        }
+        
+        // Format differently for weighted items
+        if (item.isWeighted) {
+            return `${productName} (${item.weight}kg × ₹${item.originalPrice} = ₹${item.price})`;
         }
         
         return `${productName} (${item.quantity} × ₹${item.price})`;
@@ -1440,12 +1522,12 @@ async function handleCheckout() {
 
 // Save cart to localStorage
 function saveCartToStorage() {
-    localStorage.setItem('quickkart_cart', JSON.stringify(cart));
+    localStorage.setItem('dukanSe_cart', JSON.stringify(cart));
 }
 
 // Load cart from localStorage
 function loadCartFromStorage() {
-    const savedCart = localStorage.getItem('quickkart_cart');
+    const savedCart = localStorage.getItem('dukanSe_cart');
     if (savedCart) {
         cart = JSON.parse(savedCart);
         updateCartUI();
@@ -1546,7 +1628,7 @@ async function loadStoreData() {
         });
         
         // Initialize with current store
-        const currentStoreId = storeSwitcher ? storeSwitcher.value : 'krishna';
+        const currentStoreId = storeSwitcher ? storeSwitcher.value : 'dukanSe';
         switchStore(currentStoreId);
         
         // Update UI after loading data
