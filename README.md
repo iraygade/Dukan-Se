@@ -57,7 +57,7 @@ Onboarding process:
 
 
 
-2. If inventory manual:
+2. If inventory is  manual:
 -----------------------
 
 
