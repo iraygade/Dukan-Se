@@ -2,96 +2,107 @@
 <html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#f8f9fa">
     <title>Dukan Se - Order Online</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <header class="text-center my-4">
-            <div class="d-flex justify-content-between align-items-center mb-2">
+    <div class="container py-4">
+        <!-- Header with logo and theme toggle -->
+        <header class="d-flex justify-content-between align-items-center mb-4">
+            <div>
                 <h1 class="mb-0">Dukan Se</h1>
-                <div class="d-flex align-items-center">
-                    <div class="theme-toggle-container me-3">
-                        <input type="checkbox" id="theme-toggle" class="theme-toggle">
-                        <label for="theme-toggle" class="theme-toggle-label">
-                            <i class="fas fa-sun"></i>
-                            <i class="fas fa-moon"></i>
-                            <span class="ball"></span>
-                        </label>
-                    </div>
-                    <div class="store-switcher ms-3">
-                        <select id="store-switcher" class="form-select">
-                            <option value="quickkart">Dukan Se (About)</option>
-                            <option value="chemicals">A to Z Chemicals</option>
-                            <option value="krishna">Krishna Grocery</option>
-                            <option value="food">Good Food Store</option>
-                            <option value="ir">IR</option>
-                        </select>
-                    </div>
-                </div>
+                <p id="app-description" class="mb-0 text-muted">Your local stores, now online!</p>
             </div>
-            <p class="text-muted" id="app-description">Your local stores, now online! Order directly via WhatsApp with just a few clicks.</p>
-            
-            <!-- Language Switcher -->
-            <div class="language-switcher mb-3">
-                <button class="btn btn-sm btn-outline-secondary me-1 active" data-lang="en">English</button>
-                <button class="btn btn-sm btn-outline-secondary me-1" data-lang="hi">हिंदी</button>
-                <button class="btn btn-sm btn-outline-secondary" data-lang="mr">मराठी</button>
+            <div class="d-flex align-items-center">
+                <div class="store-switcher me-3">
+                    <select id="store-switcher" class="form-select">
+                        <option value="quickkart">Dukan Se</option>
+                        <option value="krishna">Krishna Grocery</option>
+                        <option value="food">Good Food Store</option>
+                        <option value="chemicals">A to Z Chemicals</option>
+                        <option value="ir">IR</option>
+                    </select>
+                </div>
+                <div class="theme-toggle-container">
+                    <input type="checkbox" id="theme-toggle" class="theme-toggle">
+                    <label for="theme-toggle" class="theme-toggle-label"></label>
+                </div>
             </div>
         </header>
 
-        <!-- Customer Info Button -->
-        <div class="customer-info-section mb-4 text-center">
-            <button id="edit-customer-info" class="btn btn-outline-primary">
-                <i class="bi bi-person-circle"></i> Add/Edit Delivery Details
-            </button>
-            <div id="customer-info-display" class="mt-2 d-none">
-                <p class="mb-1"><strong>Name:</strong> <span id="customer-name-display"></span></p>
-                <p class="mb-1"><strong>Phone:</strong> <span id="customer-phone-display"></span></p>
-                <p class="mb-0"><strong>Address:</strong> <span id="customer-address-display"></span></p>
+        <!-- Language switcher -->
+        <div class="language-switcher mb-3">
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-outline-secondary active" data-lang="en">English</button>
+                <button type="button" class="btn btn-outline-secondary" data-lang="hi">हिंदी</button>
+                <button type="button" class="btn btn-outline-secondary" data-lang="mr">मराठी</button>
             </div>
         </div>
 
-        <!-- Search Bar -->
+        <!-- Customer information section -->
+        <div class="customer-info-section mb-4">
+            <button id="edit-customer-info" class="btn btn-outline-primary">
+                <i class="fas fa-user-edit"></i> Add/Edit Delivery Details
+            </button>
+            <div id="customer-info-display" class="mt-3 d-none">
+                <div class="row">
+                    <div class="col-md-4">
+                        <strong>Name:</strong> <span id="customer-name-display"></span>
+                    </div>
+                    <div class="col-md-4">
+                        <strong>Phone:</strong> <span id="customer-phone-display"></span>
+                    </div>
+                    <div class="col-md-4">
+                        <strong>Address:</strong> <span id="customer-address-display"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Search bar -->
         <div class="search-section mb-4">
             <div class="input-group">
-                <span class="input-group-text bg-white">
-                    <i class="bi bi-search"></i>
-                </span>
+                <span class="input-group-text"><i class="fas fa-search"></i></span>
                 <input type="text" id="search-input" class="form-control" placeholder="Search products...">
-                <button class="btn btn-outline-secondary" type="button" id="clear-search">
-                    <i class="bi bi-x-lg"></i>
+                <button class="btn btn-outline-secondary" id="clear-search" type="button">Clear</button>
+            </div>
+        </div>
+
+        <!-- Category filter -->
+        <div id="category-filter" class="category-filter mb-4"></div>
+
+        <!-- Main row with product catalog and cart -->
+        <div class="row">
+            <!-- Product catalog -->
+            <div class="col-12">
+                <div id="product-catalog" class="row"></div>
+            </div>
+        </div>
+
+        <!-- Floating cart -->
+        <div class="cart-container">
+            <div class="cart-header">
+                <h5 id="cart-title" class="mb-0">Your Cart <span class="badge bg-primary" id="cart-count">0</span></h5>
+                <button class="cart-toggle" id="cart-toggle">
+                    <i class="fas fa-chevron-down"></i>
                 </button>
             </div>
+            <div id="cart-items" class="cart-items"></div>
         </div>
 
-        <!-- Category Filters -->
-        <div id="category-filter" class="mb-4">
-            <!-- Categories will be loaded here -->
-        </div>
-
-        <!-- Product Catalog -->
-        <div id="product-catalog" class="row g-3">
-            <!-- Products will be loaded here -->
-        </div>
-
-        <!-- Cart Section -->
-        <div class="col-md-4">
-            <div class="cart-section">
-                <h5 class="mb-0" id="cart-title">Your Cart <span id="cart-count" class="badge bg-primary">0</span></h5>
-                <div id="cart-items" class="cart-items"></div>
-            </div>
-        </div>
-
-        <!-- Fixed Checkout Button -->
-        <div class="checkout-fixed" id="fixed-checkout">
+        <!-- Fixed checkout button at bottom -->
+        <div id="fixed-checkout" class="checkout-fixed">
             <div class="container">
                 <div class="d-flex justify-content-between align-items-center">
-                    <span id="fixed-cart-total" class="fw-bold">₹0</span>
+                    <div>
+                        <span class="h5" id="fixed-cart-total">₹0</span>
+                    </div>
                     <button id="checkout-btn" class="btn btn-primary" disabled>
                         <span id="checkout-btn-text">Proceed to Payment</span>
                     </button>
@@ -99,8 +110,40 @@
             </div>
         </div>
 
-        <!-- Payment Section Modal -->
-        <div class="modal fade" id="paymentModal" tabindex="-1">
+        <!-- Customer Info Modal -->
+        <div class="modal fade" id="customerInfoModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Delivery Details</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-3">
+                                <label for="customer-name" class="form-label">Name</label>
+                                <input type="text" class="form-control" id="customer-name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="customer-phone" class="form-label">Phone Number</label>
+                                <input type="tel" class="form-control" id="customer-phone" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="customer-address" class="form-label">Delivery Address</label>
+                                <textarea class="form-control" id="customer-address" rows="3" required></textarea>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" id="save-customer-info">Save Details</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Payment Modal -->
+        <div class="modal fade" id="paymentModal" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -128,42 +171,10 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="close-payment-btn">Close</button>
-                        <button id="proceed-to-whatsapp" class="btn btn-success" disabled id="whatsapp-btn">
+                        <button id="proceed-to-whatsapp" class="btn btn-success" disabled>
                             <span id="whatsapp-btn-text">Send Order via WhatsApp</span>
                         </button>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Customer Info Modal -->
-    <div class="modal fade" id="customerInfoModal" tabindex="-1">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Delivery Details</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="customer-info-form">
-                        <div class="mb-3">
-                            <label for="customer-name" class="form-label">Name</label>
-                            <input type="text" class="form-control" id="customer-name" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="customer-phone" class="form-label">Phone Number</label>
-                            <input type="tel" class="form-control" id="customer-phone" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="customer-address" class="form-label">Delivery Address</label>
-                            <textarea class="form-control" id="customer-address" rows="3" required></textarea>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" id="save-customer-info">Save Details</button>
                 </div>
             </div>
         </div>
